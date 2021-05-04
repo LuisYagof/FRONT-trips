@@ -39,7 +39,7 @@ const Login = () => {
                 email={email}
                 pass={pass}
             />
-            <Link to="/signup">Eres nuevo? Crear cuenta</Link>
+            <Link to="/newStudent">Eres nuevo? Crear cuenta</Link>
         </form>
         );
 

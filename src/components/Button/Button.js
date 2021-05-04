@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-const Button = () => {
+const Button = (props) => {
 
     return (
-        <button>
-            
-        </button>
+        <button>{`${props.text}`}</button>
         );
 
 }

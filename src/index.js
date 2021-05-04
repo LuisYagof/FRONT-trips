@@ -12,8 +12,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         {/* <Route exact path="/" component={Onboarding} /> */}
-        <Route path="/login" component={Login} />
-        {/* <Route path="/signup" component={SignUp} /> */}
+        <Route path="/logUser" component={Login} />
+        {/* <Route path="/newStudent" component={SignUp} /> */}
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
