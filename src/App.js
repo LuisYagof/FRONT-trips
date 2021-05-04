@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import Home from './components/Onboarding';
 import Login from './components/Login/Login';
-//import SignUp from './components/SignUp';
+import SignUpStudent from './components/SignUpStudent';
+import SignUpTeacher from './components/SignUpTeacher';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
           <Switch>
             {/* <Route exact path="/" component={Onboarding} /> */}
             <Route path="/logUser" component={Login} />
-            {/* <Route path="/newStudent" component={SignUp} /> */}
+            <Route path="/newStudent" component={SignUpStudent} /> 
+            <Route path="/newTeacher" component={SignUpTeacher} /> 
           </Switch>
         </BrowserRouter>
     </div>
