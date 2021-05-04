@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Button from "../components/Button";
+import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [typeOfUser, settypeOfUser] = useState("");
@@ -26,9 +27,9 @@ const Login = () => {
     return (
         <form>
             <h4>Tipo de cuenta:</h4>
-            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue}/>
+            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} placeholder="Correo electrónico"/>
             <label for="Estudiante">Estudiante</label>
-            <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue}/>
+            <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue} placeholder="Contraseña"/>
             <label for="Docente">Docente</label>            
             <input type="email" onChange={handleEmail} />
             <input type="password" onChange={handlePass} />
@@ -38,6 +39,7 @@ const Login = () => {
                 email={email}
                 pass={pass}
             />
+            <Link to="/signup">Eres nuevo? Crear cuenta</Link>
         </form>
         );
 
