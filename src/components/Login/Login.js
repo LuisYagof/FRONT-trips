@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const Login = () => {
     const [typeOfUser, settypeOfUser] = useState("");
@@ -8,9 +8,10 @@ const Login = () => {
     const [pass, setPass] = useState("");
     const [text, setText] = useState("Login");
     const [functionFetch, setfunctionFetch] = useState("");
+    const [data, setData] = useState([])
 
     useEffect(() => {
-        setfunctionFetch(`/logUser/${typeOfUser}`);
+        setfunctionFetch(`logUser/${typeOfUser}`);
     })
 
     const StudentValue = (event)=> settypeOfUser((event.target.value));
@@ -19,6 +20,15 @@ const Login = () => {
         setEmail(event.target.value)};
     const handlePass = (event) => {
         setPass(event.target.value)};
+    
+    const fetching = async () => {
+        let fetchOptions = {
+        method: 'POST',
+        body: JSON.stringify({email, pass})
+        }
+        const content = await fetchData(functionFetch, fetchOptions)
+        await content.ok && setData([...data, ...content.data]);
+    }
     
     return (
         <form>
@@ -29,12 +39,7 @@ const Login = () => {
             <label for="Docente">Docente</label>            
             <input type="email" onChange={handleEmail} />
             <input type="password" onChange={handlePass} />
-            <Button 
-                text={text} 
-                functionFetch={functionFetch}
-                email={email}
-                pass={pass}
-            />
+            <Button onClick={fetching} text={text} />
             <Link to="/newStudent">Eres nuevo? Crear cuenta</Link>
         </form>
         );
