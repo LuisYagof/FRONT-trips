@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Button from "../Button/Button";
-import { Link } from 'react-router-dom';
+// import Button from "../Button/Button";
+import { Link, useHistory } from 'react-router-dom';
 
 const SignupTeacher = () => {
     const [name, setName] = useState("");
@@ -9,6 +9,7 @@ const SignupTeacher = () => {
     const [text, setText] = useState("Registrarse");
     const [functionFetch, setfunctionFetch] = useState('/newTeacher');
     const [data, setData] = useState([]);
+    const history = useHistory();
 
     const handleName = (event) => {
         setName(event.target.value)};
@@ -17,13 +18,13 @@ const SignupTeacher = () => {
     const handlePass = (event) => {
         setPass(event.target.value)};
     
-    const fetching = async () => {
+    const fetching = async (name, email, pass) => {
         let fetchOptions = {
         method: 'POST',
-        body: JSON.stringify({nombre: name, email, pass})
+        body: JSON.stringify({nombre:name, email:email, pass:pass})
         }
         const content = await fetchData(functionFetch, fetchOptions)
-        await content.ok && setData([...data, ...content.data]);
+        content.ok ? history.push('/EnterApp') : alert(content.msg);
     }
     
     return (
