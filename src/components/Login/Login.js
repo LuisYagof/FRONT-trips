@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch'
-// import Button from "../Button/Button";
+import Button from "../Button/Button";
 
 const Login = () => {
-    const [typeOfUser, settypeOfUser] = useState("");
+    const [typeOfUser, settypeOfUser] = useState("estudiantes");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [text, setText] = useState("Login");
@@ -22,12 +22,16 @@ const Login = () => {
     const handlePass = (event) => {
         setPass(event.target.value)};
     
-    const fetching = async (email, pass) => {
+    const fetching = async () => {
         let fetchOptions = {
+        headers: {
+            "content-type": "application/json"
+        },
         method: 'POST',
         body: JSON.stringify({email: email, pass: pass})
         }
         const content = await fetchData(functionFetch, fetchOptions)
+        if (content.error){alert(content.error)}
         if (content.ok) {
             localStorage.setItem("Token", content.token)
             history.push("/Homepage");
@@ -39,14 +43,14 @@ const Login = () => {
     return (
         <form>
             <h4>Tipo de cuenta:</h4>
-            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} placeholder="Correo electrónico"/>
-            <label for="Estudiante">Estudiante</label>
-            <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue} placeholder="Contraseña"/>
-            <label for="Docente">Docente</label>            
-            <input type="email" onChange={handleEmail} />
-            <input type="password" onChange={handlePass} />
-            {/* <Button onClick={fetching} text={text} email={email} pass={pass} father={"login"}/> */}
-            <button onClick={fetching(email, pass)}>{text}</button>
+            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} checked/>
+            <label htmlFor="Estudiante">Estudiante</label>
+            <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue}/>
+            <label htmlFor="Docente">Docente</label>            
+            <input type="email" onChange={handleEmail} placeholder="Correo electrónico"/>
+            <input type="password" onChange={handlePass} placeholder="Contraseña"/>
+            <Button onClick={fetching} text={text}/>
+            {/* <button type="button"  onClick={()=>fetching(email, pass)}>{text}</button> */}
             <Link to="/newStudent">Eres nuevo? Crear cuenta</Link>
         </form>
         );

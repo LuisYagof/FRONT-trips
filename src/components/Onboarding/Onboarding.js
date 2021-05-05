@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 const Onboarding = () => {
@@ -8,7 +8,7 @@ const Onboarding = () => {
     return (
         <>
             <Link to="/logUser">
-                <button>{text}</button> />
+                <button>{text}</button>
             </Link>
             <h4>LOREM</h4>
         </>
