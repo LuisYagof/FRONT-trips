@@ -28,6 +28,9 @@ const Login = () => {
             "content-type": "application/json"
         },
         method: 'POST',
+        headers: {
+            "content-type": "application/json",
+          },
         body: JSON.stringify({email: email, pass: pass})
         }
         const content = await fetchData(functionFetch, fetchOptions)
