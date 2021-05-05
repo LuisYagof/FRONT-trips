@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
-
 const Button = (props) => {
     return (
-        <button>{`${props.text}`}</button>
+        <button onClick={() => props.onClick()} type="button">{`${props.text}`}</button>
         );
 }
 

@@ -22,13 +22,7 @@ const Homepage = () => {
     fetching()
   }, [])
 
-  // onClick={history.push({
-  //   pathname: `/cursos/${el.id}`,
-  //   state: { el: el }
-  // })}
-
   const Slider = () => {
-
 
     const cards = data.map(el => {
       return (
