@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
-<<<<<<< HEAD
 // import Button from "../Button/Button";
 import { Link, useHistory } from 'react-router-dom';
-=======
-import Button from "../Button/Button";
-import { Link } from 'react-router-dom';
->>>>>>> 1e365668928860f3a763bcf5b880380e6e38aab1
 
 const SignupStudent = () => {
     const [name, setName] = useState("");
