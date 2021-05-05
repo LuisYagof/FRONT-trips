@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
-
 const Button = (props) => {
     return (
-        // {if (props.father === "login")}
-        <button onClick={() => props.onClick(props.email, props.pass)}>{`${props.text}`}</button>
+        <button onClick={() => props.onClick()} type="button">{`${props.text}`}</button>
         );
 }
 
