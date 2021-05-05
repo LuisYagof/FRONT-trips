@@ -6,7 +6,7 @@ import Login from './components/Login/Login';
 import SignUpStudent from './components/SignupStudent/SignupStudent';
 import SignUpTeacher from './components/SignupTeacher/SignupTeacher';
 import Homepage from './components/Homepage/Homepage'
-//import EnterApp from './components/Homepage/EnterApp'
+import EnterApp from './components/EnterApp/EnterApp'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/logUser" component={Login} />
           <Route path="/newStudent" component={SignUpStudent} />
           <Route path="/newTeacher" component={SignUpTeacher} />
-          {/* <Route path="/enterApp" component={EnterApp} /> */}
+          <Route path="/enterApp" component={EnterApp} />
           <Route path="/homepage" component={Homepage} />
         </Switch>
       </BrowserRouter>

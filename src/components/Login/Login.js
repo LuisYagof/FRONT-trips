@@ -25,9 +25,15 @@ const Login = () => {
     const fetching = async (email, pass) => {
         let fetchOptions = {
         method: 'POST',
+        headers: {
+            "content-type": "application/json",
+          },
         body: JSON.stringify({email: email, pass: pass})
         }
-        const content = await fetchData(functionFetch, fetchOptions)
+        const content = await fetchData(functionFetch, fetchOptions);
+        if (content.error) {
+            alert(content.error)
+        }
         if (content.ok) {
             localStorage.setItem("Token", content.token)
             history.push("/Homepage");

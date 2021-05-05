@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // import Button from "../Button/Button";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const EnterApp = () => {
     const [text, setText] = useState("Abrir App");
