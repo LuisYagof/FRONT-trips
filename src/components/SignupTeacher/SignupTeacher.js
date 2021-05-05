@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Button from "../components/Button";
+import Button from "../Button/Button";
 import { Link } from 'react-router-dom';
 
 const SignupTeacher = () => {
