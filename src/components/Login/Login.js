@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import Button from "../Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import fetchData from '../../hooks/Fetch'
+// import Button from "../Button/Button";
 
 const Login = () => {
     const [typeOfUser, settypeOfUser] = useState("");
@@ -8,9 +9,10 @@ const Login = () => {
     const [pass, setPass] = useState("");
     const [text, setText] = useState("Login");
     const [functionFetch, setfunctionFetch] = useState("");
+    const history = useHistory();
 
     useEffect(() => {
-        setfunctionFetch(`/logUser/${typeOfUser}`);
+        setfunctionFetch(`logUser/${typeOfUser}`);
     })
 
     const StudentValue = (event)=> settypeOfUser((event.target.value));
@@ -19,6 +21,20 @@ const Login = () => {
         setEmail(event.target.value)};
     const handlePass = (event) => {
         setPass(event.target.value)};
+    
+    const fetching = async (email, pass) => {
+        let fetchOptions = {
+        method: 'POST',
+        body: JSON.stringify({email: email, pass: pass})
+        }
+        const content = await fetchData(functionFetch, fetchOptions)
+        if (content.ok) {
+            localStorage.setItem("Token", content.token)
+            history.push("/Homepage");
+        } else {
+            alert(content.msg)
+        }        
+    }
     
     return (
         <form>
@@ -29,12 +45,8 @@ const Login = () => {
             <label for="Docente">Docente</label>            
             <input type="email" onChange={handleEmail} />
             <input type="password" onChange={handlePass} />
-            <Button 
-                text={text} 
-                functionFetch={functionFetch}
-                email={email}
-                pass={pass}
-            />
+            {/* <Button onClick={fetching} text={text} email={email} pass={pass} father={"login"}/> */}
+            <button onClick={fetching(email, pass)}>{text}</button>
             <Link to="/newStudent">Eres nuevo? Crear cuenta</Link>
         </form>
         );
