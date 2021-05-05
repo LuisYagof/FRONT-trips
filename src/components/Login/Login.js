@@ -16,12 +16,8 @@ const Login = () => {
     const StudentValue = (event)=> settypeOfUser((event.target.value));
     const TeacherValue = (event)=> settypeOfUser((event.target.value));
     const handleEmail = (event) => {
-        event.preventDefault();
-        if(!email) return;    
         setEmail(event.target.value)};
     const handlePass = (event) => {
-        event.preventDefault();
-        if(!pass) return;
         setPass(event.target.value)};
     
     return (
