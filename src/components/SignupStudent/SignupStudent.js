@@ -1,39 +1,46 @@
 import { useState, useEffect } from 'react';
-import Button from "../components/Button";
-import { Link } from 'react-router-dom';
+// import Button from "../Button/Button";
+import { Link, useHistory } from 'react-router-dom';
 
 const SignupStudent = () => {
     const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [text, setText] = useState("Registrarse");
     const [functionFetch, setfunctionFetch] = useState('/newStudent');
+    const [data, setData] = useState([]);
+    const history = useHistory();
 
     const handleName = (event) => {
-        if(!name) return;
         setName(event.target.value)};
+    const handleSurname = (event) => {
+        setSurname(event.target.value)};
     const handleEmail = (event) => {
-        if(!email) return;
         setEmail(event.target.value)};
     const handlePass = (event) => {
-        if(!pass) return;
         setPass(event.target.value)};
+
+    const fetching = async (name, surname, email, pass) => {
+        let fetchOptions = {
+        method: 'POST',
+        body: JSON.stringify({nombre:name, apellido:surname, email:email, pass:pass})
+        }
+        const content = await fetchData(functionFetch, fetchOptions)
+        content.ok ? history.push('/EnterApp') : alert(content.msg);
+    }
     
     return (
         <form>
             <h1>REGíSTRATE COMO ESTUDIANTE</h1>
-            <input className='' type="text" placeholder="Nombre y apellidos" onChange={handleName} />
-            <input className='' type="email" placeholder="Correo electrónico" onChange={handleEmail} />
-            <input className='' type="password" placeholder="Contraseña" onChange={handlePass} />
-            <Button
-                text={text} 
-                functionFetch={functionFetch}
-                name={name}
-                email={email}
-                pass={pass}
-            />
-            <Link to='/logUser/'>¿Ya eres usuario? <span>Iniciar sesión</span></Link>
-            <Link to='/newTeacher'>¿Eres una escuela? <span>Darme de alta</span></Link>
+            <input className='' type="text" placeholder="Nombre" onChange={handleName} required />
+            <input className='' type="text" placeholder="Apellido" onChange={handleSurname} required />
+            <input className='' type="email" placeholder="Correo electrónico" onChange={handleEmail} required />
+            <input className='' type="password" placeholder="Contraseña" onChange={handlePass} required />
+            {/* <Button onClick={fetching} text={text} /> */}
+            <button onClick={fetching(name, surname, email, pass)} >{text}</button>
+            <Link to='/logUser/'>¿Ya eres usuario? <span className=''>Iniciar sesión</span></Link>
+            <Link to='/newTeacher'>¿Eres una escuela? <span className=''>Darme de alta</span></Link>
         </form>
         );
 }
