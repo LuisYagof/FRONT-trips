@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 
 const Button = (props) => {
     return (
-        <button>{`${props.text}`}</button>
+        // {if (props.father === "login")}
+        <button onClick={() => props.onClick(props.email, props.pass)}>{`${props.text}`}</button>
         );
 }
 
