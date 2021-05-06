@@ -8,7 +8,8 @@ import 'swiper/swiper-bundle.css';
 SwiperCore.use([Navigation, Pagination]);
 
 const Homepage = () => {
-  const [data, setData] = useState([])
+  const [cursos, setCursos] = useState([])
+  const [docentes, setDocentes] = useState([])
   const history = useHistory()
 
   useEffect(() => {
@@ -17,18 +18,23 @@ const Homepage = () => {
         method: 'GET'
       }
       const content = await fetchData("searchAll", fetchOptions)
-      await content.ok && setData([...data, ...content.data]);
+      if (content.error) {
+        alert(content.error)
+      } else {
+        await content.ok && setCursos([...cursos, ...content.data.cursos]);
+        await content.ok && setDocentes([...docentes, ...content.data.docentes]);
+      }
     }
     fetching()
   }, [])
 
   const Slider = () => {
-    const cards = data.map(el => {
+    const cards = cursos.map(el => {
       return (
         <SwiperSlide key={el.id}>
           <div className={"slideCard"} onClick={() => history.push({
             pathname: `/cursos/${el.id}`,
-            state: { el: el }
+            state: { curso: el , docente: docentes.filter(e => e.id == el.docente)[0]}
           })}>
 
             <img src={el.imagen} alt="" />
@@ -56,24 +62,12 @@ const Homepage = () => {
     );
   };
 
-  // const handleClick = (cat) => {
-  //   if (typeof (cat) == "number") {
-  //     const filtrados = data.filter(el => el.categoria == cat)
-  //     history.push({
-  //       pathname: `/categorias/${cat}`,
-  //       state: { items: filtrados }
-  //     })
-  //   } else {
-  //     history.push({
-  //       pathname: `/categorias/${cat}`,
-  //       state: { items: data }
-  //     })
-  //   }
-  // }
   const handleClick = (cat) => {
     history.push({
       pathname: `/categorias/${cat}`,
-      state: { items: typeof (cat) == "number" ? data.filter(el => el.categoria == cat) : data }
+      state: {
+        cursos: typeof (cat) == "number" ? cursos.filter(el => el.categoria == cat) : cursos,
+        docentes: docentes}
     })
   }
 

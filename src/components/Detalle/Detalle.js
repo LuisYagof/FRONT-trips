@@ -8,7 +8,7 @@ const Detalle = (props) => {
   const params = useParams()
 
   useEffect(() => {
-    setCurso(location.state.el)
+    setCurso(location.state.curso)
   }, [])
 
   return (
@@ -21,6 +21,7 @@ const Detalle = (props) => {
 
       <h2>{curso.nombre}</h2>
       <p>{curso.descripcion}</p>
+      <p>{location.state.docente.nombre}</p>
     </>
   )
 }

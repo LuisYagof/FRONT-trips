@@ -4,9 +4,9 @@ async function fetchData(endpoint, options) {
     const jonson = await petition.json()
     return jonson
   } catch (err) {
-    console.log(err);
     return {
-      error: "No se ha podido realizar la petición"
+      error: "No se ha podido realizar la petición",
+      fetchErr: err
     }
   }
 }

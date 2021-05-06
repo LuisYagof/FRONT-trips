@@ -16,7 +16,7 @@ const ItemLista = (props) => {
       <div>
         <h2>{curso.nombre}</h2>
         <p>{curso.descripcion}</p>
-        <p>{curso.docente}</p>
+        <p>{props.docente.nombre}</p>
         <h5>{curso.media}#</h5>
         <h5>{curso.precio}€</h5>
       </div>

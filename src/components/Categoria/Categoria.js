@@ -5,6 +5,7 @@ import ItemLista from '../ItemLista/ItemLista'
 
 const Categoria = (props) => {
   const [cursos, setCursos] = useState([])
+  const [docentes, setDocentes] = useState([])
   const location = useLocation()
   const params = useParams()
   const categorias = [
@@ -17,12 +18,12 @@ const Categoria = (props) => {
   ]
 
   useEffect(() => {
-    setCursos(location.state.items)
-    console.log(typeof (Number(params.categoria)));
+    setCursos(location.state.cursos)
+    setDocentes(location.state.docentes)
   }, [])
 
   const drawList = () => {
-    return cursos.map(el => <ItemLista elem={el} />)
+    return cursos.map(el => <ItemLista elem={el} docente={docentes.filter(e => e.id == el.docente)[0]} />)
   }
 
   const matchCategoria = () => {
