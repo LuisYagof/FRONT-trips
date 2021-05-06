@@ -1,4 +1,6 @@
 import './App.css';
+import Homepage from './components/Homepage/Homepage'
+import Detalle from './components/Detalle/Detalle'
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Onboarding from './components/Onboarding/Onboarding';
@@ -19,6 +21,7 @@ function App() {
           <Route path="/newTeacher" component={SignUpTeacher} />
           <Route path="/enterApp" component={EnterApp} />
           <Route path="/homepage" component={Homepage} />
+          <Route path="/cursos/:id" component={Detalle} />
         </Switch>
       </BrowserRouter>
     </div>

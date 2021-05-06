@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import fetchData from '../../hooks/Fetch'
+import { useHistory } from 'react-router-dom'
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-
-// Import Swiper styles
 import 'swiper/swiper-bundle.css';
-// install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
 const Homepage = () => {
   const [data, setData] = useState([])
+  const history = useHistory()
 
   useEffect(() => {
     const fetching = async () => {
@@ -23,13 +23,20 @@ const Homepage = () => {
   }, [])
 
   const Slider = () => {
+
     const cards = data.map(el => {
       return (
-        <SwiperSlide>
-          <div>
-            <h2>{el.nombre}</h2>
-            <p>{el.descripcion}</p>
-            <h5>{el.precio}€</h5>
+        <SwiperSlide key={el.id}>
+          <div className={"slideCard"}>
+
+            <img src={el.imagen} alt="" />
+            <div className="slideMiniCard">
+              <h5 onClick={() => history.push({
+                pathname: `/cursos/${el.id}`,
+                state: { el: el }
+              })}>{el.nombre}</h5>
+              <h5>{el.media}#</h5>
+            </div>
           </div>
         </SwiperSlide>
       )
@@ -37,21 +44,16 @@ const Homepage = () => {
 
     return (
       <Swiper
-        spaceBetween={50}
-        slidesPerView={2}
+        spaceBetween={5}
+        slidesPerView={1.5}
+        loop={true}
         navigation
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
         {cards}
-        {/* <SwiperSlide><img src="https://picsum.photos/id/1/250/300" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://picsum.photos/id/2/250/300" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://picsum.photos/id/3/250/300" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://picsum.photos/id/4/250/300" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://picsum.photos/id/1/250/300" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="https://picsum.photos/id/2/250/300" alt="" /></SwiperSlide> */}
       </Swiper>
     );
   };
@@ -63,15 +65,25 @@ const Homepage = () => {
         <input type="text" />
       </div>
       <hr />
-      {/* <div>
-        <h2>{data[0].nombre}</h2>
-        <p>{data[0].descripcion}</p>
-        <h5>{data[0].precio} €</h5>
-      </div> */}
 
       <div>
-        <h3>Los más recomendados</h3>
+        <div className="slideHeader">
+          <h3>Cursos más valorados</h3>
+          <button type="button">Ver todo</button>
+        </div>
         {Slider()}
+      </div>
+
+      <div>
+        <h3>Categorías</h3>
+        <div className="gridCategorias">
+          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+        </div>
       </div>
     </>
   )
