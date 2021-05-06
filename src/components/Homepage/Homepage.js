@@ -37,8 +37,14 @@ const Homepage = () => {
             state: { curso: el, docente: docentes.filter(e => e.id == el.docente)[0] }
           })}>
 
-            <img src={el.imagen} alt="" />
-            <div className="slideMiniCard">
+            <div className="slideImg">
+              <img src={el.imagen} alt="" />
+              <div className="slideMiniCard1">
+                <h6>{docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre}</h6>
+                <h6>{el.precio}€</h6>
+              </div>
+            </div>
+            <div className="slideMiniCard2">
               <h5>{el.nombre}</h5>
               <h5>{el.media}#</h5>
             </div>
@@ -91,12 +97,12 @@ const Homepage = () => {
       <div>
         <h3>Categorías</h3>
         <div className="gridCategorias">
-          <div><img src="https://picsum.photos/id/1/175/100" alt="" onClick={() => handleClick(1)} /><p>Desarrollo Web</p></div>
-          <div><img src="https://picsum.photos/id/2/175/100" alt="" onClick={() => handleClick(2)} /><p>FrontEnd</p></div>
-          <div><img src="https://picsum.photos/id/3/175/100" alt="" onClick={() => handleClick(3)} /><p>BackEnd</p></div>
-          <div><img src="https://picsum.photos/id/4/175/100" alt="" onClick={() => handleClick(4)} /><p>Marketing Digital</p></div>
-          <div><img src="https://picsum.photos/id/5/175/100" alt="" onClick={() => handleClick(5)} /><p>UX/UI</p></div>
-          <div><img src="https://picsum.photos/id/6/175/100" alt="" onClick={() => handleClick(6)} /><p>Data Science</p></div>
+          <div><img src="https://picsum.photos/id/1/175/100" alt="" onClick={() => handleClick(1)} style={{"border-radius": "10px"}}/><p>Desarrollo Web</p></div>
+          <div><img src="https://picsum.photos/id/2/175/100" alt="" onClick={() => handleClick(2)} style={{"border-radius": "10px"}}/><p>FrontEnd</p></div>
+          <div><img src="https://picsum.photos/id/3/175/100" alt="" onClick={() => handleClick(3)} style={{"border-radius": "10px"}}/><p>BackEnd</p></div>
+          <div><img src="https://picsum.photos/id/4/175/100" alt="" onClick={() => handleClick(4)} style={{"border-radius": "10px"}}/><p>Marketing Digital</p></div>
+          <div><img src="https://picsum.photos/id/5/175/100" alt="" onClick={() => handleClick(5)} style={{"border-radius": "10px"}}/><p>UX/UI</p></div>
+          <div><img src="https://picsum.photos/id/6/175/100" alt="" onClick={() => handleClick(6)} style={{"border-radius": "10px"}}/><p>Data Science</p></div>
         </div>
       </div>
     </>

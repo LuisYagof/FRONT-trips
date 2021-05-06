@@ -12,9 +12,36 @@ div.slideCard {
   padding: 5px;
 }
 
-div.slideMiniCard {
+div.slideImg {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+div.slideImg img {
+  border-radius: 10px;
+}
+
+div.slideMiniCard1 {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  transform: translate(0, 80px);
+  width: 100%;
+}
+
+div.slideMiniCard1>h6 {
+  background-color: beige;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+div.slideMiniCard2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.slideMiniCard2>h5 {
+  margin: 5px;
 }
 
 /* -----------------------GRID----------------------*/
