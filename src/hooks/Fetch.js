@@ -6,7 +6,7 @@ async function fetchData(endpoint, options) {
   } catch (err) {
     console.log(err);
     return {
-      error: "No se ha podido realizar la petición"
+      error: "No se ha podido realizar la petición."
     }
   }
 }

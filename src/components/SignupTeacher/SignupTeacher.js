@@ -33,11 +33,13 @@ const SignupTeacher = () => {
             email:email,
             pass:pass
         }),
-        }
+        };
         const content = await fetchData(functionFetch, fetchOptions);
+        console.log(fetchOptions);
+
         if (content.error) {
             alert(content.error)
-        }
+        };
         if (content.ok) {
          localStorage.setItem('token', content.token);
          history.push('/EnterApp')
@@ -71,7 +73,7 @@ const SignupTeacher = () => {
                 required
             />
             {/* <Button onClick={fetching} text={text} /> */}
-            <button type="button" onClick={fetching(name, email, pass)} >{text}</button>
+            <button type="button" onClick={() => fetching(name, email, pass)} >{text}</button>
             <Link to='/logUser/'>¿Ya eres usuario? <span>Iniciar sesión</span></Link>
         </form>
         );
