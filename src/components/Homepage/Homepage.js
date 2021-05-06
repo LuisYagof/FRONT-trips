@@ -23,25 +23,23 @@ const Homepage = () => {
   }, [])
 
   const Slider = () => {
-
     const cards = data.map(el => {
       return (
         <SwiperSlide key={el.id}>
-          <div className={"slideCard"}>
+          <div className={"slideCard"} onClick={() => history.push({
+            pathname: `/cursos/${el.id}`,
+            state: { el: el }
+          })}>
 
             <img src={el.imagen} alt="" />
             <div className="slideMiniCard">
-              <h5 onClick={() => history.push({
-                pathname: `/cursos/${el.id}`,
-                state: { el: el }
-              })}>{el.nombre}</h5>
+              <h5>{el.nombre}</h5>
               <h5>{el.media}#</h5>
             </div>
           </div>
         </SwiperSlide>
       )
     })
-
     return (
       <Swiper
         spaceBetween={5}
@@ -58,9 +56,30 @@ const Homepage = () => {
     );
   };
 
+  // const handleClick = (cat) => {
+  //   if (typeof (cat) == "number") {
+  //     const filtrados = data.filter(el => el.categoria == cat)
+  //     history.push({
+  //       pathname: `/categorias/${cat}`,
+  //       state: { items: filtrados }
+  //     })
+  //   } else {
+  //     history.push({
+  //       pathname: `/categorias/${cat}`,
+  //       state: { items: data }
+  //     })
+  //   }
+  // }
+  const handleClick = (cat) => {
+    history.push({
+      pathname: `/categorias/${cat}`,
+      state: { items: typeof (cat) == "number" ? data.filter(el => el.categoria == cat) : data }
+    })
+  }
+
   return (
     <>
-      <div style={{ "display": "flex" }}>
+      <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
         <h1>HOME</h1>
         <input type="text" />
       </div>
@@ -69,7 +88,7 @@ const Homepage = () => {
       <div>
         <div className="slideHeader">
           <h3>Cursos más valorados</h3>
-          <button type="button">Ver todo</button>
+          <button type="button" onClick={() => handleClick('valorados')}>Ver todo</button>
         </div>
         {Slider()}
       </div>
@@ -77,12 +96,12 @@ const Homepage = () => {
       <div>
         <h3>Categorías</h3>
         <div className="gridCategorias">
-          <div><img src="https://picsum.photos/150/100" alt="" /></div>
-          <div><img src="https://picsum.photos/150/100" alt="" /></div>
-          <div><img src="https://picsum.photos/150/100" alt="" /></div>
-          <div><img src="https://picsum.photos/150/100" alt="" /></div>
-          <div><img src="https://picsum.photos/150/100" alt="" /></div>
-          <div><img src="https://picsum.photos/150/100" alt="" /></div>
+          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(1)} /></div>
+          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(2)} /></div>
+          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(3)} /></div>
+          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(4)} /></div>
+          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(5)} /></div>
+          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(6)} /></div>
         </div>
       </div>
     </>

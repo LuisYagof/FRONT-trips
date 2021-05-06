@@ -1,14 +1,14 @@
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
 import Homepage from './components/Homepage/Homepage'
 import Detalle from './components/Detalle/Detalle'
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Onboarding from './components/Onboarding/Onboarding';
 import Login from './components/Login/Login';
 import SignUpStudent from './components/SignupStudent/SignupStudent';
 import SignUpTeacher from './components/SignupTeacher/SignupTeacher';
-import Homepage from './components/Homepage/Homepage'
 import EnterApp from './components/EnterApp/EnterApp'
+import Categoria from './components/Categoria/Categoria'
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           <Route path="/enterApp" component={EnterApp} />
           <Route path="/homepage" component={Homepage} />
           <Route path="/cursos/:id" component={Detalle} />
+          <Route path="/categorias/:categoria" component={Categoria} />
         </Switch>
       </BrowserRouter>
     </div>

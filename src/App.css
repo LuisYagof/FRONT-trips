@@ -17,6 +17,8 @@ div.slideMiniCard {
   justify-content: space-evenly;
 }
 
+/* -----------------------GRID----------------------*/
+
 div.gridCategorias {
   display: flex;
   flex-wrap: wrap;
