@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './Detalle.css';
-import { Link, useLocation, useParams, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Detalle = (props) => {
   const [curso, setCurso] = useState({})
   const location = useLocation()
-  const params = useParams()
 
   useEffect(() => {
     setCurso(location.state.curso)
@@ -13,12 +12,13 @@ const Detalle = (props) => {
 
   return (
     <>
-      <div style={{ "display": "flex" }}>
-        <h1>HOME</h1>
+      <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
+        <h1>NAV</h1>
         <input type="text" />
       </div>
       <hr />
 
+      <img src={curso.imagen} alt="" />
       <h2>{curso.nombre}</h2>
       <p>{curso.descripcion}</p>
       <p>{location.state.docente.nombre}</p>

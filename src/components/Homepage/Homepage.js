@@ -34,7 +34,7 @@ const Homepage = () => {
         <SwiperSlide key={el.id}>
           <div className={"slideCard"} onClick={() => history.push({
             pathname: `/cursos/${el.id}`,
-            state: { curso: el , docente: docentes.filter(e => e.id == el.docente)[0]}
+            state: { curso: el, docente: docentes.filter(e => e.id == el.docente)[0] }
           })}>
 
             <img src={el.imagen} alt="" />
@@ -67,14 +67,15 @@ const Homepage = () => {
       pathname: `/categorias/${cat}`,
       state: {
         cursos: typeof (cat) == "number" ? cursos.filter(el => el.categoria == cat) : cursos,
-        docentes: docentes}
+        docentes: docentes
+      }
     })
   }
 
   return (
     <>
       <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
-        <h1>HOME</h1>
+        <h1>NAV</h1>
         <input type="text" />
       </div>
       <hr />
@@ -90,12 +91,12 @@ const Homepage = () => {
       <div>
         <h3>Categorías</h3>
         <div className="gridCategorias">
-          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(1)} /></div>
-          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(2)} /></div>
-          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(3)} /></div>
-          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(4)} /></div>
-          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(5)} /></div>
-          <div><img src="https://picsum.photos/175/100" alt="" onClick={() => handleClick(6)} /></div>
+          <div><img src="https://picsum.photos/id/1/175/100" alt="" onClick={() => handleClick(1)} /><p>Desarrollo Web</p></div>
+          <div><img src="https://picsum.photos/id/2/175/100" alt="" onClick={() => handleClick(2)} /><p>FrontEnd</p></div>
+          <div><img src="https://picsum.photos/id/3/175/100" alt="" onClick={() => handleClick(3)} /><p>BackEnd</p></div>
+          <div><img src="https://picsum.photos/id/4/175/100" alt="" onClick={() => handleClick(4)} /><p>Marketing Digital</p></div>
+          <div><img src="https://picsum.photos/id/5/175/100" alt="" onClick={() => handleClick(5)} /><p>UX/UI</p></div>
+          <div><img src="https://picsum.photos/id/6/175/100" alt="" onClick={() => handleClick(6)} /><p>Data Science</p></div>
         </div>
       </div>
     </>

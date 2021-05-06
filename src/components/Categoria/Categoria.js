@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // import './Categoria.css';
-import { Link, useLocation, useParams, useHistory } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import ItemLista from '../ItemLista/ItemLista'
 
 const Categoria = (props) => {
@@ -33,7 +33,7 @@ const Categoria = (props) => {
   return (
     <>
       <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
-        <h1>HOME</h1>
+        <h1>NAV</h1>
         <input type="text" />
       </div>
       <hr />
