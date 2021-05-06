@@ -9,6 +9,7 @@ import SignUpStudent from './components/SignupStudent/SignupStudent';
 import SignUpTeacher from './components/SignupTeacher/SignupTeacher';
 import EnterApp from './components/EnterApp/EnterApp'
 import Categoria from './components/Categoria/Categoria'
+import Modals from './components/Modals/Modals'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/homepage" component={Homepage} />
           <Route path="/cursos/:id" component={Detalle} />
           <Route path="/categorias/:categoria" component={Categoria} />
+          <Route exact path="/modals"  component={Modals} />
         </Switch>
       </BrowserRouter>
     </div>
