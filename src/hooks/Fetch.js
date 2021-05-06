@@ -5,12 +5,8 @@ async function fetchData(endpoint, options) {
     return jonson
   } catch (err) {
     return {
-<<<<<<< HEAD
       error: "No se ha podido realizar la petición",
       fetchErr: err
-=======
-      error: "No se ha podido realizar la petición."
->>>>>>> signup
     }
   }
 }
