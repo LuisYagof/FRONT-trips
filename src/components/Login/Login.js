@@ -46,7 +46,7 @@ const Login = () => {
     return (
         <form>
             <h4>Tipo de cuenta:</h4>
-            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} checked/>
+            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} defaultchecked/>
             <label htmlFor="Estudiante">Estudiante</label>
             <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue}/>
             <label htmlFor="Docente">Docente</label>            
