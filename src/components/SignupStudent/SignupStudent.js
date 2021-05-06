@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import Button from "../Button/Button";
+import Button from "../Button/Button";
 import { Link, useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 
@@ -26,7 +26,7 @@ const SignupStudent = () => {
     setPass(event.target.value);
   };
 
-  const fetching = async (name, surname, email, pass) => {
+  const fetching = async () => {
     let fetchOptions = {
       method: "POST",
       headers: {
@@ -82,10 +82,10 @@ const SignupStudent = () => {
         onChange={handlePass}
         required
       />
-      {/* <Button onClick={fetching} text={text} /> */}
-      <button type="button" onClick={() => fetching(name, surname, email, pass)} >
+      <Button onClick={fetching} text={text} />
+      {/* <button type="button" onClick={() => fetching(name, surname, email, pass)} >
         {text}
-      </button>
+      </button> */}
       <Link to="/logUser/">
         ¿Ya eres usuario? <span className="">Iniciar sesión</span>
       </Link>
