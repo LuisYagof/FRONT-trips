@@ -42,16 +42,20 @@ const Login = () => {
     
     return (
         <form>
-            <h4>Tipo de cuenta:</h4>
-            <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} defaultchecked/>
-            <label htmlFor="Estudiante">Estudiante</label>
-            <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue}/>
-            <label htmlFor="Docente">Docente</label>            
-            <input type="email" onChange={handleEmail} placeholder="Correo electrónico"/>
-            <input type="password" onChange={handlePass} placeholder="Contraseña"/>
+            {/* <h4>Tipo de cuenta:</h4> */}
+            <div>
+                <input type="radio" id="Estudiante" name="user" value="estudiantes" onClick={StudentValue} checked/>
+                <label htmlFor="Estudiante">Estudiante</label>
+            </div>
+            <div>
+                <input type="radio" id="Docente" name="user" value="docentes" onClick={TeacherValue}/>
+                <label htmlFor="Docente">Docente</label>            
+            </div>
+            <input type="email" onChange={handleEmail} placeholder="Email"/>
+            <input type="password" onChange={handlePass} placeholder="Password"/>
             <Button onClick={fetching} text={text}/>
-            {/* <button type="button"  onClick={()=>fetching(email, pass)}>{text}</button> */}
-            <Link to="/newStudent">Eres nuevo? Crear cuenta</Link>
+            {/* <button type="button" onClick={()=>fetching(email, pass)}>{text}</button> */}
+            <Link to="/newStudent">Aún no estás registrado? Crear cuenta</Link>
         </form>
         );
 
