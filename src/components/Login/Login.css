@@ -1,7 +1,45 @@
-.rolBtnChecked{
- background-color: green;
+.rolBtnChecked {
+    background-color: green;
 }
 
-.rolBtnUnchecked{
+.rolBtnUnchecked {
     background-color: red;
-   }
+}
+
+
+form input[type="radio"]{
+	display: none;
+}
+
+form .userType {
+	display: flex;
+	flex-wrap:no-wrap;
+	justify-content:space-between;
+	margin-bottom: 20px;
+}
+
+form .userType .label-radio {
+	width: 49.5%;
+}
+
+form .userType .docente {
+	border-radius: 15px 0 0 15px;
+}
+
+form .userType .estudiante {
+	border-radius: 0 15px 15px 0;
+}
+
+form .label-radio{
+	background: #A6D5CB;
+	color: #fff;
+	padding:10px 10px;
+	text-align: center;
+}
+
+form input[type="radio"]:checked + .label-radio{
+	background: #5BA092;
+	color: #fff;
+}
+
+
