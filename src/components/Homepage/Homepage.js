@@ -85,10 +85,15 @@ const Homepage = () => {
     setMenu(!menu)
   }
 
+  const goBack = () => {
+    history.goBack()
+  }
+
   return (
     <>
       <Menu toggle={toggleMenu} menu={menu}/>
       <div className="navHeader">
+        <img onClick={goBack} src={`http://localhost:3000/icons/arrow.svg`} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" />
         <img onClick={toggleMenu} src={`http://localhost:3000/icons/burger.svg`} alt="" />
       </div>
