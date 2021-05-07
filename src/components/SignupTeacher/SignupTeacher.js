@@ -54,12 +54,13 @@ const SignupTeacher = () => {
                 <image src='' alt=''/>
             </div>
             <h2>Registrarse</h2>
+            <div className="userType">
+                <input onClick={handleUser} type="radio" name="userType" id="docente" value="docentes" />
+                <label htmlFor="docente" className="label-radio docente">Docente</label>
 
-
-
-
-
-            <input
+                <input onClick={handleUser} type="radio" name="userType" id="estudiante" value="estudiantes" />
+                <label htmlFor="estudiante" className="label-radio estudiante">Estudiante</label>
+            </div>            <input
                 className=''
                 type="text"
                 placeholder="Nombre de Escuela/Profesor"
@@ -82,7 +83,6 @@ const SignupTeacher = () => {
             />
             <Link to="/newTeacher">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link>
             <Button onClick={fetching} text={text} />
-            {/* <button type="button" onClick={() => fetching(name, email, pass)} >{text}</button> */}
             <Link to="/newTeacher">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
         </form>
         );

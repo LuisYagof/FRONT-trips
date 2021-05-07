@@ -8,10 +8,12 @@ const EnterApp = () => {
     return (
         <>
             <div>--------------------IMAGEN ICONO-------------------</div>
-            <h1>CUENTA CREADA CORRECTAMENTE</h1>
-            <Link to="/Homepage">
+            <h2>Cuenta creada <span>correctamente</span></h2>
+            {/* <Link to="/Homepage">
                 <button className="largeButton">{text}</button>
-            </Link>
+            </Link> */}
+            <div>--------------------SPINER-------------------</div>
+            <p>Preparando tu experiencia educativa</p>
         </>
         );
 }

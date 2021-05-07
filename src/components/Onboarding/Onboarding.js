@@ -7,10 +7,14 @@ const Onboarding = () => {
 
     return (
         <>
-            <Link to="/logUser">
-                <button>{text}</button>
+            <Link>
+                <div>
+                    <image src='' alt=''/>
+                </div>
+                <div>
+                    <image src='' alt=''/> ---------logotipo--------
+                </div>
             </Link>
-            <h4>LOREM</h4>
         </>
         );
 }
