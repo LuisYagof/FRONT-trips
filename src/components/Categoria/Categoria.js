@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 // import './Categoria.css';
 import { useLocation, useParams } from "react-router-dom";
 import ItemLista from '../ItemLista/ItemLista'
+import Menu from '../Menu/Menu'
 
 const Categoria = (props) => {
   const [cursos, setCursos] = useState([])
   const [docentes, setDocentes] = useState([])
+  const [menu, setMenu] = useState(false)
   const location = useLocation()
   const params = useParams()
   const categorias = [
@@ -30,11 +32,16 @@ const Categoria = (props) => {
     return categorias.filter((el, i) => i + 1 == params.categoria)[0]
   }
 
+  const toggleMenu = () => {
+    setMenu(!menu)
+  }
+
   return (
     <>
-      <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
-        <h1>NAV</h1>
-        <input type="text" />
+      <Menu toggle={toggleMenu} menu={menu}/>
+      <div className="navHeader">
+        <input type="text" placeholder="Haz tu búsqueda"  />
+        <img onClick={toggleMenu} src={`http://localhost:3000/icons/burger.svg`} alt="" />
       </div>
 
       <div>

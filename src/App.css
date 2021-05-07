@@ -1,3 +1,22 @@
+/* -----------------------HEADER----------------------*/
+
+div.navHeader {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 7% 0 0 0;
+}
+
+div.navHeader input {
+  width: 55%;
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  padding: 5px;
+}
+
+div.navHeader input:focus {
+  outline: none
+}
+
 /* -----------------------CAROUSEL----------------------*/
 
 div.slideHeader {
@@ -69,6 +88,6 @@ div.gridCategorias {
   text-align: center;
 }
 
-h3.gridTitle{
+h3.gridTitle {
   margin: 26px 0 17px 30px;
 }

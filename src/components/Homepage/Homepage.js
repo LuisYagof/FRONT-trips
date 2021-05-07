@@ -80,6 +80,7 @@ const Homepage = () => {
       }
     })
   }
+
   const toggleMenu = () => {
     setMenu(!menu)
   }
@@ -87,9 +88,9 @@ const Homepage = () => {
   return (
     <>
       <Menu toggle={toggleMenu} menu={menu}/>
-      <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
-        <input type="text" />
-        <button onClick={toggleMenu}>MENU</button>
+      <div className="navHeader">
+        <input type="text" placeholder="Haz tu búsqueda" />
+        <img onClick={toggleMenu} src={`http://localhost:3000/icons/burger.svg`} alt="" />
       </div>
    
       <div>
