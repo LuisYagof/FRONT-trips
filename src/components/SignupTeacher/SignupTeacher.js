@@ -21,18 +21,18 @@ const SignupTeacher = () => {
     const handlePass = (event) => {
         setPass(event.target.value);
     };
-    
+
     const fetching = async () => {
         let fetchOptions = {
-        method: 'POST',
-        headers: {
-            "content-type": "application/json",
-        },
-        body: JSON.stringify({
-            nombre: name,
-            email: email,
-            pass: pass
-        }),
+            method: 'POST',
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({
+                nombre: name,
+                email: email,
+                pass: pass
+            }),
         };
         const content = await fetchData(functionFetch, fetchOptions);
         console.log(fetchOptions);
@@ -41,17 +41,17 @@ const SignupTeacher = () => {
             alert(content.error)
         };
         if (content.ok) {
-         localStorage.setItem('token', content.token);
-         history.push('/EnterApp')
+            localStorage.setItem('token', content.token);
+            history.push('/EnterApp')
         } else {
             alert(content.msg)
         }
     };
-    
+
     return (
         <form>
             <div>
-                <image src='' alt=''/>
+                <image src='' alt='' />
             </div>
             <h2>Registrarse</h2>
             <div className="userType">
@@ -60,7 +60,8 @@ const SignupTeacher = () => {
 
                 <input onClick={handleUser} type="radio" name="userType" id="estudiante" value="estudiantes" />
                 <label htmlFor="estudiante" className="label-radio estudiante">Estudiante</label>
-            </div>            <input
+            </div>
+            <input
                 className=''
                 type="text"
                 placeholder="Nombre de Escuela/Profesor"
@@ -85,7 +86,7 @@ const SignupTeacher = () => {
             <Button onClick={fetching} text={text} />
             <Link to="/newTeacher">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
         </form>
-        );
+    );
 };
 
 export default SignupTeacher;
