@@ -8,7 +8,7 @@ const SignupStudent = () => {
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [text, setText] = useState("Registrarse");
+  const [text, setText] = useState("Comencemos");
   const [functionFetch, setfunctionFetch] = useState("newStudent");
   const [data, setData] = useState([]);
   const history = useHistory();
@@ -53,7 +53,15 @@ const SignupStudent = () => {
 
   return (
     <form>
-      <h1>REGíSTRATE COMO ESTUDIANTE</h1>
+      <div>
+        <image src='' alt=''/>
+      </div>
+      <h2>Registrarse</h2>
+
+
+
+
+
       <input
         className=""
         type="text"
@@ -71,27 +79,23 @@ const SignupStudent = () => {
       <input
         className=""
         type="email"
-        placeholder="Correo electrónico"
+        placeholder="Email"
         onChange={handleEmail}
         required
       />
       <input
         className=""
-        type="password"
+        type="Password"
         placeholder="Contraseña"
         onChange={handlePass}
         required
       />
+      <Link to="/newStudent">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link>
       <Button onClick={fetching} text={text} />
       {/* <button type="button" onClick={() => fetching(name, surname, email, pass)} >
         {text}
       </button> */}
-      <Link to="/logUser/">
-        ¿Ya eres usuario? <span className="">Iniciar sesión</span>
-      </Link>
-      <Link to="/newTeacher">
-        ¿Eres una escuela? <span className="">Darme de alta</span>
-      </Link>
+      <Link to="/newStudent">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
     </form>
   );
 };
