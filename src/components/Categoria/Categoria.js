@@ -36,7 +36,6 @@ const Categoria = (props) => {
         <h1>NAV</h1>
         <input type="text" />
       </div>
-      <hr />
 
       <div>
         {params.categoria == 'valorados' ? <h3>Los más valorados</h3> : <h3>Cursos de {matchCategoria()}</h3>}

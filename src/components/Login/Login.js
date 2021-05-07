@@ -9,12 +9,12 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [text, setText] = useState("Iniciar sesión");
-    const [functionFetch, setfunctionFetch] = useState("");
+    const [functionFetch, setfunctionFetch] = useState(`logUser/${typeOfUser}`);
     const history = useHistory();
 
     useEffect(() => {
         setfunctionFetch(`logUser/${typeOfUser}`);
-    })
+    }, [typeOfUser])
 
     const handleUser = (event) => settypeOfUser((event.target.value));
     const handleEmail = (event) => {

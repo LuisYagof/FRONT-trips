@@ -6,10 +6,18 @@ div.slideHeader {
   align-items: center
 }
 
+div.slideHeader button {
+  color: #5BA092;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 div.slideCard {
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding-left: 4px;
 }
 
 div.slideImg {
@@ -31,10 +39,16 @@ div.slideMiniCard1 {
 }
 
 div.slideMiniCard1>h6 {
-  background-color: beige;
+  background-color: rgba(227, 86, 42, 0.9);
+  color: white;
   padding: 5px;
-  border-radius: 8px;
+  border-radius: 5px;
   margin: 0 3%;
+  cursor: pointer;
+}
+
+div.slideMiniCard1>h6:nth-child(even) {
+  background-color: rgba(91, 160, 146, 0.9);
 }
 
 div.slideMiniCard2 {
@@ -53,4 +67,8 @@ div.gridCategorias {
   flex-wrap: wrap;
   justify-content: space-evenly;
   text-align: center;
+}
+
+h3.gridTitle{
+  margin: 26px 0 17px 30px;
 }
