@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import useModal from "../../hooks/useModal";
+import ToggleButton from "../Modals/ToggleButton"
 
 const Modals = () => {
   const [isOpenModal1, OpenModal1, closeModal1] = useModal(false);
   const [orderBy, setOrderBy] = useState("1");
+  
 
   const orderByValue = (event) => setOrderBy(event.target.value);
+  
 
   return (
     <div>
@@ -42,6 +45,8 @@ const Modals = () => {
         <label htmlFor="mBaratos">Más baratos</label>
 
         <h3>Filtrar por:</h3>
+        <ToggleButton />
+        
       </Modal>
     </div>
   );
