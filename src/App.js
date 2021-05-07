@@ -11,6 +11,7 @@ import EnterApp from './components/EnterApp/EnterApp'
 import Categoria from './components/Categoria/Categoria'
 import Modals from './components/Modals/Modals'
 import Review from './components/Review/Review'
+import ReviewOk from './components/ReviewOk/ReviewOk'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/categorias/:categoria" component={Categoria} />
           <Route exact path="/modals"  component={Modals} />
           <Route path="/newReview/:curso" component={Review} />
+          <Route path="/ReviewOk" component={ReviewOk} />
         </Switch>
       </BrowserRouter>
     </div>

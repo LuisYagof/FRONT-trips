@@ -57,11 +57,13 @@ const SignupStudent = () => {
         <image src='' alt=''/>
       </div>
       <h2>Registrarse</h2>
+      <div className="userType">
+        <input onClick={handleUser} type="radio" name="userType" id="docente" value="docentes" />
+        <label htmlFor="docente" className="label-radio docente">Docente</label>
 
-
-
-
-
+        <input onClick={handleUser} type="radio" name="userType" id="estudiante" value="estudiantes" />
+        <label htmlFor="estudiante" className="label-radio estudiante">Estudiante</label>
+      </div>
       <input
         className=""
         type="text"

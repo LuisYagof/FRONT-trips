@@ -47,7 +47,7 @@ const Login = () => {
             <div>
                 <image src='' alt='' />
             </div>
-            <h2>Iniciar sesión</h2>
+            <h2>Iniciar Sesión</h2>
             <div className="userType">
                 <input onClick={handleUser} type="radio" name="userType" id="docente" value="docentes" />
                 <label htmlFor="docente" className="label-radio docente">Docente</label>
