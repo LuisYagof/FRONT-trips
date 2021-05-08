@@ -97,7 +97,6 @@ const Homepage = () => {
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" />
-        {/* <img onClick={toggleMenu} src={`http://localhost:3000/icons/burger.svg`} alt="" /> */}
         <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
    

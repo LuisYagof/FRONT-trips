@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { Link, useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
+import BtnRadio from "../BtnRadio/BtnRadio";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const Signup = () => {
   const history = useHistory();
 
 
-  const handleUser = (event) => setfunctionFetch((event.target.value));
+  const handleUser = (user) => setfunctionFetch(user == 'estudiantes' ? 'newStudent' : 'newTeacher');
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -38,28 +39,23 @@ const Signup = () => {
     };
     const content = await fetchData(functionFetch, fetchOptions);
     if (content.error) {
-        alert(content.error)
+      alert(content.error)
     }
     if (content.ok) {
-     localStorage.setItem('token', content.token);
-     history.push('/EnterApp')
+      localStorage.setItem('token', content.token);
+      history.push('/EnterApp')
     } else {
-        alert(content.msg)
+      alert(content.msg)
     }
   };
 
   return (
     <form>
       <div>
-        <image src='' alt=''/>
+        <image src='' alt='' />
       </div>
       <h2>Registrarse</h2>
-      <div className="userType">
-        <input onClick={handleUser} type="radio" name="userType" id="docente" value="newTeacher" />
-        <label htmlFor="docente" className="label-radio docente">Docente</label>
-        <input onClick={handleUser} type="radio" name="userType" id="estudiante" value="newStudent" />
-        <label htmlFor="estudiante" className="label-radio estudiante">Estudiante</label>
-      </div>
+      <BtnRadio handleUser={handleUser} />
       <input
         className=""
         type="text"
