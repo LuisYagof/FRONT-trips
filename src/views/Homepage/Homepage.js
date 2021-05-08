@@ -43,7 +43,7 @@ const Homepage = () => {
           })}>
 
             <div className="slideImg">
-              <img src={el.imagen} alt="" />
+              <img className="courseImg" src={el.imagen} alt="" />
               <div className="slideMiniCard1">
                 <h6>{docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre}</h6>
                 <h6>{el.precio}€</h6>

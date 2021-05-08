@@ -27,7 +27,7 @@ div.slideImg {
   justify-content: center;
 }
 
-div.slideImg img {
+img.courseImg {
   border-radius: 5px;
   filter: grayscale(50%) brightness(110%);
 }
