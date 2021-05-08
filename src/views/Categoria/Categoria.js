@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import './Categoria.css';
 import { useHistory, useLocation, useParams } from "react-router-dom";
+import './Categoria.css'
 import ItemLista from '../../components/ItemLista/ItemLista'
 import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
@@ -52,7 +53,7 @@ const Categoria = (props) => {
         <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
 
-      <div>
+      <div className="courseList">
         {params.categoria == 'valorados' ? <h3>Los más valorados</h3> : <h3>Cursos de {matchCategoria()}</h3>}
         <div>
           {drawList()}

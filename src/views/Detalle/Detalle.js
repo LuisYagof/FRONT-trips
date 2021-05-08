@@ -1,27 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import './Detalle.css';
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
+import ArrowWhite from '../../assets/icons/ArrowWhite.svg'
+import Heart from '../../assets/icons/Heart.svg'
+import TinyBtn from '../../components/TinyBtn/TinyBtn'
 
 const Detalle = (props) => {
   const [curso, setCurso] = useState({})
   const location = useLocation()
+  const history = useHistory()
 
   useEffect(() => {
     setCurso(location.state.curso)
   }, [])
 
+  const goBack = () => {
+    history.goBack()
+  }
+
   return (
     <>
-      <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
-        <h1>NAV</h1>
-        <input type="text" />
+      <div className="imgDetail">
+        <img className="arrowImg" onClick={goBack} src={ArrowWhite} alt="" />
+        <img className="heartImg" onClick={console.log("Favorito")} src={Heart} alt="" />
+        <div className="infoBox">
+          <TinyBtn text={`${curso.media} #`} color={"blue"} />
+          <div className="subInfo">
+            <TinyBtn text={location.state.docente.nombre} color={"orange"} />
+            <TinyBtn text={curso.precio} color={"green"} />
+          </div>
+        </div>
+        <img className="courseImg" src={curso.imagen} alt="" />
       </div>
-      <hr />
-
-      <img className="courseImg" src={curso.imagen} alt="" />
       <h2>{curso.nombre}</h2>
       <p>{curso.descripcion}</p>
-      <p>{location.state.docente.nombre}</p>
     </>
   )
 }

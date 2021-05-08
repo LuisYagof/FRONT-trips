@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
+import './ItemLista.css'
+import '../TinyBtn/TinyBtn'
+import TinyBtn from '../TinyBtn/TinyBtn';
 
 const ItemLista = (props) => {
   const [curso, setCurso] = useState({})
@@ -10,17 +13,20 @@ const ItemLista = (props) => {
   }, [])
 
   return (
-    <div>
-      <img className="courseImg" src={curso.imagen} alt="" />
-      <div>
-        <h2 onClick={() => history.push({
+    <div className="listItem">
+      <div className="imgBox">
+        <img className="courseImg" src={curso.imagen} alt="" />
+      </div>
+      <div className="courseInfo">
+        <h4 onClick={() => history.push({
           pathname: `/cursos/${curso.id}`,
           state: { curso: curso, docente: props.docente }
-        })}>{curso.nombre}</h2>
-        <p>{curso.descripcion}</p>
-        <p>{props.docente.nombre}</p>
-        <h5>{curso.media}#</h5>
-        <h5>{curso.precio}€</h5>
+        })}>{curso.nombre}</h4>
+        <div className="courseSubInfo">
+          <TinyBtn text={`${curso.precio} €`} color={"green"} />
+          <TinyBtn text={props.docente.nombre} color={"orange"} />
+          <h5>{curso.media}#</h5>
+        </div>
       </div>
     </div>
   )

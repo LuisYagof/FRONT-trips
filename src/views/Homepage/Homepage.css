@@ -40,19 +40,6 @@ div.slideMiniCard1 {
   width: 96%;
 }
 
-div.slideMiniCard1>h6 {
-  background-color: rgba(227, 86, 42, 0.9);
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-  margin: 0 3%;
-  cursor: pointer;
-}
-
-div.slideMiniCard1>h6:nth-child(even) {
-  background-color: rgba(91, 160, 146, 0.9);
-}
-
 div.slideMiniCard2 {
   display: flex;
   justify-content: space-between;

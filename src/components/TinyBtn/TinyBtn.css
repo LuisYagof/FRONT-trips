@@ -1,0 +1,19 @@
+h6.tinyBtn {
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 3%;
+  cursor: pointer;
+}
+
+h6.tinyBtn.green {
+  background-color: rgba(91, 160, 146, 0.9);
+}
+
+h6.tinyBtn.orange {
+  background-color: rgba(227, 86, 42, 0.9);
+}
+
+h6.tinyBtn.blue {
+  background-color: #79B5EC;
+}

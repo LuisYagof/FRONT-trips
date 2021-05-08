@@ -1,0 +1,45 @@
+div.listItem {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+div.imgBox {
+  width: 35%;
+  margin: 0 2px;
+  display: flex;
+}
+
+div.listItem div.imgBox img.courseImg {
+  width: 100%;
+}
+
+div.courseInfo {
+  width: 64%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.courseInfo h4 {
+  margin: 0;
+  font-weight: initial;
+}
+
+div.courseSubInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+h6.tinyBtn.orange {
+  margin: 0;
+  width: 95px;
+}
+
+h6.tinyBtn.green {
+  width: 40px;
+}
+
+div.courseSubInfo>h5 {
+  margin: 0;
+}

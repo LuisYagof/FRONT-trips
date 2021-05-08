@@ -5,6 +5,7 @@ import './Homepage.css'
 import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
+import TinyBtn from '../../components/TinyBtn/TinyBtn'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -45,8 +46,8 @@ const Homepage = () => {
             <div className="slideImg">
               <img className="courseImg" src={el.imagen} alt="" />
               <div className="slideMiniCard1">
-                <h6>{docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre}</h6>
-                <h6>{el.precio}€</h6>
+                <TinyBtn text={docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre} color={"orange"}/>
+                <TinyBtn text={`${el.precio} €`} color={"green"}/>
               </div>
             </div>
             <div className="slideMiniCard2">

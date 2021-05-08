@@ -1,0 +1,29 @@
+img.arrowImg, img.heartImg {
+  position: absolute;
+  z-index: 999;
+  margin: 1%;
+}
+
+img.heartImg {
+  right: 1%;
+}
+
+div.infoBox {
+  width: 100%;
+  z-index: 999;
+  transform: translate(0px, 175px);
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.subInfo {
+  display: flex;
+  width: 50%;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+img.courseImg {
+  width: 100%;
+}
