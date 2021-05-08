@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import useModal from "../../hooks/useModal";
-import ToggleButton from "../Modals/ToggleButton"
+import ToggleButton from "../ToggleButton/ToggleButton"
+
 
 const Modals = () => {
   const [isOpenModal1, OpenModal1, closeModal1] = useModal(false);
+  const [toggleBtn1, setToggleBtn1] = useState(false);
+  const [toggleBtn2, setToggleBtn2] = useState(false);
   const [orderBy, setOrderBy] = useState("1");
-  
+
+
+  const btnText = {
+    title1: "Bolsa de empleo",
+    title2: "Certificado"
+  }
+
+  const updateTriggerBtn1 = (boolean) => {
+    setToggleBtn1(boolean);
+  };
+  const updateTriggerBtn2 = (boolean) => {
+    setToggleBtn2(boolean);
+  };
 
   const orderByValue = (event) => setOrderBy(event.target.value);
   
@@ -45,8 +60,8 @@ const Modals = () => {
         <label htmlFor="mBaratos">Más baratos</label>
 
         <h3>Filtrar por:</h3>
-        <ToggleButton />
-        
+        <ToggleButton toggleBtnText={btnText.title1} updateTriggerBtn={updateTriggerBtn1}/>
+        <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2}/>
       </Modal>
     </div>
   );
