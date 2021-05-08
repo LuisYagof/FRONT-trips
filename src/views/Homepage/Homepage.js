@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import fetchData from '../../hooks/Fetch'
 import { useHistory } from 'react-router-dom'
-import Menu from '../Menu/Menu'
+import fetchData from '../../hooks/Fetch'
+import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 

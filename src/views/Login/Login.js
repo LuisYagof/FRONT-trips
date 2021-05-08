@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch';
-import BtnRadio from '../BtnRadio/BtnRadio';
-import Button from "../Button/Button";
+import BtnRadio from '../../components/BtnRadio/BtnRadio';
+import Button from "../../components/Button/Button";
 import "./Login.css";
 
 const Login = () => {
@@ -37,7 +37,7 @@ const Login = () => {
         if (content.error) { alert(content.error) }
         if (content.ok) {
             localStorage.setItem("token", content.token)
-            history.push("/Homepage");
+            history.push("/dashboard");
         } else {
             alert(content.msg)
         }
@@ -54,7 +54,7 @@ const Login = () => {
             <input type="email" onChange={handleEmail} placeholder="Email" />
             <input type="password" onChange={handlePass} placeholder="Password" />
             <Button onClick={fetching} text={text} />
-            <Link to="/newStudent">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
+            <Link to="/registro">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
         </form>
     );
 }

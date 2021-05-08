@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 import { useHistory } from 'react-router-dom';
 
 const EnterApp = () => {
@@ -7,7 +7,7 @@ const EnterApp = () => {
     const history = useHistory();
 
     function goBack() {
-        history.push("/IR A CURSO??????????????");
+        history.go(-2);
       }
    
     return (

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 // import './Categoria.css';
 import { useHistory, useLocation, useParams } from "react-router-dom";
-import ItemLista from '../ItemLista/ItemLista'
-import Menu from '../Menu/Menu'
+import ItemLista from '../../components/ItemLista/ItemLista'
+import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import { Rating } from "@material-ui/lab";
@@ -34,7 +34,7 @@ const Review = () => {
     }
     if (content.ok) {
       alert(content.msg);
-      history.push("/????????");
+      history.push("/review-ok");
     } else {
       alert(content.msg);
     }

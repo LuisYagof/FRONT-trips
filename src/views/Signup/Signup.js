@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
+import BtnRadio from "../../components/BtnRadio/BtnRadio";
 import { Link, useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
-import BtnRadio from "../BtnRadio/BtnRadio";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -43,7 +43,7 @@ const Signup = () => {
     }
     if (content.ok) {
       localStorage.setItem('token', content.token);
-      history.push('/EnterApp')
+      history.push('/welcome')
     } else {
       alert(content.msg)
     }
@@ -79,7 +79,7 @@ const Signup = () => {
       />
       {/* <Link to="/recuperar">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link> */}
       <Button onClick={fetching} text={text} />
-      <Link to="/logUser">¿Ya tienes cuenta? <span className="">Iniciar sesión</span></Link>
+      <Link to="/login">¿Ya tienes cuenta? <span className="">Iniciar sesión</span></Link>
     </form>
   );
 };
