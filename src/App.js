@@ -11,6 +11,7 @@ import Categoria from './views/Categoria/Categoria'
 import Modals from './components/Modals/Modals'
 import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
+import SearchAll from "./views/SearchAll/SearchAll";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/modals"  component={Modals} />
           <Route path="/review/:curso" component={Review} />
           <Route path="/review-ok" component={ReviewOk} />
+          <Route path="/resultadoBusqueda" component={SearchAll} />
         </Switch>
       </BrowserRouter>
     </div>
