@@ -11,7 +11,7 @@ const ItemLista = (props) => {
 
   return (
     <div>
-      <img src={curso.imagen} alt="" />
+      <img className="courseImg" src={curso.imagen} alt="" />
       <div>
         <h2 onClick={() => history.push({
           pathname: `/cursos/${curso.id}`,

@@ -18,7 +18,7 @@ const Detalle = (props) => {
       </div>
       <hr />
 
-      <img src={curso.imagen} alt="" />
+      <img className="courseImg" src={curso.imagen} alt="" />
       <h2>{curso.nombre}</h2>
       <p>{curso.descripcion}</p>
       <p>{location.state.docente.nombre}</p>

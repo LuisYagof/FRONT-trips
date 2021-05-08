@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import fetchData from '../../hooks/Fetch'
 import { useHistory } from 'react-router-dom'
-import Menu from '../Menu/Menu'
+import fetchData from '../../hooks/Fetch'
+import './Homepage.css'
+import Menu from '../../components/Menu/Menu'
+import Burger from '../../assets/icons/Burger.svg'
+import Arrow from '../../assets/icons/Arrow.svg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -40,7 +43,7 @@ const Homepage = () => {
           })}>
 
             <div className="slideImg">
-              <img src={el.imagen} alt="" />
+              <img className="courseImg" src={el.imagen} alt="" />
               <div className="slideMiniCard1">
                 <h6>{docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre}</h6>
                 <h6>{el.precio}€</h6>
@@ -80,16 +83,22 @@ const Homepage = () => {
       }
     })
   }
+
   const toggleMenu = () => {
     setMenu(!menu)
+  }
+
+  const goBack = () => {
+    history.goBack()
   }
 
   return (
     <>
       <Menu toggle={toggleMenu} menu={menu}/>
-      <div style={{ "display": "flex", "justifyContent": "space-evenly" }}>
-        <input type="text" />
-        <button onClick={toggleMenu}>MENU</button>
+      <div className="navHeader">
+        <img onClick={goBack} src={Arrow} alt="" />
+        <input type="text" placeholder="Haz tu búsqueda" />
+        <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
    
       <div>

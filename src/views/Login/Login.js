@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch';
-import Button from "../Button/Button";
+import BtnRadio from '../../components/BtnRadio/BtnRadio';
+import Button from "../../components/Button/Button";
 import "./Login.css";
 
 const Login = () => {
-    const [typeOfUser, settypeOfUser] = useState("");
+    const [typeOfUser, settypeOfUser] = useState("estudiantes");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [text, setText] = useState("Iniciar sesión");
-    const [functionFetch, setfunctionFetch] = useState(`logUser/${typeOfUser}`);
+    const [functionFetch, setfunctionFetch] = useState(`logUser/estudiantes`);
     const history = useHistory();
 
     useEffect(() => {
         setfunctionFetch(`logUser/${typeOfUser}`);
     }, [typeOfUser])
 
-    const handleUser = (event) => settypeOfUser((event.target.value));
+    const handleUser = (user) => settypeOfUser(user);
     const handleEmail = (event) => {
         setEmail(event.target.value)
     };
@@ -36,7 +37,7 @@ const Login = () => {
         if (content.error) { alert(content.error) }
         if (content.ok) {
             localStorage.setItem("token", content.token)
-            history.push("/Homepage");
+            history.push("/dashboard");
         } else {
             alert(content.msg)
         }
@@ -47,19 +48,13 @@ const Login = () => {
             <div>
                 <image src='' alt='' />
             </div>
-            <h2>Iniciar sesión</h2>
-            <div className="userType">
-                <input onClick={handleUser} type="radio" name="userType" id="docente" value="docentes" />
-                <label htmlFor="docente" className="label-radio docente">Docente</label>
-
-                <input onClick={handleUser} type="radio" name="userType" id="estudiante" value="estudiantes" />
-                <label htmlFor="estudiante" className="label-radio estudiante">Estudiante</label>
-            </div>
+            <h2>Iniciar Sesión</h2>
+            <BtnRadio handleUser={handleUser} />
 
             <input type="email" onChange={handleEmail} placeholder="Email" />
             <input type="password" onChange={handlePass} placeholder="Password" />
             <Button onClick={fetching} text={text} />
-            <Link to="/newStudent">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
+            <Link to="/registro">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
         </form>
     );
 }
