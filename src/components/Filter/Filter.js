@@ -22,8 +22,15 @@ export default function Menu (props) {
 
   const orderByValue = (event) => setOrderBy(event.target.value);
 
+  const handleFilterResults = () => 
+  {
+    props.filterResults(toggleBtn1, toggleBtn2, orderBy);
+    props.toggle()
+}
+
   return(
     <div className={`filtro-desplegable ${props.filter}`}>
+        <button onClick={props.toggle}>X</button>
         <h3>Ordenado por:</h3>        
         <input
           type="radio"
@@ -53,7 +60,7 @@ export default function Menu (props) {
         <h3>Filtrar por:</h3>
         <ToggleButton toggleBtnText={btnText.title1} updateTriggerBtn={updateTriggerBtn1}/>
         <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2}/>
-        <h1 onClick={props.toggle}>Atrás</h1>
+        <button onClick={handleFilterResults}>Aplicar Filtrado</button>
     </div>
   )
 }
