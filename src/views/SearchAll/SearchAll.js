@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import fetchData from '../../hooks/Fetch'
 import { useHistory } from 'react-router-dom'
-import Filter from '../Filter/Filter'
+import Filter from '../../components/Filter/Filter'
 
 const SearchAll = () => {
 
