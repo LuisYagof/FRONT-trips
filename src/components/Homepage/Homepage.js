@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import fetchData from '../../hooks/Fetch'
 import { useHistory } from 'react-router-dom'
 import Menu from '../Menu/Menu'
+import Burger from '../../assets/icons/Burger.svg'
+import Arrow from '../../assets/icons/Arrow.svg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -93,9 +95,10 @@ const Homepage = () => {
     <>
       <Menu toggle={toggleMenu} menu={menu}/>
       <div className="navHeader">
-        <img onClick={goBack} src={`http://localhost:3000/icons/arrow.svg`} alt="" />
+        <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" />
-        <img onClick={toggleMenu} src={`http://localhost:3000/icons/burger.svg`} alt="" />
+        {/* <img onClick={toggleMenu} src={`http://localhost:3000/icons/burger.svg`} alt="" /> */}
+        <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
    
       <div>
