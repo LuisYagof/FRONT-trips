@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import fetchData from '../../hooks/Fetch'
+import './Homepage.css'
 import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'

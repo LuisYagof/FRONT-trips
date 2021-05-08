@@ -1,0 +1,76 @@
+
+/* -----------------------CAROUSEL----------------------*/
+
+div.slideHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
+div.slideHeader button {
+  color: #5BA092;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+div.slideCard {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+}
+
+div.slideImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.slideImg img {
+  border-radius: 5px;
+  filter: grayscale(50%) brightness(110%);
+}
+
+div.slideMiniCard1 {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  transform: translate(0, 48px);
+  width: 96%;
+}
+
+div.slideMiniCard1>h6 {
+  background-color: rgba(227, 86, 42, 0.9);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 3%;
+  cursor: pointer;
+}
+
+div.slideMiniCard1>h6:nth-child(even) {
+  background-color: rgba(91, 160, 146, 0.9);
+}
+
+div.slideMiniCard2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.slideMiniCard2>h5 {
+  margin: 5px;
+}
+
+/* -----------------------GRID----------------------*/
+
+div.gridCategorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+h3.gridTitle {
+  margin: 26px 0 17px 30px;
+}
