@@ -5,6 +5,7 @@ import './Homepage.css'
 import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
+import Search from '../../assets/icons/Search.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,6 +16,7 @@ SwiperCore.use([Navigation, Pagination]);
 const Homepage = () => {
   const [cursos, setCursos] = useState([])
   const [docentes, setDocentes] = useState([])
+  const [search, setSearch] = useState("")
   const [menu, setMenu] = useState(false)
   const history = useHistory()
 
@@ -46,8 +48,8 @@ const Homepage = () => {
             <div className="slideImg">
               <img className="courseImg" src={el.imagen} alt="" />
               <div className="slideMiniCard1">
-                <TinyBtn text={docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre} color={"orange"}/>
-                <TinyBtn text={`${el.precio} €`} color={"green"}/>
+                <TinyBtn text={docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre} color={"orange"} />
+                <TinyBtn text={`${el.precio} €`} color={"green"} />
               </div>
             </div>
             <div className="slideMiniCard2">
@@ -85,6 +87,22 @@ const Homepage = () => {
     })
   }
 
+  const handleSearch = (event) => {
+    setSearch(event.target.value)
+  }
+
+  const goSearch = () => {
+    const filtered = cursos
+      .filter(item => item.nombre.toLowerCase().includes(search.toLowerCase()))
+    history.push({
+      pathname: `/categorias/${search}`,
+      state: {
+        cursos: filtered,
+        docentes: docentes
+      }
+    })
+  }
+
   const toggleMenu = () => {
     setMenu(!menu)
   }
@@ -95,13 +113,14 @@ const Homepage = () => {
 
   return (
     <>
-      <Menu toggle={toggleMenu} menu={menu}/>
+      <Menu toggle={toggleMenu} menu={menu} />
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
-        <input type="text" placeholder="Haz tu búsqueda" />
+        <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />
+        <img src={Search} alt="" onClick={goSearch} />
         <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
-   
+
       <div>
         <div className="slideHeader">
           <h3>Cursos más valorados</h3>

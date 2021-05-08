@@ -9,10 +9,20 @@
   transition: left 1s;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   color: #FFF
 }
 
 .menu-desplegable.true {
   left: 0;
+}
+
+div.menuIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 7% 3%;
+}
+
+div.menuContent {
+  height: 70%;
 }

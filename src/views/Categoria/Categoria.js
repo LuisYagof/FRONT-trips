@@ -6,6 +6,7 @@ import ItemLista from '../../components/ItemLista/ItemLista'
 import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
+import Filter2 from '../../assets/icons/Filter2.svg'
 
 const Categoria = (props) => {
   const [cursos, setCursos] = useState([])
@@ -44,6 +45,16 @@ const Categoria = (props) => {
     history.goBack()
   }
 
+  const handleTitle = () => {
+    if (params.categoria == 'valorados') {
+      return <h3>Los más valorados</h3>
+    } else if (params.categoria == 1 || params.categoria == 2 || params.categoria == 3 || params.categoria == 4 || params.categoria == 5 || params.categoria == 6) {
+      return <h3> Cursos de {matchCategoria()} </h3 >
+    } else {
+      return <h3> Resultados de búsqueda </h3 >
+    }
+  }
+
   return (
     <>
       <Menu toggle={toggleMenu} menu={menu} />
@@ -54,7 +65,10 @@ const Categoria = (props) => {
       </div>
 
       <div className="courseList">
-        {params.categoria == 'valorados' ? <h3>Los más valorados</h3> : <h3>Cursos de {matchCategoria()}</h3>}
+        <div className="listHeader">
+          {handleTitle()}
+          <img onClick={console.log("FILTER")} src={Filter2} alt="" />
+        </div>
         <div>
           {drawList()}
         </div>
