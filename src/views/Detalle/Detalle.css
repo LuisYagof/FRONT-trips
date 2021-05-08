@@ -1,10 +1,10 @@
-img.arrowImg, img.heartImg {
+div.imgDetail>img.arrowImg, div.imgDetail>img.heartImg {
   position: absolute;
   z-index: 999;
   margin: 1%;
 }
 
-img.heartImg {
+div.imgDetail>img.heartImg {
   right: 1%;
 }
 

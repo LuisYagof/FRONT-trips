@@ -6,11 +6,13 @@ import ItemLista from '../../components/ItemLista/ItemLista'
 import Menu from '../../components/Menu/Menu'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
+import Search from '../../assets/icons/Search.svg'
 import Filter2 from '../../assets/icons/Filter2.svg'
 
 const Categoria = (props) => {
   const [cursos, setCursos] = useState([])
   const [docentes, setDocentes] = useState([])
+  const [search, setSearch] = useState("")
   const [menu, setMenu] = useState(false)
   const history = useHistory()
   const location = useLocation()
@@ -55,12 +57,27 @@ const Categoria = (props) => {
     }
   }
 
+  const handleSearch = (event) => {
+    setSearch(event.target.value)
+  }
+
+  const goSearch = () => {
+    if (params.categoria == 'valorados' || params.categoria == 1 || params.categoria == 2 || params.categoria == 3 || params.categoria == 4 || params.categoria == 5 || params.categoria == 6) {
+      const filtered = cursos
+        .filter(item => item.nombre.toLowerCase().includes(search.toLowerCase()))
+      setCursos(filtered)
+    } else {
+      // location.state.searchTotal()
+    }
+  }
+
   return (
     <>
       <Menu toggle={toggleMenu} menu={menu} />
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
-        <input type="text" placeholder="Haz tu búsqueda" />
+        <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />
+        <img src={Search} alt="" onClick={goSearch} />
         <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
 

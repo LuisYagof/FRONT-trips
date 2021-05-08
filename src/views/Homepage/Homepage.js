@@ -92,15 +92,18 @@ const Homepage = () => {
   }
 
   const goSearch = () => {
-    const filtered = cursos
-      .filter(item => item.nombre.toLowerCase().includes(search.toLowerCase()))
-    history.push({
-      pathname: `/categorias/${search}`,
-      state: {
-        cursos: filtered,
-        docentes: docentes
-      }
-    })
+    if (search !== "") {
+      const filtered = cursos
+        .filter(item => item.nombre.toLowerCase().includes(search.toLowerCase()))
+      history.push({
+        pathname: `/categorias/${search}`,
+        state: {
+          cursos: filtered,
+          docentes: docentes,
+          // searchTotal: goSearch
+        }
+      })
+    }
   }
 
   const toggleMenu = () => {
