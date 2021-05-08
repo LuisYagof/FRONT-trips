@@ -5,8 +5,7 @@ import Homepage from './components/Homepage/Homepage'
 import Detalle from './components/Detalle/Detalle'
 import Onboarding from './components/Onboarding/Onboarding';
 import Login from './components/Login/Login';
-import SignUpStudent from './components/SignupStudent/SignupStudent';
-import SignUpTeacher from './components/SignupTeacher/SignupTeacher';
+import Signup from './components/Signup/Signup';
 import EnterApp from './components/EnterApp/EnterApp'
 import Categoria from './components/Categoria/Categoria'
 import Modals from './components/Modals/Modals'
@@ -20,8 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Onboarding} />
           <Route path="/logUser" component={Login} />
-          <Route path="/newStudent" component={SignUpStudent} />
-          <Route path="/newTeacher" component={SignUpTeacher} />
+          <Route path="/newStudent" component={Signup} />
           <Route path="/enterApp" component={EnterApp} />
           <Route path="/homepage" component={Homepage} />
           <Route path="/cursos/:id" component={Detalle} />

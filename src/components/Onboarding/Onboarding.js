@@ -7,9 +7,9 @@ const Onboarding = () => {
 
     return (
         <>
-            <Link>
+            <Link to="/newStudent">
                 <div>
-                    <image src='' alt=''/>
+                    <image src='' alt=''/> ---------ilustración--------
                 </div>
                 <div>
                     <image src='' alt=''/> ---------logotipo--------
