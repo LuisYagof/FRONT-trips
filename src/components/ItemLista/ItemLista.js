@@ -23,8 +23,8 @@ const ItemLista = (props) => {
           state: { curso: curso, docente: props.docente }
         })}>{curso.nombre}</h4>
         <div className="courseSubInfo">
-          <TinyBtn text={`${curso.precio} €`} color={"green"} />
-          <TinyBtn text={props.docente.nombre} color={"orange"} />
+          <TinyBtn text={`${curso.precio} €`} color={"green list"} />
+          <TinyBtn text={props.docente.nombre} color={"orange list"} />
           <h5>{curso.media}#</h5>
         </div>
       </div>

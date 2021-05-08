@@ -31,15 +31,6 @@ div.courseSubInfo {
   justify-content: space-around;
 }
 
-h6.tinyBtn.orange {
-  margin: 0;
-  width: 95px;
-}
-
-h6.tinyBtn.green {
-  width: 40px;
-}
-
 div.courseSubInfo>h5 {
   margin: 0;
 }
