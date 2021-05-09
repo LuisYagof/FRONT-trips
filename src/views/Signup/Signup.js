@@ -3,6 +3,8 @@ import Button from "../../components/Button/Button";
 import BtnRadio from "../../components/BtnRadio/BtnRadio";
 import { Link, useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
+import Registro from '../../assets/img/Registro.png'
+import './Signup.css'
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -50,9 +52,9 @@ const Signup = () => {
   };
 
   return (
-    <form>
-      <div>
-        <image src='' alt='' />
+    <form className="formVH">
+      <div className="imgBoxVH">
+        <img src={Registro} alt='' />
       </div>
       <h2>Registrarse</h2>
       <BtnRadio handleUser={handleUser} />
@@ -79,7 +81,7 @@ const Signup = () => {
       />
       {/* <Link to="/recuperar">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link> */}
       <Button onClick={fetching} text={text} />
-      <Link to="/login">¿Ya tienes cuenta? <span className="">Iniciar sesión</span></Link>
+      <p>¿Ya tienes cuenta? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p>
     </form>
   );
 };

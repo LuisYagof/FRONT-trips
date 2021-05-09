@@ -4,6 +4,7 @@ import fetchData from '../../hooks/Fetch';
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
 import "./Login.css";
+import Login1 from '../../assets/img/Login1.png'
 
 const Login = () => {
     const [typeOfUser, settypeOfUser] = useState("estudiantes");
@@ -44,17 +45,20 @@ const Login = () => {
     }
 
     return (
-        <form>
-            <div>
-                <image src='' alt='' />
+        <form className="formVH">
+            <div className="imgBoxVH">
+                <img src={Login1} alt='' />
             </div>
             <h2>Iniciar Sesión</h2>
             <BtnRadio handleUser={handleUser} />
 
             <input type="email" onChange={handleEmail} placeholder="Email" />
             <input type="password" onChange={handlePass} placeholder="Password" />
+            
+            {/* <Link to="/recuperar">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link> */}
+
             <Button onClick={fetching} text={text} />
-            <Link to="/registro">¿Aún no estás registrado? <span className="">Crear cuenta</span></Link>
+            <p> ¿Aún no estás registrado? <span className="linkSpan" onClick={() => history.push('/registro')}>Crear cuenta</span></p>
         </form>
     );
 }

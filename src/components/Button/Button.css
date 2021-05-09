@@ -1,0 +1,8 @@
+button.enterBtn {
+  padding: 16px 32px;
+  border: none;
+  margin: 2%;
+  border-radius: 10px;
+  background-color: #E3562A;
+  color: white;
+}
