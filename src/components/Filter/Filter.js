@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import ToggleButton from "../ToggleButton/ToggleButton"
+import Button from "../../components/Button/Button";
+
 import './Filter.css'
 
+<<<<<<< HEAD
 export default function Menu(props) {
 
+=======
+export default function Menu (props) {
+>>>>>>> signup
   const [toggleBtn1, setToggleBtn1] = useState(false);
   const [toggleBtn2, setToggleBtn2] = useState(false);
   const [orderBy, setOrderBy] = useState("1");
+  const [text, setText] = useState("Aplicar Filtros");
 
   const btnText = {
     title1: "Bolsa de empleo",
@@ -27,6 +34,7 @@ export default function Menu(props) {
     props.toggle()
   }
 
+<<<<<<< HEAD
   return (
     <div className={`filtro-desplegable ${props.filter}`}>
       <button onClick={props.toggle}>X</button>
@@ -61,5 +69,62 @@ export default function Menu(props) {
       <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2} />
       <button onClick={handleFilterResults}>Aplicar Filtrado</button>
     </div>
+=======
+  return(
+    // <div className='containerFiltrar'>
+
+    <div className={`filtro-desplegable ${props.filter}`}>
+
+        <div className='cabeceraBusqueda'>
+          <h3>Filtra tu Búsqueda</h3>
+          <button onClick={props.toggle}>X</button>
+        </div>
+
+        <div className='filtrar'>
+          <h3>Ordenado por:</h3>
+          <div className='inputFiltrar'>
+            <input
+              type="radio"
+              id="mPuntuados"
+              name="course"
+              value="1"
+              onClick={orderByValue}
+              defaultChecked
+            />
+            <label className='labelBuscador' htmlFor="mPuntuados">Mejor puntuados</label>
+          </div>
+          <div className='inputFiltrar'>
+            <input
+              type="radio"
+              id="mRecientes"
+              name="course"
+              value="2"
+              onClick={orderByValue}
+            />
+            <label className='labelBuscador' htmlFor="mRecientes">Más recientes</label>
+          </div>
+          <div className='inputFiltrar'>
+            <input
+              type="radio"
+              id="mBaratos"
+              name="course"
+              value="3"
+              onClick={orderByValue}
+              />
+            <label className='labelBuscador' htmlFor="mBaratos">Más baratos</label>
+          </div>
+          </div>
+
+        <div className='filtrar'>
+          <h3>Filtrar por:</h3>
+          <ToggleButton toggleBtnText={btnText.title1} updateTriggerBtn={updateTriggerBtn1}/>
+          {/* <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2}/> */}
+        </div>
+
+          <Button onClick={handleFilterResults} text={text} />
+      </div>
+
+    // </div>
+>>>>>>> signup
   )
 }
