@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Menu.css'
 import ArrowWhite from '../../assets/icons/ArrowWhite.svg'
 import Off from '../../assets/icons/Off.svg'
@@ -13,9 +13,7 @@ export default function Menu(props) {
       </div>
       <div className="menuContent">
         <h1>Mi perfil</h1>
-        <h1>Cursos</h1>
-        <h1>Profesores</h1>
-        <h1 onClick={props.toggle}>Atrás</h1>
+        <h1>Mis cursos <br/> favoritos</h1>
       </div>
     </div>
   )

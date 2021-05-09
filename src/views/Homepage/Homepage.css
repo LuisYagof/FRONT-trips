@@ -4,7 +4,7 @@
 div.slideHeader {
   display: flex;
   justify-content: space-around;
-  align-items: center
+  align-items: baseline;
 }
 
 div.slideHeader button {
@@ -43,6 +43,7 @@ div.slideMiniCard1 {
 div.slideMiniCard2 {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 div.slideMiniCard2>h5 {

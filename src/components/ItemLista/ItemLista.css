@@ -1,6 +1,8 @@
 div.listItem {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #EBEBEB;
+  border-radius: 6px;
 }
 
 div.imgBox {
@@ -20,15 +22,23 @@ div.courseInfo {
   justify-content: space-between;
 }
 
-div.courseInfo h4 {
-  margin: 0;
+div.courseTitle {
+  padding: 3% 0;
+}
+
+div.courseTitle>h4 {
+  margin: 0 0 0 13px;
   font-weight: initial;
+  font-size: 14px;
+  color: #999999
 }
 
 div.courseSubInfo {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
+  height: 45%;
 }
 
 div.courseSubInfo>h5 {

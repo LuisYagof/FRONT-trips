@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import './ItemLista.css'
 import '../TinyBtn/TinyBtn'
 import TinyBtn from '../TinyBtn/TinyBtn';
+import Media from '../Media/Media';
 
 const ItemLista = (props) => {
   const [curso, setCurso] = useState({})
@@ -18,14 +19,17 @@ const ItemLista = (props) => {
         <img className="courseImg" src={curso.imagen} alt="" />
       </div>
       <div className="courseInfo">
-        <h4 onClick={() => history.push({
-          pathname: `/cursos/${curso.id}`,
-          state: { curso: curso, docente: props.docente }
-        })}>{curso.nombre}</h4>
+        <div className="courseTitle">
+          <h4 onClick={() => history.push({
+            pathname: `/cursos/${curso.id}`,
+            state: { curso: curso, docente: props.docente }
+          })}>{curso.nombre}</h4>
+        </div>
         <div className="courseSubInfo">
           <TinyBtn text={`${curso.precio} €`} color={"green list"} />
           <TinyBtn text={props.docente.nombre} color={"orange list"} />
-          <h5>{curso.media}#</h5>
+          {/* <h5>{curso.media}#</h5> */}
+          <Media media={curso.media} />
         </div>
       </div>
     </div>

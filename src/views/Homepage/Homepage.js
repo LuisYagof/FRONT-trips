@@ -7,6 +7,7 @@ import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 import Search from '../../assets/icons/Search.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
+import Media from '../../components/Media/Media'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -54,7 +55,8 @@ const Homepage = () => {
             </div>
             <div className="slideMiniCard2">
               <h5>{el.nombre}</h5>
-              <h5>{el.media}#</h5>
+              {/* <h5>{el.media}#</h5> */}
+              <Media media={el.media}/>
             </div>
           </div>
         </SwiperSlide>

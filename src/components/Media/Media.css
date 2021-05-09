@@ -1,0 +1,9 @@
+div.mediaStar {
+  display: flex;
+}
+
+h5.mediaNum {
+  color: #5BA092;
+  margin: 0;
+  font-family: Archivo;
+}
