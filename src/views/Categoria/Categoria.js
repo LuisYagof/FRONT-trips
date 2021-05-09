@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import './Categoria.css';
+import './Categoria.css';
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import './Categoria.css'
 import ItemLista from '../../components/ItemLista/ItemLista'
@@ -71,6 +71,35 @@ const Categoria = (props) => {
     }
   }
 
+  const filterResults = (toggleBtn1, toggleBtn2, orderBy) => {
+    let trimmed = cursos
+      .filter(e => e.bolsaEmpleo == toggleBtn1)
+      .filter(e => e.certificado == toggleBtn2)
+    if (orderBy == 1) {
+      let ordered = trimmed.sort((a, b) => {
+        if (a.media < b.media) {
+          return 1;
+        }
+        if (a.media > b.media) {
+          return -1;
+        }
+        return 0;
+      })
+      setCursos(ordered)
+    } else if (orderBy == 2) {
+      let ordered = trimmed.sort((a, b) => {
+        if (a.precio > b.precio) {
+          return 1;
+        }
+        if (a.precio < b.precio) {
+          return -1;
+        }
+        return 0;
+      })
+      setCursos(ordered)
+    }
+  }
+
   return (
     <>
       <Menu toggle={toggleMenu} menu={menu} />
@@ -84,7 +113,7 @@ const Categoria = (props) => {
       <div className="courseList">
         <div className="listHeader">
           {handleTitle()}
-          <img onClick={console.log("FILTER")} src={Filter2} alt="" />
+          <img onClick={() => filterResults(1, 0, 3)} src={Filter2} alt="" />
         </div>
         <div>
           {drawList()}
