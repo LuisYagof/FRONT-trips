@@ -8,7 +8,7 @@ import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup';
 import EnterApp from './views/EnterApp/EnterApp'
 import Categoria from './views/Categoria/Categoria'
-import Modals from './components/Modals/Modals'
+// import Filter from './components/Filter/Filter'
 import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
 import SearchAll from "./views/SearchAll/SearchAll";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/dashboard" component={Homepage} />
           <Route path="/cursos/:id" component={Detalle} />
           <Route path="/categorias/:categoria" component={Categoria} />
-          <Route exact path="/modals"  component={Modals} />
+          {/* <Route path="/filter"  component={Filter} /> */}
           <Route path="/review/:curso" component={Review} />
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />

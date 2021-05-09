@@ -30,6 +30,8 @@ const Modals = () => {
     <div>
       <h2>Modales</h2>
       <button onClick={OpenModal1}>Modal 1</button>
+
+      
       <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
         <h3>Ordenado por:</h3>
         

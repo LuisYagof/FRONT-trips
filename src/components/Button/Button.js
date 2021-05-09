@@ -1,7 +1,9 @@
+import React from "react";
+import "./Button.css";
 const Button = (props) => {
     return (
-        <button onClick={() => props.onClick()} type="button">{`${props.text}`}</button>
-        );
+        <button className="button" onClick={() => props.onClick()} type="button">{`${props.text}`}</button>
+    );
 }
 
 export default Button;
