@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
     const ToggleButton = (props) => {
 
-        const [toggleBtn, setToggleBtn] = useState(false);
+        const [toggleBtn, setToggleBtn] = useState(0);
         const handletriggerToggle = () => { 
-            setToggleBtn( !toggleBtn )
-            props.updateTriggerBtn ( !toggleBtn ) 
+            setToggleBtn( toggleBtn == 0 ? 1 : 0 )
+            props.updateTriggerBtn ( toggleBtn == 0 ? 1 : 0 ) 
 
     }
 
