@@ -30,7 +30,6 @@ export default function Filter(props) {
   }
 
   return (
-    // <div className='containerFiltrar'>
 
     <div className={`filtro-desplegable ${props.filter}`}>
 
@@ -77,12 +76,11 @@ export default function Filter(props) {
       <div className='filtrar'>
         <h3>Filtrar por:</h3>
         <ToggleButton toggleBtnText={btnText.title1} updateTriggerBtn={updateTriggerBtn1} />
-        <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2}/>
+        <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2} />
       </div>
 
       <Button onClick={handleFilterResults} text={"Aplicar Filtros"} />
     </div>
 
-    // </div>
   )
 }

@@ -13,6 +13,7 @@ import Filter from '../../components/Filter/Filter'
 
 const Categoria = (props) => {
   const [cursos, setCursos] = useState([])
+  const [filtrados, setFiltrados] = useState([])
   const [docentes, setDocentes] = useState([])
   const [search, setSearch] = useState("")
   const [menu, setMenu] = useState(false)
@@ -37,8 +38,16 @@ const Categoria = (props) => {
     setDocentes(location.state.docentes)
   }, [])
 
+  useEffect(() => {
+    drawList()
+  }, [filtrados])
+
   const drawList = () => {
-    return cursos.map(el => <ItemLista elem={el} docente={docentes.filter(e => e.id == el.docente)[0]} />)
+    if (filtrados[0]) {
+      return filtrados.map(el => <ItemLista key={el.id} elem={el} docente={docentes.filter(e => e.id == el.docente)[0]} />)
+    } else {
+      return cursos.map(el => <ItemLista key={el.id} elem={el} docente={docentes.filter(e => e.id == el.docente)[0]} />)
+    }
   }
 
   const matchCategoria = () => {
@@ -77,10 +86,23 @@ const Categoria = (props) => {
     }
   }
 
-  const filterResults = (toggleBtn1, toggleBtn2, orderBy) => {
+  const filterResults = (bolsa, certif, orderBy) => {
     let trimmed = cursos
-      .filter(e => e.bolsaEmpleo == toggleBtn1)
-      .filter(e => e.certificado == toggleBtn2)
+      .filter(e => {
+        if (bolsa == 1) {
+          return e.bolsaEmpleo == bolsa
+        } else {
+          return e
+        }
+      })
+      .filter(e => {
+        if (certif == 1) {
+          return e.certificado == certif
+        } else {
+          return e
+        }
+      })
+    setFiltrados(trimmed)
     if (orderBy == 1) {
       let ordered = trimmed.sort((a, b) => {
         if (a.media < b.media) {
@@ -91,8 +113,8 @@ const Categoria = (props) => {
         }
         return 0;
       })
-      setCursos(ordered)
-    } else if (orderBy == 2) {
+      setFiltrados(ordered)
+    } else if (orderBy == 3) {
       let ordered = trimmed.sort((a, b) => {
         if (a.precio > b.precio) {
           return 1;
@@ -102,7 +124,7 @@ const Categoria = (props) => {
         }
         return 0;
       })
-      setCursos(ordered)
+      setFiltrados(ordered)
     }
   }
 
