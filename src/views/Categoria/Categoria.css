@@ -1,9 +1,10 @@
-/* div.courseList {
-  width: 96%;
-} */
+div.courseList {
+  padding: 0 1%;
+}
 
 div.listHeader {
   display: flex;
   justify-content: space-between;
   padding: 2% 3%;
+  align-items: baseline;
 }

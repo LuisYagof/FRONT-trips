@@ -9,11 +9,17 @@ import Arrow from '../../assets/icons/Arrow.svg'
 import Search from '../../assets/icons/Search.svg'
 import Filter2 from '../../assets/icons/Filter2.svg'
 
+import Filter from '../../components/Filter/Filter'
+
 const Categoria = (props) => {
   const [cursos, setCursos] = useState([])
   const [docentes, setDocentes] = useState([])
   const [search, setSearch] = useState("")
   const [menu, setMenu] = useState(false)
+
+  const [filter, setFilter] = useState(false)
+  const toggleFilter = () => { setFilter(!filter) }
+
   const history = useHistory()
   const location = useLocation()
   const params = useParams()
@@ -102,6 +108,7 @@ const Categoria = (props) => {
 
   return (
     <>
+      <Filter toggle={toggleFilter} filter={filter} filterResults={filterResults} />
       <Menu toggle={toggleMenu} menu={menu} />
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
@@ -113,7 +120,7 @@ const Categoria = (props) => {
       <div className="courseList">
         <div className="listHeader">
           {handleTitle()}
-          <img onClick={() => filterResults(1, 0, 3)} src={Filter2} alt="" />
+          <img onClick={toggleFilter} src={Filter2} alt="" />
         </div>
         <div>
           {drawList()}
