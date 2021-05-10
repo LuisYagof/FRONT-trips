@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import Button from "../../components/Button/Button";
 import { useHistory } from 'react-router-dom';
+import tickSquare from '../../assets/icons/tickSquare.svg';
+import '../EnterApp/EnterApp.css'
 
-const EnterApp = () => {
-    const [text, setText] = useState("Cerrar");
+const ReviweOk = () => {
+    const [text, setText] = useState("Volver");
     const history = useHistory();
 
     function goBack() {
@@ -11,12 +13,16 @@ const EnterApp = () => {
       }
    
     return (
-        <>
-            <div>--------------------IMAGEN ICONO Ok-------------------</div>
-            <h1>Opinión publicada correctamente</h1>
+        <div className='bodyOnboarding'>
+            <div className='iconOk'>
+                <div>
+                    <img className="checkOk" src={tickSquare} alt='' />
+                </div>
+                <h2>Opinión creada<br/><span className='h2Green'>correctamente</span></h2>
+            </div>
             <Button onClick={goBack} text={text} />
-        </>
+        </div>
         );
     }
 
-export default EnterApp;
+export default ReviweOk;

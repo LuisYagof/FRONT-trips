@@ -1,0 +1,16 @@
+.formReview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 85vh;
+    padding: 0 4%;
+}
+.MuiRating-icon {
+    font-size: 2.8rem;
+}
+.textarea {
+    height: 30vh;
+    border: 1px solid #cccccc;
+    border-radius: 5%;
+    padding: 20px;
+}

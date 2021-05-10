@@ -17,7 +17,7 @@ const Onboarding2 = () => {
     return (
         <div className='bodyOnboarding'>
             <div className='cabeceraOnboarding'>
-                <img className="arrowOnboarding" src={Arrow}  onClick={() => history.push('/1')} alt='' />
+                <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/1')} alt='' />
                 <p className='textOmitir' onClick={() => history.push('/login')}>Omitir</p>
             </div>
             <div className='illustration'>
