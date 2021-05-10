@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Detalle.css';
 import { useLocation, useHistory } from "react-router-dom";
+import fetchData from '../../hooks/Fetch'
 import ArrowWhite from '../../assets/icons/ArrowWhite.svg'
 import Heart from '../../assets/icons/Heart.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
@@ -12,7 +13,21 @@ const Detalle = (props) => {
 
   useEffect(() => {
     setCurso(location.state.curso)
+    fetching()
   }, [])
+
+  const fetching = async () => {
+    let fetchOptions = {
+      method: 'GET'
+    }
+    const content = await fetchData(`keywords/${location.state.curso.id}`, fetchOptions)
+    if (content.error) {
+      alert(content.error)
+    } else {
+      await content.ok && console.log(content);
+      // await content.ok && setDocentes([...docentes, ...content.data.docentes]);
+    }
+  }
 
   const goBack = () => {
     history.goBack()
