@@ -4,12 +4,7 @@ import Button from "../../components/Button/Button";
 
 import './Filter.css'
 
-<<<<<<< HEAD
-export default function Menu(props) {
-
-=======
 export default function Menu (props) {
->>>>>>> signup
   const [toggleBtn1, setToggleBtn1] = useState(false);
   const [toggleBtn2, setToggleBtn2] = useState(false);
   const [orderBy, setOrderBy] = useState("1");
@@ -34,42 +29,6 @@ export default function Menu (props) {
     props.toggle()
   }
 
-<<<<<<< HEAD
-  return (
-    <div className={`filtro-desplegable ${props.filter}`}>
-      <button onClick={props.toggle}>X</button>
-      <h3>Ordenado por:</h3>
-      <input
-        type="radio"
-        id="mPuntuados"
-        name="course"
-        value="1"
-        onClick={orderByValue}
-        defaultChecked
-      />
-      <label htmlFor="mPuntuados">Mejor puntuados</label>
-      <input
-        type="radio"
-        id="mRecientes"
-        name="course"
-        value="2"
-        onClick={orderByValue}
-      />
-      <label htmlFor="mRecientes">Más recientes</label>
-      <input
-        type="radio"
-        id="mBaratos"
-        name="course"
-        value="3"
-        onClick={orderByValue}
-      />
-      <label htmlFor="mBaratos">Más baratos</label>
-      <h3>Filtrar por:</h3>
-      <ToggleButton toggleBtnText={btnText.title1} updateTriggerBtn={updateTriggerBtn1} />
-      <ToggleButton toggleBtnText={btnText.title2} updateTriggerBtn={updateTriggerBtn2} />
-      <button onClick={handleFilterResults}>Aplicar Filtrado</button>
-    </div>
-=======
   return(
     // <div className='containerFiltrar'>
 
@@ -125,6 +84,5 @@ export default function Menu (props) {
       </div>
 
     // </div>
->>>>>>> signup
   )
 }
