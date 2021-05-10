@@ -1,46 +1,31 @@
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
 
-const ToggleButton = (props) => {
-    const [jobBank, setJobBank] = useState(false);
-    const [certificate, setToggle] = useState(false);
-    const triggerToggleJobBank = () => { setJobBank( !jobBank ) };
-    const triggerToggleCertificate = () => { setToggle( !certificate ) }
+    const ToggleButton = (props) => {
+
+        const [toggleBtn, setToggleBtn] = useState(0);
+        const handletriggerToggle = () => { 
+            setToggleBtn( toggleBtn == 0 ? 1 : 0 )
+            props.updateTriggerBtn ( toggleBtn == 0 ? 1 : 0 ) 
+
+    }
 
     return (
-    <>
-    <div>
-        <div onClick={triggerToggleJobBank} className={`wrg-toggle ${jobBank ? 'wrg-toggle--checked' : ''}`}>
-            <div className="wrg-toggle-container">
-                <div className="wrg-toggle-check">
-                    <span></span>
-                </div>
-                <div className="wrg-toggle-uncheck">
-                    <span></span>
-                </div>
-            </div>
-         <div className="wrg-toggle-circle"></div>
-         <input className="wrg-toggle-input" type="checkbox" aria-label="Toggle Button" />
+        <>
+        <div>
+         <div onClick={handletriggerToggle} className={`wrg-toggle ${toggleBtn ? 'wrg-toggle--checked' : ''}`}>
+             <div className="wrg-toggle-container">
+                 <div className="wrg-toggle-check">
+                 </div>
+                 <div className="wrg-toggle-uncheck">
+                 </div>
+             </div>
+             <div className="wrg-toggle-circle"></div>
+             <input className="wrg-toggle-input" type="checkbox" aria-label="Toggle Button" />
+         </div> 
+         <label>{props.toggleBtnText}</label>
         </div>
-        <label>Bolsa de empleo</label>
-    </div>
-
-    <div>
-        <div onClick={triggerToggleCertificate} className={`wrg-toggle ${certificate ? 'wrg-toggle--checked' : ''}`}>
-            <div className="wrg-toggle-container">
-                <div className="wrg-toggle-check">
-                    <span></span>
-                </div>
-                <div className="wrg-toggle-uncheck">
-                    <span></span>
-                </div>
-            </div>
-        <div className="wrg-toggle-circle"></div>
-        <input className="wrg-toggle-input" type="checkbox" aria-label="Toggle Button" />
-        </div> 
-        <label>Certificados</label>
-    </div>
-   </>
-    )
+       </>
+        )
 }
 
 export default ToggleButton;
