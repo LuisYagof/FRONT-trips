@@ -1,0 +1,40 @@
+.bodyOnboarding{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.illustration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: -20px;
+}
+.imgOnboarding{
+    width: 95vw;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.logoOnboarding{
+    width: 60vw;
+    align-items: center;
+}
+.cabeceraOnboarding{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+    height: 10vh;
+}
+.paginacionOnboarding{
+    margin: 40px 0 25px 0;
+}
+.textOmitir{
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    color: #666666;
+}

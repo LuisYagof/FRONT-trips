@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import "./Onboarding.css";
+import Onboarding1 from '../../assets/img/Onboarding1.png'
+import LogoCourseNine from '../../assets/img/LogoCourseNine.svg'
+
 
 const Onboarding = () => {
-
-    const [text, setText] = useState("X");
+    const history = useHistory()
 
     return (
-        <>
-            <Link to="/login">
+        <div className='bodyOnboarding'>
+            <div className='illustration' onClick={() => history.push('/1')}>
                 <div>
-                    <image src='' alt=''/> ---------ilustración--------
+                    <img className="imgOnboarding" src={Onboarding1} alt='' />
                 </div>
                 <div>
-                    <image src='' alt=''/> ---------logotipo--------
+                    <img className="logoOnboarding" src={LogoCourseNine} alt=''/>
                 </div>
-            </Link>
-        </>
+            </div>
+        </div>
         );
-}
+    }
 
 export default Onboarding;
