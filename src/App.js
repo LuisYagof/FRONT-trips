@@ -12,6 +12,7 @@ import Categoria from './views/Categoria/Categoria'
 import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
 import SearchAll from "./views/SearchAll/SearchAll";
+import MyFavorites from "./views/MyFavorites/MyFavorites";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/review/:curso" component={Review} />
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />
+          <Route path="/misFavoritos" component={MyFavorites} />
         </Switch>
       </BrowserRouter>
     </div>
