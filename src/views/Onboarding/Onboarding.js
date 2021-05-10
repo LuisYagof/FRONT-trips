@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "./Onboarding.css";
 import Onboarding1 from '../../assets/img/Onboarding1.png'
-import LogoCourseNine from '../../assets/img/LogoCourseNine.svg'
+import logoCourseNine from '../../assets/img/logoCourseNine.svg'
 
 
 const Onboarding = () => {
@@ -15,7 +15,7 @@ const Onboarding = () => {
                     <img className="imgOnboarding" src={Onboarding1} alt='' />
                 </div>
                 <div>
-                    <img className="logoOnboarding" src={LogoCourseNine} alt=''/>
+                    <img className="logoOnboarding" src={logoCourseNine} alt=''/>
                 </div>
             </div>
         </div>

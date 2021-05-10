@@ -3,6 +3,10 @@ import Button from "../../components/Button/Button";
 import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import { Rating } from "@material-ui/lab";
+import './Review.css';
+import "../Onboarding/Onboarding.css";
+import Arrow from '../../assets/icons/Arrow.svg'
+import Burger from '../../assets/icons/Burger.svg'
 
 const Review = () => {
   const [value, setValue] = useState(2);
@@ -41,9 +45,13 @@ const Review = () => {
   };
 
   return (
-    <form>
-      <h2>Puntuación</h2>
-      <div>
+    <>
+      <div className='cabeceraOnboarding'>
+        <img className="arrowOnboarding" src={Arrow} onClick={() => history.goBack()} alt='' />
+        <img className="arrowOnboarding" src={Burger} onClick={() => history.push('/1')} alt='' />
+      </div>
+      <form className='formReview' >
+        <h3>Puntuación</h3>
         <Rating
           name="simple-controlled"
           value={value}
@@ -51,18 +59,18 @@ const Review = () => {
             setValue(newValue);
           }}
         />
-      </div>
-      <h2>Comentario</h2>
-      <textarea
-        className=""
-        type="text"
-        placeholder="Escribe aquí tu comentario"
-        onChange={handleReview}
-        required
-      />
-      <p>(Máximo 255 caracteres)</p>
-      <Button onClick={fetching} text={text} />
-    </form>
+        <h3>Comentario</h3>
+        <textarea
+          className="textarea"
+          type="text"
+          placeholder="Escribe aquí tu comentario"
+          onChange={handleReview}
+          required
+        />
+        <p>(Máximo 255 caracteres)</p>
+        <Button onClick={fetching} text={text} />
+      </form>
+    </>
   );
 };
 
