@@ -38,11 +38,7 @@ function App() {
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />
           <Route path="/misFavoritos" component={MyFavorites} />
-<<<<<<< HEAD
-          <Route path="/pagError" component={PagError} />
-=======
           <Route path="/nuevoCurso" component={NewCourse} />
->>>>>>> Login
         </Switch>
       </BrowserRouter>
     </div>
