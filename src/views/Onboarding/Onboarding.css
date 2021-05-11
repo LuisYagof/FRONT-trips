@@ -22,19 +22,17 @@
     width: 60vw;
     align-items: center;
 }
-.cabeceraOnboarding{
+.onboardingHeader{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    width: 90vw;
-    height: 10vh;
+    width: 93vw;
 }
 .paginacionOnboarding{
     margin: 40px 0 25px 0;
 }
 .textOmitir{
-    padding-top: 5px;
     display: flex;
     align-items: center;
     color: #666666;
+    margin: 0;
 }

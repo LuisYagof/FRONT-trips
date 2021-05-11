@@ -16,7 +16,7 @@ const Onboarding1 = () => {
 
     return (
         <div className='bodyOnboarding'>
-            <div className='cabeceraOnboarding'>
+            <div className='onboardingHeader'>
                 <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/')} alt='' />
                 <p className='textOmitir' onClick={() => history.push('/login')}>Omitir</p>
             </div>
@@ -25,7 +25,7 @@ const Onboarding1 = () => {
                     <img className="imgOnboarding" src={Onboarding2} alt='' />
                 </div>
                 <h2><span className='h2Green'>Cursos</span> digitales</h2>
-                <p className='textPresentation'>Amplia variedad de los cursos digitales más demandados del momento</p>
+                <p className='textPresentation'>Amplia variedad de los cursos digitales más demandados del momento.</p>
                 <img className="paginacionOnboarding" src={Pagination1} alt='' />
             </div>
             <Button onClick={goUp} text={text} />

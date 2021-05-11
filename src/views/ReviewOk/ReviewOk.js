@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom';
 import tickSquare from '../../assets/icons/tickSquare.svg';
 import '../EnterApp/EnterApp.css'
 
-const ReviweOk = () => {
+const ReviewOk = () => {
     const [text, setText] = useState("Volver");
     const history = useHistory();
 
     function goBack() {
-        history.go(-2);
+        history.go(-2); /*-------------------REVISAR LA PÁGINA A LA QUE VUELVE------------------------*/
       }
    
     return (
@@ -25,4 +25,4 @@ const ReviweOk = () => {
         );
     }
 
-export default ReviweOk;
+export default ReviewOk;
