@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import BtnRadio from "../../components/BtnRadio/BtnRadio";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import Registro from '../../assets/img/Registro.png'
 import './Signup.css'
@@ -13,7 +13,6 @@ const Signup = () => {
   const [text, setText] = useState("Comencemos");
   const [functionFetch, setfunctionFetch] = useState("newStudent");
   const history = useHistory();
-
 
   const handleUser = (user) => setfunctionFetch(user == 'estudiantes' ? 'newStudent' : 'newTeacher');
 
@@ -79,7 +78,7 @@ const Signup = () => {
         onChange={handlePass}
         required
       />
-      {/* <Link to="/recuperar">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link> */}
+      {/* <p>¿No recuerdas tu contraseña? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p> */}
       <Button onClick={fetching} text={text} />
       <p>¿Ya tienes cuenta? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p>
     </form>

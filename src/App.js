@@ -4,6 +4,9 @@ import './App.css';
 import Homepage from './views/Homepage/Homepage'
 import Detalle from './views/Detalle/Detalle'
 import Onboarding from './views/Onboarding/Onboarding';
+import Onboarding1 from './views/Onboarding/Onboarding1';
+import Onboarding2 from './views/Onboarding/Onboarding2';
+import Onboarding3 from './views/Onboarding/Onboarding3';
 import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup';
 import EnterApp from './views/EnterApp/EnterApp'
@@ -20,6 +23,9 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Onboarding} />
+          <Route exact path="/1" component={Onboarding1} />
+          <Route exact path="/2" component={Onboarding2} />
+          <Route exact path="/3" component={Onboarding3} />
           <Route path="/login" component={Login} />
           <Route path="/registro" component={Signup} />
           <Route path="/welcome" component={EnterApp} />

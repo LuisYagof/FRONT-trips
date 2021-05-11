@@ -40,7 +40,7 @@ const Homepage = () => {
   const Slider = () => {
     const cards = cursos.map(el => {
       return (
-        <SwiperSlide key={el.id}>
+        <SwiperSlide >
           <div className={"slideCard"} onClick={() => history.push({
             pathname: `/cursos/${el.id}`,
             state: { curso: el, docente: docentes.filter(e => e.id == el.docente)[0] }
@@ -68,9 +68,6 @@ const Homepage = () => {
         slidesPerView={1.5}
         loop={true}
         initialSlide={5}
-        // navigation
-        // pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
@@ -102,7 +99,6 @@ const Homepage = () => {
         state: {
           cursos: filtered,
           docentes: docentes,
-          // searchTotal: goSearch
         }
       })
     }
