@@ -11,11 +11,11 @@ import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup';
 import EnterApp from './views/EnterApp/EnterApp'
 import Categoria from './views/Categoria/Categoria'
-// import Filter from './components/Filter/Filter'
 import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
 import SearchAll from "./views/SearchAll/SearchAll";
 import MyFavorites from "./views/MyFavorites/MyFavorites";
+import NewCourse from "./views/NewCourse/NewCourse";
 
 function App() {
   return (
@@ -37,6 +37,7 @@ function App() {
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />
           <Route path="/misFavoritos" component={MyFavorites} />
+          <Route path="/nuevoCurso" component={NewCourse} />
         </Switch>
       </BrowserRouter>
     </div>

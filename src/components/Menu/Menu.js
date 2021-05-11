@@ -26,7 +26,6 @@ export default function Menu(props) {
         localStorage.setItem("token", "")
         history.push({pathname:"/login"});
       } else {
-      // history.push("/dashboard");
         alert(content.msg)
     }
 }
