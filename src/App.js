@@ -33,7 +33,6 @@ function App() {
           <Route path="/dashboard" component={Homepage} />
           <Route path="/cursos/:id" component={Detalle} />
           <Route path="/categorias/:categoria" component={Categoria} />
-          {/* <Route path="/filter"  component={Filter} /> */}
           <Route path="/review/:curso" component={Review} />
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />

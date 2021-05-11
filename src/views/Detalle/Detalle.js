@@ -10,6 +10,7 @@ import language from '../../assets/icons/language.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
 import Button from '../../components/Button/Button'
 import Media from '../../components/Media/Media'
+import TinyMedia from '../../components/TinyBtn/TinyMedia'
 
 const Detalle = (props) => {
   const [curso, setCurso] = useState({})
@@ -92,7 +93,7 @@ const Detalle = (props) => {
         <img className="arrowImg" onClick={goBack} src={ArrowWhite} alt="" />
         <img className="heartImg" onClick={() => console.log("Favorito")} src={Heart} alt="" />
         <div className="infoBox">
-          <TinyBtn text={`${curso.media} #`} color={"blue"} />
+          <TinyMedia media={curso.media} color={"blue"} />
           <div className="subInfo">
             <TinyBtn text={location.state.docente.nombre} color={"orange"} />
             <TinyBtn text={curso.precio} color={"green"} />
@@ -117,7 +118,7 @@ const Detalle = (props) => {
         <h2>Opiniones de usuarios</h2>
         <Media media={curso.media}/>
         <p onClick={() => console.log("VER REVIEWS")}>Ver todas las opiniones</p>
-        <Button onClick={() => console.log("PUBLICAR")} text={"Publicar opinión"} class={"invert"}/>
+        <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"}/>
       </div>
 
     </>
