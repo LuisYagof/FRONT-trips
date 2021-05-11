@@ -3,13 +3,18 @@ import Button from "../../components/Button/Button";
 import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import { Rating } from "@material-ui/lab";
+import './Review.css';
+import Menu from '../../components/Menu/Menu'
+import Arrow from '../../assets/icons/Arrow.svg'
+import Burger from '../../assets/icons/Burger.svg'
 
 const Review = () => {
   const [value, setValue] = useState(2);
   const [review, setReview] = useState("");
   const [text, setText] = useState("Enviar review");
   const [functionFetch, setfunctionFetch] = useState("newReview/:");
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+  const [menu, setMenu] = useState(false)
   const history = useHistory();
 
   const handleReview = (event) => {
@@ -40,10 +45,19 @@ const Review = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setMenu(!menu)
+  };
+
   return (
-    <form>
-      <h2>Puntuación</h2>
-      <div>
+    <>
+      <Menu toggle={toggleMenu} menu={menu} />
+      <div className='reviewHeader'>
+        <img className="arrowRewiew" src={Arrow} onClick={() => history.goBack()} alt='' />
+        <img className="arrowReview" onClick={toggleMenu} src={Burger} alt='' />
+      </div>
+      <form className='formReview' >
+        <h3>Puntuación</h3>
         <Rating
           name="simple-controlled"
           value={value}
@@ -51,18 +65,18 @@ const Review = () => {
             setValue(newValue);
           }}
         />
-      </div>
-      <h2>Comentario</h2>
-      <textarea
-        className=""
-        type="text"
-        placeholder="Escribe aquí tu comentario"
-        onChange={handleReview}
-        required
-      />
-      <p>(Máximo 255 caracteres)</p>
-      <Button onClick={fetching} text={text} />
-    </form>
+        <h3>Comentario</h3>
+        <textarea
+          className="textarea"
+          type="text"
+          placeholder="Escribe aquí tu comentario."
+          onChange={handleReview}
+          required
+        />
+        <p className='character255'>(Máximo 255 caracteres)</p>
+        <Button onClick={fetching} text={text} />
+      </form>
+    </>
   );
 };
 

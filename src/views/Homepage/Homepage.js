@@ -114,7 +114,7 @@ const Homepage = () => {
 
   return (
     <>
-      <Menu toggle={toggleMenu} menu={menu} />
+      <Menu toggle={toggleMenu} menu={menu}/>
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />

@@ -4,7 +4,6 @@ import "./Onboarding.css";
 import Onboarding1 from '../../assets/img/Onboarding1.png'
 import LogoCourseNine from '../../assets/img/logoCourseNine.svg'
 
-
 const Onboarding = () => {
     const history = useHistory()
 

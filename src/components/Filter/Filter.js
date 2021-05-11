@@ -35,7 +35,11 @@ export default function Filter(props) {
 
       <div className='cabeceraBusqueda'>
         <h3>Filtra tu búsqueda</h3>
-        <img src={Close} onClick={props.toggle} />
+<<<<<<< HEAD
+        <img src={Close} alt="" onClick={props.toggle} />
+=======
+        <img className='closeSearch' src={Close} onClick={props.toggle} />
+>>>>>>> d6d4c6b98a8040197bbf0a9438533fcbdc4dcb84
       </div>
 
       <div className='filtrar'>

@@ -1,7 +1,7 @@
 div.imgDetail>img.arrowImg, div.imgDetail>img.heartImg {
   position: absolute;
   z-index: 999;
-  margin: 1%;
+  margin: 3%;
 }
 
 div.imgDetail>img.heartImg {
@@ -26,4 +26,23 @@ div.subInfo {
 
 img.courseImg {
   width: 100%;
+}
+
+div.courseDescription {
+  padding: 0 5%;
+  text-align: justify;
+}
+
+div.jobsInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4% 9%;
+  background-color: #F5B6A3;
+  color: whitesmoke;
+  box-sizing: border-box;
+}
+
+h3.whiteH3 {
+  color: whitesmoke;
 }
