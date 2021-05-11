@@ -11,12 +11,12 @@ import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup';
 import EnterApp from './views/EnterApp/EnterApp'
 import Categoria from './views/Categoria/Categoria'
-// import Filter from './components/Filter/Filter'
 import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
 import SearchAll from "./views/SearchAll/SearchAll";
 import MyFavorites from "./views/MyFavorites/MyFavorites";
 import PagError from './views/PagError/PagError';
+import NewCourse from "./views/NewCourse/NewCourse";
 
 function App() {
   return (
@@ -38,7 +38,11 @@ function App() {
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />
           <Route path="/misFavoritos" component={MyFavorites} />
+<<<<<<< HEAD
           <Route path="/pagError" component={PagError} />
+=======
+          <Route path="/nuevoCurso" component={NewCourse} />
+>>>>>>> Login
         </Switch>
       </BrowserRouter>
     </div>
