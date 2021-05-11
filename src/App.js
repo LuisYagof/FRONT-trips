@@ -16,6 +16,7 @@ import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
 import SearchAll from "./views/SearchAll/SearchAll";
 import MyFavorites from "./views/MyFavorites/MyFavorites";
+import PagError from './views/PagError/PagError';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/review-ok" component={ReviewOk} />
           <Route path="/resultadoBusqueda" component={SearchAll} />
           <Route path="/misFavoritos" component={MyFavorites} />
+          <Route path="/pagError" component={PagError} />
         </Switch>
       </BrowserRouter>
     </div>
