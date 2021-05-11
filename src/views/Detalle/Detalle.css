@@ -46,3 +46,31 @@ div.jobsInfo {
 h3.whiteH3 {
   color: whitesmoke;
 }
+
+div.extraInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 5% 10%;
+}
+
+div.infoImg {
+  display: flex;
+  width: 100%;
+}
+
+div.infoImg>img {
+  width: 30px;
+  margin: 4%;
+}
+
+div.buttonBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+div.reviewBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

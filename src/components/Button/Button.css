@@ -10,3 +10,9 @@
   letter-spacing: 0.5px;
   min-width: 325px;
 }
+
+.invert {
+  background: white;
+  color:#e3562a;
+  border: 1px solid #e3562a;
+}
