@@ -3,34 +3,39 @@ form.formVH {
   display: flex;
   flex-direction: column;
   padding: 7% 3%;
+  /* width: 100vw; */
+  align-items: center;
 }
-
 div.imgBoxVH {
   height: 25%;
-  width: 100%;
+  width: 100vw;
 }
-
 div.imgBoxVH>img {
   width: 100%;
 }
-
 form.formVH>h2, form.formVH>p {
   text-align: center;
 }
-
 form.formVH>h2 {
   margin: 30px 0;
 }
-
-form.formVH>input {
+form.formVH input {
   line-height: 2;
   border-radius: 16px;
-  border: solid 1px lightgray;
+  border: solid 1px rgb(211 211 211);
   padding: 8px 16px;
-  margin:2%;
+  margin: 2% 0;
+  width: 84vw;
 }
-
 span.linkSpan {
   font-weight: 600;
   color: #E3562A;
+}
+.passwordEye{
+  display: flex;
+}
+.eyeOff{
+  z-index: 999;
+  position: absolute;
+  transform: translate(300px, 17px);
 }

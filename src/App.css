@@ -5,14 +5,12 @@ div.navHeader {
   justify-content: space-evenly;
   padding: 7% 0 0 0;
 }
-
 div.navHeader input {
   width: 55%;
   border-radius: 8px;
   border: solid 1px lightgray;
   padding: 10px;
 }
-
 div.navHeader input:focus {
   outline: none
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import BtnRadio from "../../components/BtnRadio/BtnRadio";
+import eyeOff from "../../assets/icons/eyeOff.svg";
+import eyeOn from "../../assets/icons/eyeOn.svg";
 import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import Registro from '../../assets/img/Registro.png'
@@ -11,6 +13,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [text, setText] = useState("Comencemos");
+  const [eye, setEye] = useState(true);
   const [functionFetch, setfunctionFetch] = useState("newStudent");
   const history = useHistory();
 
@@ -50,6 +53,10 @@ const Signup = () => {
     }
   };
 
+  const changeEye = () => {
+    setEye(!eye)
+  }
+
   return (
     <form className="formVH">
       <div className="imgBoxVH">
@@ -58,26 +65,26 @@ const Signup = () => {
       <h2>Registrarse</h2>
       <BtnRadio handleUser={handleUser} />
       <input
-        className=""
         type="text"
         placeholder={functionFetch == 'newStudent' ? "Nombre y Apellido" : "Nombre de Escuela/Profesor"}
         onChange={handleName}
         required
       />
       <input
-        className=""
         type="email"
         placeholder="Email"
         onChange={handleEmail}
         required
       />
-      <input
-        className=""
-        type="Password"
-        placeholder="Password"
-        onChange={handlePass}
-        required
-      />
+      <div className='passwordEye'>
+        <input
+          type={eye ? "password" : "text"} 
+          placeholder="Password"
+          onChange={handlePass}
+          required
+        />
+        <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={ changeEye } alt='' />
+      </div>
       {/* <p>¿No recuerdas tu contraseña? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p> */}
       <Button onClick={fetching} text={text} />
       <p>¿Ya tienes cuenta? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p>
