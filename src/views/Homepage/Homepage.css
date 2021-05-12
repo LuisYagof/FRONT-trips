@@ -1,4 +1,3 @@
-
 /* -----------------------CAROUSEL----------------------*/
 
 div.slideHeader {
@@ -11,8 +10,11 @@ div.slideHeader button {
   color: #5BA092;
   background-color: transparent;
   border: none;
-  font-weight: bold;
   cursor: pointer;
+  font-family: Heebo;
+  font-weight: normal;
+  font-size: 12px;
+  letter-spacing: 0.4px;
 }
 
 div.slideCard {
