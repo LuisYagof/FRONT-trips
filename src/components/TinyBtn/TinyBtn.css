@@ -14,10 +14,6 @@ h6.tinyBtn.orange {
   background-color: rgba(227, 86, 42, 0.9);
 }
 
-h6.tinyBtn.blue {
-  background-color: #79B5EC;
-}
-
 h6.tinyBtn.orange.list {
   margin: 0;
   width: 95px;
@@ -25,4 +21,26 @@ h6.tinyBtn.orange.list {
 
 h6.tinyBtn.green.list {
   width: 40px;
+}
+
+div.tinyMedia {
+  background-color: #79B5EC;
+  font-family: Archivo;
+  width: max-content;
+  border-radius: 5px;
+  padding: 5px;
+  height: 15px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+h6.tinyMedia {
+  margin: 0;
+  color: white;
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
 }

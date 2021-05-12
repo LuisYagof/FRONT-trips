@@ -4,7 +4,13 @@ import { useLocation, useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch'
 import ArrowWhite from '../../assets/icons/ArrowWhite.svg'
 import Heart from '../../assets/icons/Heart.svg'
+import CheckAll from '../../assets/icons/CheckAll.svg'
+import accessTime from '../../assets/icons/accessTime.svg'
+import language from '../../assets/icons/language.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
+import Button from '../../components/Button/Button'
+import Media from '../../components/Media/Media'
+import TinyMedia from '../../components/TinyBtn/TinyMedia'
 
 const Detalle = (props) => {
   const [curso, setCurso] = useState({})
@@ -12,6 +18,8 @@ const Detalle = (props) => {
   const [tags, setTags] = useState([])
   const [salaries, setSalaries] = useState([])
   const [professions, setProfessions] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [reviewNum, setReviewNum] = useState(0)
   const location = useLocation()
   const history = useHistory()
 
@@ -24,7 +32,7 @@ const Detalle = (props) => {
     let fetchOptions = {
       method: 'GET'
     }
-    const content = await fetchData(`keywords/${location.state.curso.id}`, fetchOptions)
+    const content = await fetchData(`dataAPI/${location.state.curso.id}`, fetchOptions)
     if (content.error) {
       alert(content.error)
     } else if (content.ok) {
@@ -32,6 +40,8 @@ const Detalle = (props) => {
       await content.ok && setSalaries(content.APIresponse.professions)
       await content.ok && setTags(content.keywords)
       await content.ok && setProfessions(content.professions)
+      await content.ok && setReviews(content.reviews)
+      await content.ok && setReviewNum(content.reviewNum)
     } else if (!content.ok) {
       alert(content.msg)
     }
@@ -55,12 +65,28 @@ const Detalle = (props) => {
   }
 
   const extra = () => {
+    const bolsa = () => <div className="infoImg">
+      <img src={CheckAll} alt="" />
+      <p>Bolsa de empleo</p>
+    </div>
+
+    const certif = () => <div className="infoImg">
+      <img src={CheckAll} alt="" />
+      <p>Certificado</p>
+    </div>
+
     return (
       <>
-        <p>{curso.duracion} horas</p>
-        <p>{curso.idioma} idioma</p>
-        <p>{curso.bolsaEmpleo} bolsa</p>
-        <p>{curso.certificado} certificado</p>
+        <div className="infoImg">
+          <img src={accessTime} alt="" />
+          <p>{curso.duracion} horas</p>
+        </div>
+        <div className="infoImg">
+          <img src={language} alt="" />
+          <p>{curso.idioma === 0 ? "Español" : "Inglés"}</p>
+        </div>
+        {curso.bolsaEmpleo == 1 && bolsa()}
+        {curso.certificado == 1 && certif()}
       </>
     )
   }
@@ -71,10 +97,10 @@ const Detalle = (props) => {
         <img className="arrowImg" onClick={goBack} src={ArrowWhite} alt="" />
         <img className="heartImg" onClick={() => console.log("Favorito")} src={Heart} alt="" />
         <div className="infoBox">
-          <TinyBtn text={`${curso.media} #`} color={"blue"} />
+          <TinyMedia media={curso.media} color={"blue"} num={reviewNum}/>
           <div className="subInfo">
             <TinyBtn text={location.state.docente.nombre} color={"orange"} />
-            <TinyBtn text={curso.precio} color={"green"} />
+            <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
         <img className="courseImg" src={curso.imagen} alt="" />
@@ -89,6 +115,16 @@ const Detalle = (props) => {
       <div className="extraInfo">
         {extra()}
       </div>
+      <div className="buttonBox">
+        <Button onClick={() => window.open(curso.enlace)} text={"Visitar curso"} />
+      </div>
+      <div className="reviewBox">
+        <h2>Opiniones de usuarios</h2>
+        <Media media={curso.media}/>
+        <p onClick={() => console.log("VER REVIEWS")}>Ver todas las opiniones</p>
+        <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"}/>
+      </div>
+
     </>
   )
 }
