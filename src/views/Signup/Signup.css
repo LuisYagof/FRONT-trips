@@ -15,6 +15,7 @@ div.imgBoxVH>img {
 }
 form.formVH>h2, form.formVH>p {
   text-align: center;
+  width: 93vw;
 }
 form.formVH>h2 {
   margin: 30px 0;
@@ -26,6 +27,9 @@ form.formVH input {
   padding: 8px 16px;
   margin: 2% 0;
   width: 84vw;
+}
+form.formVH input:focus {
+  outline: none;
 }
 span.linkSpan {
   font-weight: 600;

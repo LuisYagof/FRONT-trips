@@ -19,6 +19,7 @@ import PagError from './views/PagError/PagError';
 import NewCourse from "./views/NewCourse/NewCourse";
 import RecuperarPass from "./views/RecuperarPass/RecuperarPass";
 import PassEstablecida from "./views/PassEstablecida/PassEstablecida";
+import PreviaRecuPass from "./views/PreviaRecuPass/PreviaRecuPass";
 import MyProfile from "./views/MyProfile/MyProfile";
 import LoginContext from './contexts/LoginContext/LoginContext';
 
@@ -55,9 +56,10 @@ function App() {
             <Route path="/resultadoBusqueda" component={SearchAll} />
             <Route path="/misFavoritos" component={MyFavorites} />
             <Route path="/nuevoCurso" component={NewCourse} />
-            <Route path="/PagError" component={PagError} />
-            <Route path="/RecuperarPass" component={RecuperarPass} />
-            <Route path="/PassEstablecida" component={PassEstablecida} />
+            <Route path="/pagError" component={PagError} />
+            <Route path="/recuperarPass" component={RecuperarPass} />
+            <Route path="/passEstablecida" component={PassEstablecida} />
+            <Route path="/previaRecuPass" component={PreviaRecuPass} />
             <Route path="/miPerfil" component={MyProfile} />
           </LoginContext.Provider >
         </Switch>

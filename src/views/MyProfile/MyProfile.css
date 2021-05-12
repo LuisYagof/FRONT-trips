@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     margin: 7% 3%;
+    height: 90vh;
 }
 .textCabecera{
     display: flex;
@@ -20,6 +21,7 @@
     display: flex;
     flex-direction: column;
     width: 93vw;
+    height: 80vh;
 }
 .inputForm{
     line-height: 2;
