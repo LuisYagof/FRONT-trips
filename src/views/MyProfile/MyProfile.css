@@ -1,0 +1,30 @@
+.newMyProfileHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 93vw;
+}
+.bodyMyProfile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7% 3%;
+}
+.textCabecera{
+    display: flex;
+    justify-content: left;
+    width: 93vw;
+    margin-bottom: 20px;
+}
+.formMyProfile{
+    display: flex;
+    flex-direction: column;
+    width: 93vw;
+}
+.inputForm{
+    line-height: 2;
+    border-radius: 14px;
+    border: solid 1px rgb(211 211 211);
+    padding: 5px 16px;
+    margin: 10px 0 20px 0;
+}
