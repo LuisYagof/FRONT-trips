@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
 import Homepage from './views/Homepage/Homepage'
@@ -21,8 +21,21 @@ import RecuperarPass from "./views/RecuperarPass/RecuperarPass";
 import PassEstablecida from "./views/PassEstablecida/PassEstablecida";
 import PreviaRecuPass from "./views/PreviaRecuPass/PreviaRecuPass";
 import MyProfile from "./views/MyProfile/MyProfile";
+import LoginContext from './contexts/LoginContext/LoginContext';
 
 function App() {
+  const [logged, setLogged] = useState(false)
+  const [userName, setUserName] = useState("")
+  const [userMail, setUserMail] = useState("")
+  const [userRole, setUserRole] = useState("")
+  const toggleLogged = (boolean) => setLogged(boolean)
+  const toggleUserName = (name) => setUserName(name)
+  const toggleUserMail = (mail) => setUserMail(mail)
+  const toggleUserRole = (role) => setUserRole(role)
+  const logContext = {
+    logged, toggleLogged, userName, toggleUserName, userMail, toggleUserMail, userRole, toggleUserRole
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -31,23 +44,24 @@ function App() {
           <Route exact path="/1" component={Onboarding1} />
           <Route exact path="/2" component={Onboarding2} />
           <Route exact path="/3" component={Onboarding3} />
-          <Route path="/login" component={Login} />
-          <Route path="/registro" component={Signup} />
-          <Route path="/welcome" component={EnterApp} />
-          <Route path="/dashboard" component={Homepage} />
-          <Route path="/cursos/:id" component={Detalle} />
-          <Route path="/categorias/:categoria" component={Categoria} />
-          <Route path="/review/:curso" component={Review} />
-          <Route path="/review-ok" component={ReviewOk} />
-          <Route path="/resultadoBusqueda" component={SearchAll} />
-          <Route path="/misFavoritos" component={MyFavorites} />
-          <Route path="/nuevoCurso" component={NewCourse} />
-          <Route path="/PagError" component={PagError} />
-          <Route path="/RecuperarPass" component={RecuperarPass} />
-          <Route path="/PassEstablecida" component={PassEstablecida} />
-          <Route path="/PreviaRecuPass" component={PreviaRecuPass} />
-          <Route path="/miPerfil" component={MyProfile} />
-
+          <LoginContext.Provider value={logContext}>
+            <Route path="/login" component={Login} />
+            <Route path="/registro" component={Signup} />
+            <Route path="/welcome" component={EnterApp} />
+            <Route path="/dashboard" component={Homepage} />
+            <Route path="/cursos/:id" component={Detalle} />
+            <Route path="/categorias/:categoria" component={Categoria} />
+            <Route path="/review/:curso" component={Review} />
+            <Route path="/review-ok" component={ReviewOk} />
+            <Route path="/resultadoBusqueda" component={SearchAll} />
+            <Route path="/misFavoritos" component={MyFavorites} />
+            <Route path="/nuevoCurso" component={NewCourse} />
+            <Route path="/pagError" component={PagError} />
+            <Route path="/recuperarPass" component={RecuperarPass} />
+            <Route path="/passEstablecida" component={PassEstablecida} />
+            <Route path="/previaRecuPass" component={PreviaRecuPass} />
+            <Route path="/miPerfil" component={MyProfile} />
+          </LoginContext.Provider >
         </Switch>
       </BrowserRouter>
     </div>

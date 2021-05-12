@@ -6,7 +6,6 @@ const ToggleButton = (props) => {
     const handletriggerToggle = () => {
         setToggleBtn(toggleBtn == 0 ? 1 : 0)
         props.updateTriggerBtn(toggleBtn == 0 ? 1 : 0)
-
     }
 
     return (

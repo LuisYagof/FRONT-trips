@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import fetchData from '../../hooks/Fetch'
 import './Homepage.css'
 import Menu from '../../components/Menu/Menu'
+import MenuTeacher from '../../components/Menu/MenuTeacher'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 import Search from '../../assets/icons/Search.svg'
@@ -14,6 +15,7 @@ import Web from '../../assets/img/categories/webdevelopment.jpg'
 import Data from '../../assets/img/categories/datascience01.jpg'
 import Market from '../../assets/img/categories/digitalmarketing.jpg'
 import UXUI from '../../assets/img/categories/uxui01.jpg'
+import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -26,8 +28,12 @@ const Homepage = () => {
   const [search, setSearch] = useState("")
   const [menu, setMenu] = useState(false)
   const history = useHistory()
+  const loginContext = useContext(LoginContext);
 
   useEffect(() => {
+    if (!loginContext.logged) {
+      history.push("/login")
+    }
     const fetching = async () => {
       let fetchOptions = {
         method: 'GET'
@@ -120,7 +126,7 @@ const Homepage = () => {
 
   return (
     <>
-      <Menu toggle={toggleMenu} menu={menu} docentes={docentes}/>
+      {loginContext.userRole == "estudiantes" ? <Menu toggle={toggleMenu} menu={menu} docentes={docentes} /> : <MenuTeacher toggle={toggleMenu} menu={menu} docentes={docentes} />}
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />

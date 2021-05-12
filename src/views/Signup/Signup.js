@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Button from "../../components/Button/Button";
 import BtnRadio from "../../components/BtnRadio/BtnRadio";
 import eyeOff from "../../assets/icons/eyeOff.svg";
@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import Registro from '../../assets/img/Registro.png'
 import './Signup.css'
+import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -16,6 +17,7 @@ const Signup = () => {
   const [eye, setEye] = useState(true);
   const [functionFetch, setfunctionFetch] = useState("newStudent");
   const history = useHistory();
+  const loginContext = useContext(LoginContext);
 
   const handleUser = (user) => setfunctionFetch(user == 'estudiantes' ? 'newStudent' : 'newTeacher');
 
@@ -47,6 +49,10 @@ const Signup = () => {
     }
     if (content.ok) {
       localStorage.setItem('token', content.token);
+      loginContext.toggleLogged(true)
+      loginContext.toggleUserName(content.user.nombre)
+      loginContext.toggleUserMail(content.user.email)
+      loginContext.toggleUserRole(content.user.rol)
       history.push('/welcome')
     } else {
       alert(content.msg)
