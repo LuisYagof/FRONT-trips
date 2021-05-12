@@ -27,7 +27,6 @@
 }
 .wrg-toggle--checked .wrg-toggle-check {
   opacity: 1;
-  background: #5ba092;
 }
 .wrg-toggle--checked .wrg-toggle-uncheck {
   opacity: 0;

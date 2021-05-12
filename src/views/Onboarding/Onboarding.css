@@ -5,6 +5,11 @@
     align-items: center;
     height: 100vh;
 }
+.onboardingHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 93vw;
+}
 .illustration{
     display: flex;
     flex-direction: column;

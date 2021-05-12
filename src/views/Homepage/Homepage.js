@@ -8,6 +8,12 @@ import Arrow from '../../assets/icons/Arrow.svg'
 import Search from '../../assets/icons/Search.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
 import Media from '../../components/Media/Media'
+import Backend from '../../assets/img/categories/backend01.jpg'
+import Frontend from '../../assets/img/categories/frontend01.jpg'
+import Web from '../../assets/img/categories/webdevelopment.jpg'
+import Data from '../../assets/img/categories/datascience01.jpg'
+import Market from '../../assets/img/categories/digitalmarketing.jpg'
+import UXUI from '../../assets/img/categories/uxui01.jpg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -56,7 +62,7 @@ const Homepage = () => {
             <div className="slideMiniCard2">
               <h5>{el.nombre}</h5>
               {/* <h5>{el.media}#</h5> */}
-              <Media media={el.media}/>
+              <Media media={el.media} />
             </div>
           </div>
         </SwiperSlide>
@@ -114,7 +120,7 @@ const Homepage = () => {
 
   return (
     <>
-      <Menu toggle={toggleMenu} menu={menu}/>
+      <Menu toggle={toggleMenu} menu={menu} docentes={docentes}/>
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />
@@ -133,12 +139,12 @@ const Homepage = () => {
       <div>
         <h3 className="gridTitle">Categorías</h3>
         <div className="gridCategorias">
-          <div><img src="https://picsum.photos/id/1/175/100" alt="" onClick={() => handleClick(1)} style={{ "border-radius": "10px" }} /><p>Desarrollo Web</p></div>
-          <div><img src="https://picsum.photos/id/2/175/100" alt="" onClick={() => handleClick(2)} style={{ "border-radius": "10px" }} /><p>FrontEnd</p></div>
-          <div><img src="https://picsum.photos/id/3/175/100" alt="" onClick={() => handleClick(3)} style={{ "border-radius": "10px" }} /><p>BackEnd</p></div>
-          <div><img src="https://picsum.photos/id/4/175/100" alt="" onClick={() => handleClick(4)} style={{ "border-radius": "10px" }} /><p>Marketing Digital</p></div>
-          <div><img src="https://picsum.photos/id/5/175/100" alt="" onClick={() => handleClick(5)} style={{ "border-radius": "10px" }} /><p>UX/UI</p></div>
-          <div><img src="https://picsum.photos/id/6/175/100" alt="" onClick={() => handleClick(6)} style={{ "border-radius": "10px" }} /><p>Data Science</p></div>
+          <div><img src={Web} alt="" onClick={() => handleClick(1)} /></div>
+          <div><img src={Frontend} alt="" onClick={() => handleClick(2)} /></div>
+          <div><img src={Backend} alt="" onClick={() => handleClick(3)} /></div>
+          <div><img src={Market} alt="" onClick={() => handleClick(4)} /></div>
+          <div><img src={UXUI} alt="" onClick={() => handleClick(5)} /></div>
+          <div><img src={Data} alt="" onClick={() => handleClick(6)} /></div>
         </div>
       </div>
     </>

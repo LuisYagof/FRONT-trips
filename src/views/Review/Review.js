@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import { Rating } from "@material-ui/lab";
 import './Review.css';
@@ -9,19 +9,21 @@ import Arrow from '../../assets/icons/Arrow.svg'
 import Burger from '../../assets/icons/Burger.svg'
 
 const Review = () => {
+  const history = useHistory();
+  const params = useParams();
   const [value, setValue] = useState(2);
   const [review, setReview] = useState("");
   const [text, setText] = useState("Enviar review");
-  const [functionFetch, setfunctionFetch] = useState("newReview/:");
+  const [functionFetch, setfunctionFetch] = useState(`newReview/${params.curso}`);
   // const [data, setData] = useState([]);
   const [menu, setMenu] = useState(false)
-  const history = useHistory();
 
   const handleReview = (event) => {
     setReview(event.target.value);
   };
 
   const fetching = async () => {
+    console.log(params.curso);
     let fetchOptions = {
       method: "POST",
       headers: {
@@ -38,10 +40,10 @@ const Review = () => {
       alert(content.error);
     }
     if (content.ok) {
-      alert(content.msg);
       history.push("/review-ok");
     } else {
       alert(content.msg);
+      history.goBack();
     }
   };
 
