@@ -4,6 +4,10 @@ h6.tinyBtn {
   border-radius: 5px;
   margin: 0 3%;
   cursor: pointer;
+  font-family: Heebo;
+  font-weight: normal;
+  font-size: 10px;
+  /* line-height: 20px; */
 }
 
 h6.tinyBtn.green {

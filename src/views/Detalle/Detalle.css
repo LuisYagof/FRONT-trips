@@ -30,7 +30,14 @@ img.courseImg {
 
 div.courseDescription {
   padding: 0 5%;
+}
+div.courseDescription p {
+  font-family: Heebo;
+  font-weight: 300;
+  line-height: 20px;
   text-align: justify;
+  letter-spacing: 0.5px;
+  color: #999999;
 }
 
 div.jobsInfo {

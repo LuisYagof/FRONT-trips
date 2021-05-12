@@ -50,6 +50,11 @@ div.slideMiniCard2 {
 
 div.slideMiniCard2>h5 {
   margin: 5px;
+  font-family: Archivo;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  color: #999999;
 }
 
 /* -----------------------GRID----------------------*/
@@ -62,5 +67,11 @@ div.gridCategorias {
 }
 
 h3.gridTitle {
-  margin: 26px 0 17px 18px;
+  margin: 10% 0 4% 3%;
+}
+
+div.gridCategorias div img {
+  border-radius: 8px;
+  width: 170px;
+  margin: 0 0 8% 0;
 }
