@@ -27,6 +27,9 @@ form.formVH input {
   margin: 2% 0;
   width: 84vw;
 }
+form.formVH input:focus {
+  outline: none;
+}
 span.linkSpan {
   font-weight: 600;
   color: #E3562A;
