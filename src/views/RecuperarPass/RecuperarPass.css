@@ -1,0 +1,27 @@
+.bodyRecuPass {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .illustration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: -20px;
+  }
+  .imgRecuPass {
+    width: 95vw;
+    align-items: center;
+    margin-bottom: -14px;
+      }
+
+  
+  .textPresentation{
+
+    font-size: 24px;
+    font-weight: 400;
+  }

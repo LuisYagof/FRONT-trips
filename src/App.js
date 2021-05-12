@@ -17,6 +17,8 @@ import SearchAll from "./views/SearchAll/SearchAll";
 import MyFavorites from "./views/MyFavorites/MyFavorites";
 import PagError from './views/PagError/PagError';
 import NewCourse from "./views/NewCourse/NewCourse";
+import RecuperarPass from "./views/RecuperarPass/RecuperarPass";
+import PassEstablecida from "./views/PassEstablecida/PassEstablecida";
 
 function App() {
   return (
@@ -39,6 +41,10 @@ function App() {
           <Route path="/resultadoBusqueda" component={SearchAll} />
           <Route path="/misFavoritos" component={MyFavorites} />
           <Route path="/nuevoCurso" component={NewCourse} />
+          <Route path="/PagError" component={PagError} />
+          <Route path="/RecuperarPass" component={RecuperarPass} />
+          <Route path="/PassEstablecida" component={PassEstablecida} />
+
         </Switch>
       </BrowserRouter>
     </div>
