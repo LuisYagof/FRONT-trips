@@ -4,35 +4,29 @@ div.listItem {
   border: 1px solid #EBEBEB;
   border-radius: 6px;
 }
-
 div.imgBox {
   width: 35%;
   margin: 0 2px;
   display: flex;
 }
-
 div.listItem div.imgBox img.courseImg {
   width: 100%;
 }
-
 div.courseInfo {
   width: 64%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 div.courseTitle {
   padding: 3% 0;
 }
-
 div.courseTitle>h4 {
   margin: 0 0 0 13px;
   font-weight: initial;
   font-size: 14px;
   color: #999999
 }
-
 div.courseSubInfo {
   width: 100%;
   display: flex;
@@ -40,7 +34,6 @@ div.courseSubInfo {
   align-items: baseline;
   height: 45%;
 }
-
 div.courseSubInfo>h5 {
   margin: 0;
 }

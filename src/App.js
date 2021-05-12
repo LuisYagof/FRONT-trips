@@ -42,12 +42,11 @@ function App() {
           <Route path="/resultadoBusqueda" component={SearchAll} />
           <Route path="/misFavoritos" component={MyFavorites} />
           <Route path="/nuevoCurso" component={NewCourse} />
-          <Route path="/PagError" component={PagError} />
-          <Route path="/RecuperarPass" component={RecuperarPass} />
-          <Route path="/PassEstablecida" component={PassEstablecida} />
-          <Route path="/PreviaRecuPass" component={PreviaRecuPass} />
+          <Route path="/pagError" component={PagError} />
+          <Route path="/recuperarPass" component={RecuperarPass} />
+          <Route path="/passEstablecida" component={PassEstablecida} />
+          <Route path="/previaRecuPass" component={PreviaRecuPass} />
           <Route path="/miPerfil" component={MyProfile} />
-
         </Switch>
       </BrowserRouter>
     </div>
