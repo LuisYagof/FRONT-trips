@@ -52,7 +52,7 @@ const MyProfile = () => {
                 <input className='inputForm' type="text" name="nombre" onChange={handleName}/>
 
                 <label className='textLabel' htmlFor="email">Email</label>
-                <textarea className='inputForm' type="text" name="email" onChange={handleEmail}/>
+                <input className='inputForm' type="text" name="email" onChange={handleEmail}/>
 
                 <label className='textLabel' htmlFor="pass">Password</label>
                 <input className='inputForm' type="text" name="pass" onChange={handlePass}/>
