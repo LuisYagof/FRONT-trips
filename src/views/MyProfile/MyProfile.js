@@ -21,7 +21,7 @@ const MyProfile = () => {
     const fetching = async () => {
         if (pass === rePass){
             let fetchOptions = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 "content-type": "application/json",
                 authorization: `Bearer: ${localStorage.getItem("token")}`,
@@ -58,13 +58,13 @@ const MyProfile = () => {
                 <input className='inputForm' type="text" name="nombre" onChange={handleName}/>
 
                 <label className='textLabel' htmlFor="email">Email</label>
-                <input className='inputForm' type="text" name="email" onChange={handleEmail}/>
+                <input className='inputForm' type="email" name="email" onChange={handleEmail}/>
 
                 <label className='textLabel' htmlFor="pass">Password</label>
-                <input className='inputForm' type="text" name="pass" onChange={handlePass}/>
+                <input className='inputForm' type="password" name="pass" onChange={handlePass}/>
 
                 <label className='textLabel' htmlFor="rePass">Repetir password</label>
-                <input className='inputForm' type="text" name="rePass" onChange={handleRepass}/>
+                <input className='inputForm' type="password" name="rePass" onChange={handleRepass}/>
             </form>
                 <Button onClick={fetching} text={"Modificar perfil"}/>
         </div>
