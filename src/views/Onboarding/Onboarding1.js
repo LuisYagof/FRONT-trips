@@ -10,7 +10,7 @@ const Onboarding1 = () => {
     const [text, setText] = useState("Siguiente");
     const history = useHistory()
 
-    function goUp() {
+    const goUp = () => {
         history.push("/2");
       }
 

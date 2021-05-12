@@ -10,7 +10,7 @@ const Onboarding3 = () => {
     const [text, setText] = useState("Terminar");
     const history = useHistory()
 
-    function goUp() {
+    const goUp = () => {
         history.push("/login");
       }
 

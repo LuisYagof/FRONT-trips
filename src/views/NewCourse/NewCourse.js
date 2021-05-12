@@ -61,48 +61,62 @@ const NewCourse = () => {
 
     return(
         <>
-            <img src={Arrow} onClick={() => history.goBack()} alt='' />
-            <h2>Subir curso</h2>
-            <form>
-                <label htmlFor="nombre">Nombre del curso</label>
-                <input type="text" name="nombre" onChange={handleName}/>
+        <div className='bodyNewCourse'>
+            <div className='newCourseHeader'>
+                <img className="arrowOnboarding" src={Arrow} onClick={() => history.goBack()} alt='' />
+                {/* <p className='textOmitir' onClick={() => history.push('/login')}>Omitir</p> */}
+            </div>
 
-                <label htmlFor="descripcion">Descripción del curso</label>
-                <textarea type="text" name="descripcion" onChange={handleDescription}/>
+            <div className='textCabecera'>
+                <h3>Subir curso</h3>
+            </div>
+            <form className='formNewCourse'>
+                <label className='textLabel' htmlFor="nombre">Nombre del curso</label>
+                <input className='inputForm' type="text" name="nombre" onChange={handleName}/>
 
-                <label htmlFor="categoria">Categoría</label>
-                    <select name="categoria" id="categoria" onChange={handleCategory}>
-                        <option value="1">Desarrollo web</option>
-                        <option value="2">FrontEnd</option>
-                        <option value="3">BackEnd</option>
-                        <option value="4">Marketing Digital</option>
-                        <option value="5">UX/UI</option>
-                        <option value="6">Data science</option>
-                    </select>
+                <label className='textLabel' htmlFor="descripcion">Descripción del curso</label>
+                <textarea className='inputForm' type="text" name="descripcion" onChange={handleDescription}/>
 
-                <label htmlFor="precio">Precio</label>
-                <textarea type="text" name="precio" onChange={handlePrice}/>
+                <label className='textLabel' htmlFor="categoria">Categoría</label>
+                <select className='selectForm' name="categoria" id="categoria" onChange={handleCategory}>
+                    <option value="1">Desarrollo web</option>
+                    <option value="2">FrontEnd</option>
+                    <option value="3">BackEnd</option>
+                    <option value="4">Marketing Digital</option>
+                    <option value="5">UX/UI</option>
+                    <option value="6">Data Science</option>
+                </select>
 
-                <label htmlFor="duracion">Duración</label>
-                <textarea type="text" name="duracion" onChange={handleDuration}/>
+                <div className='divPriceAndTime'>
+                    <label htmlFor="precio">Precio</label>
+                    <input className='inputFormPq' type="text" name="precio" onChange={handlePrice}/>
+                </div>
 
-                <ToggleButton toggleBtnText={"Bolsa de empleo"} updateTriggerBtn={handleJob} />
-                <ToggleButton toggleBtnText={"Certificado oficial"} updateTriggerBtn={handleCertificate} />
+                <div className='divPriceAndTime'>
+                    <label htmlFor="duracion">Duración</label>
+                    <input className='inputFormPq' type="text" name="duracion" onChange={handleDuration}/>
+                </div>
 
-                <label htmlFor="idioma">Idioma</label>
-                    <select name="idioma" id="idioma" onChange={handleLanguage}>
-                        <option value="1">Español</option>
-                        <option value="2">Inglés</option>
-                    </select>
+                <div className='divToggle'>
+                    <ToggleButton toggleBtnText={"Bolsa de empleo"} updateTriggerBtn={handleJob} />
+                    <br />
+                    <ToggleButton toggleBtnText={"Certificado oficial"} updateTriggerBtn={handleCertificate} />
+                </div>
 
-                <label htmlFor="enlace">Link del curso</label>
-                <textarea type="text" name="enlace" onChange={handleLink}/>
+                <label className='textLabel' htmlFor="idioma">Idioma</label>
+                <select className='selectForm' name="idioma" id="idioma" onChange={handleLanguage}>
+                    <option value="1">Español</option>
+                    <option value="2">Inglés</option>
+                </select>
 
-                <label htmlFor="imagen">Imagen del curso</label>
-                <textarea type="text" name="imagen" onChange={handleImage}/>
+                <label className='textLabel' htmlFor="enlace">Link del curso</label>
+                <input className='inputForm' type="text" name="enlace" onChange={handleLink}/>
 
-                <Button onClick={fetching} text={"Publicar curso"}/>
+                <label className='textLabel' htmlFor="imagen">Link de imagen</label>
+                <input className='inputForm' type="text" name="imagen" onChange={handleImage}/>
             </form>
+                <Button onClick={fetching} text={"Publicar curso"}/>
+        </div>
         </>
     );
 };
