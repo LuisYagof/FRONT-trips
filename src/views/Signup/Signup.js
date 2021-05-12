@@ -65,12 +65,14 @@ const Signup = () => {
       <h2>Registrarse</h2>
       <BtnRadio handleUser={handleUser} />
       <input
+        className='textPlaceholder'
         type="text"
         placeholder={functionFetch == 'newStudent' ? "Nombre y Apellido" : "Nombre de Escuela/Profesor"}
         onChange={handleName}
         required
       />
       <input
+        className='textPlaceholder'
         type="email"
         placeholder="Email"
         onChange={handleEmail}
@@ -78,6 +80,7 @@ const Signup = () => {
       />
       <div className='passwordEye'>
         <input
+          className='textPlaceholder'
           type={eye ? "password" : "text"} 
           placeholder="Password"
           onChange={handlePass}

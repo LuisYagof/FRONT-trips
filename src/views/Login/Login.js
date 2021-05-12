@@ -60,13 +60,14 @@ const Login = () => {
             <BtnRadio handleUser={handleUser} />
 
             <input
+                className='textPlaceholder'
                 type="email"
                 onChange={handleEmail}
                 placeholder="Email"
             />
             <div className='passwordEye'>
                 <input
-                    className=""
+                    className='textPlaceholder'
                     type={eye ? "password" : "text"} 
                     placeholder="Password"
                     onChange={handlePass}

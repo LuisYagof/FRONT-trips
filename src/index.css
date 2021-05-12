@@ -11,38 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h2{
-  font-family: Archivo;
-  font-size: 27px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 32px;
-  letter-spacing: 0.5px;
-  text-align: center;
-  color: #666666;
-}
-.h2Green{
-  font-weight: 700;
-  color: #5BA092;
-}
-h3{
-  font-family: Archivo;
-  font-size: 27px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 32px;
-  color: rgb(153 153 153);
-  margin-bottom: 14px;
-}
-.textPresentation{
-  font-family: Heebo;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 24px;
-  text-align: center;
-  color: rgb(153 153 153);
-  width: 80vw;
-  margin: 10px 0;
-}
-
