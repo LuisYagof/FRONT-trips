@@ -23,7 +23,7 @@ const RecuperarPass = () => {
         <img className="imgRecuPass" src={RecuPass} alt="" />
       </div> 
       <h2>
-        Link de recuperación de contraseña enviada a tu mail.
+        Link de recuperación<br/>de contraseña enviada<br/>a tu mail.
       </h2>
     </div>
       <Button onClick={goUp} text={text} />

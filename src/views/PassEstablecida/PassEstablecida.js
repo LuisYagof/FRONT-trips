@@ -14,9 +14,6 @@ const RecuperarPass = () => {
 
   return (
     <div className="bodyPassEstablecida">
-      {/* <div className='onboardingHeader'>
-                <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/login')} alt='' />
-            </div> */}
       <div className="illustration">
         <div className="pick">
           <img className="imgPassEstablecida" src={tickSquare} alt="" />
