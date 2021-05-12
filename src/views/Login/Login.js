@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch';
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
@@ -7,15 +7,16 @@ import "./Login.css";
 import Login1 from '../../assets/img/Login1.png';
 import eyeOff from "../../assets/icons/eyeOff.svg";
 import eyeOn from "../../assets/icons/eyeOn.svg";
+import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 const Login = () => {
     const [typeOfUser, settypeOfUser] = useState("estudiantes");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
-    const [text, setText] = useState("Iniciar sesión");
     const [eye, setEye] = useState(true);
     const [functionFetch, setfunctionFetch] = useState(`logUser/estudiantes`);
     const history = useHistory();
+    const loginContext = useContext(LoginContext);
 
     useEffect(() => {
         setfunctionFetch(`logUser/${typeOfUser}`);
@@ -41,6 +42,10 @@ const Login = () => {
         if (content.error) { alert(content.error) }
         if (content.ok) {
             localStorage.setItem("token", content.token)
+            loginContext.toggleLogged(true)
+            loginContext.toggleUserName(content.user.nombre)
+            loginContext.toggleUserMail(content.user.email)
+            loginContext.toggleUserRole(content.user.rol)
             history.push("/dashboard");
         } else {
             alert(content.msg)
@@ -76,7 +81,7 @@ const Login = () => {
                 <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={ changeEye } alt='' />
              </div>
             {/* <Link to="/recuperar">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link> */}
-            <Button onClick={fetching} text={text} />
+            <Button onClick={fetching} text={"Iniciar sesión"} />
             <p> ¿Aún no estás registrado? <span className="linkSpan" onClick={() => history.push('/registro')}>Crear cuenta</span></p>
         </form>
     );
