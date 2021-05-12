@@ -19,6 +19,7 @@ import PagError from './views/PagError/PagError';
 import NewCourse from "./views/NewCourse/NewCourse";
 import RecuperarPass from "./views/RecuperarPass/RecuperarPass";
 import PassEstablecida from "./views/PassEstablecida/PassEstablecida";
+import PreviaRecuPass from "./views/PreviaRecuPass/PreviaRecuPass";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/PagError" component={PagError} />
           <Route path="/RecuperarPass" component={RecuperarPass} />
           <Route path="/PassEstablecida" component={PassEstablecida} />
+          <Route path="/PreviaRecuPass" component={PreviaRecuPass} />
 
         </Switch>
       </BrowserRouter>

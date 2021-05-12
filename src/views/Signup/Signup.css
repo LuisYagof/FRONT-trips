@@ -16,6 +16,7 @@ div.imgBoxVH>img {
 
 form.formVH>h2, form.formVH>p {
   text-align: center;
+  width: 93vw;
 }
 
 form.formVH>h2 {
