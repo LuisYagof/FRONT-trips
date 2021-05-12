@@ -1,0 +1,41 @@
+.bodyPassEstablecida {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .illustration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: -20px;
+  }
+  .iimgPassEstablecida {
+    width: 95vw;
+    align-items: center;
+    margin-bottom: 12px;
+      }
+  
+  
+  .text{
+
+    font-family: Heebo;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #999999;
+    width: 80vw;
+    margin: 10px 0;
+    
+  }
+
+  .pick{
+margin-bottom: 36px;
+
+  }
