@@ -25,6 +25,22 @@ h6.tinyBtn.green.list {
 
 div.tinyMedia {
   background-color: #79B5EC;
-  margin: 0;
   font-family: Archivo;
+  width: max-content;
+  border-radius: 5px;
+  padding: 5px;
+  height: 15px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+h6.tinyMedia {
+  /* margin: 0 3%; */
+  color: white;
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
 }

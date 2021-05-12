@@ -18,6 +18,8 @@ const Detalle = (props) => {
   const [tags, setTags] = useState([])
   const [salaries, setSalaries] = useState([])
   const [professions, setProfessions] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [reviewNum, setReviewNum] = useState(0)
   const location = useLocation()
   const history = useHistory()
 
@@ -38,6 +40,8 @@ const Detalle = (props) => {
       await content.ok && setSalaries(content.APIresponse.professions)
       await content.ok && setTags(content.keywords)
       await content.ok && setProfessions(content.professions)
+      await content.ok && setReviews(content.reviews)
+      await content.ok && setReviewNum(content.reviewNum)
     } else if (!content.ok) {
       alert(content.msg)
     }
@@ -93,10 +97,10 @@ const Detalle = (props) => {
         <img className="arrowImg" onClick={goBack} src={ArrowWhite} alt="" />
         <img className="heartImg" onClick={() => console.log("Favorito")} src={Heart} alt="" />
         <div className="infoBox">
-          <TinyMedia media={curso.media} color={"blue"} />
+          <TinyMedia media={curso.media} color={"blue"} num={reviewNum}/>
           <div className="subInfo">
             <TinyBtn text={location.state.docente.nombre} color={"orange"} />
-            <TinyBtn text={curso.precio} color={"green"} />
+            <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
         <img className="courseImg" src={curso.imagen} alt="" />
