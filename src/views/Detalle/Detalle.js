@@ -91,13 +91,17 @@ const Detalle = (props) => {
     )
   }
 
+  const notaMedia = () => {
+     return reviews.length !== 0 ? reviews.map(el => el.valoracion).reduce((a, b) => a + b, 0) / reviews.length : curso.media
+  }
+
   return (
     <>
       <div className="imgDetail">
         <img className="arrowImg" onClick={goBack} src={ArrowWhite} alt="" />
         <img className="heartImg" onClick={() => console.log("Favorito")} src={Heart} alt="" />
         <div className="infoBox">
-          <TinyMedia media={curso.media} color={"blue"} num={reviewNum}/>
+          <TinyMedia media={notaMedia()} color={"blue"} num={reviewNum} />
           <div className="subInfo">
             <TinyBtn text={location.state.docente.nombre} color={"orange"} />
             <TinyBtn text={`${curso.precio} €`} color={"green"} />
@@ -120,9 +124,9 @@ const Detalle = (props) => {
       </div>
       <div className="reviewBox">
         <h2>Opiniones de usuarios</h2>
-        <Media media={curso.media}/>
+        <Media media={notaMedia()} />
         <p onClick={() => console.log("VER REVIEWS")}>Ver todas las opiniones</p>
-        <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"}/>
+        <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"} />
       </div>
 
     </>

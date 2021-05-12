@@ -40,10 +40,10 @@ const Review = () => {
       alert(content.error);
     }
     if (content.ok) {
-      alert(content.msg);
       history.push("/review-ok");
     } else {
       alert(content.msg);
+      history.goBack();
     }
   };
 

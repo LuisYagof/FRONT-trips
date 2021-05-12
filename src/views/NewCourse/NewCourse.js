@@ -89,7 +89,7 @@ const NewCourse = () => {
 
                 <div className='divPriceAndTime'>
                     <label htmlFor="precio">Precio</label>
-                    <input className='inputFormPq' type="text" name="precio" onChange={handlePrice}/>
+                    <input className='inputFormPq' pattern='/[0-9]/' type="text" name="precio" onChange={handlePrice}/>
                 </div>
 
                 <div className='divPriceAndTime'>
@@ -98,9 +98,9 @@ const NewCourse = () => {
                 </div>
 
                 <div className='divToggle'>
-                    <ToggleButton toggleBtnText={"Bolsa de empleo"} updateTriggerBtn={handleJob} />
+                    <ToggleButton toggleBtnText={"  Bolsa de empleo"} updateTriggerBtn={handleJob} />
                     <br />
-                    <ToggleButton toggleBtnText={"Certificado oficial"} updateTriggerBtn={handleCertificate} />
+                    <ToggleButton toggleBtnText={"  Certificado oficial"} updateTriggerBtn={handleCertificate} />
                 </div>
 
                 <label className='textLabel' htmlFor="idioma">Idioma</label>

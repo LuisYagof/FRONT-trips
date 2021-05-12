@@ -8,6 +8,7 @@ import Arrow from '../../assets/icons/Arrow.svg'
 const RecuperarPass = () => {
   const [text, setText] = useState("Volver a inicio");
   const history = useHistory();
+  
   const goUp = () => {
     history.push("/login");
   };
@@ -15,18 +16,16 @@ const RecuperarPass = () => {
   return (
     <div className="bodyRecuPass">
         <div className='onboardingHeader'>
-                <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/login')} alt='' />
-            </div>
+          <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/login')} alt='' />
+        </div>
       <div className="illustration">
-        <div>
-          <img className="imgRecuPass" src={RecuPass} alt="" />
-        </div>
-        <div className="textPresentation"> 
-          <p>
-            Link de recuperación de contraseña enviada a tu mail
-            </p>
-        </div>
-      </div>
+      <div>
+        <img className="imgRecuPass" src={RecuPass} alt="" />
+      </div> 
+      <h2>
+        Link de recuperación de contraseña enviada a tu mail.
+      </h2>
+    </div>
       <Button onClick={goUp} text={text} />
     </div>
   );
