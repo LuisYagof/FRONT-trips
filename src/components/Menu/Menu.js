@@ -10,6 +10,9 @@ export default function Menu(props) {
    const myFavorites = () => {
      history.push({pathname:"/misFavoritos"});
    }
+   const myProfile = () => {
+    history.push({pathname:"/miPerfil"});
+  }
 
    const fetching = async () => {
     let fetchOptions = {
@@ -19,7 +22,6 @@ export default function Menu(props) {
             "authorization": `Bearer: ${localStorage.getItem("token")}`
         },
     }
-    console.log("DENTRO FETCH");
     const content = await fetchData(`logout`, fetchOptions)
     if (content.error) { alert(content.error) }
     if (content.ok) {
@@ -37,10 +39,8 @@ export default function Menu(props) {
         <img className="offImg" onClick={fetching} src={Off} alt="" />
       </div>
       <div className="menuContent">
-        <h1 onClick={myFavorites}>Mi perfil</h1>
-        <h1>Cursos</h1>
-        <h1>Profesores</h1>
-        <h1 onClick={props.toggle}>Atrás</h1>
+        <h1 onClick={myFavorites}>Mis favoritos</h1>
+        <h1 onClick={myProfile}>Mi perfil</h1>
       </div>
     </div>
   )

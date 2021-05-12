@@ -10,31 +10,37 @@ const MyProfile = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    const [rePass, setRepass] = useState("");
     const history = useHistory()
 
     const handleName= (event) => setName(event.target.value);
     const handleEmail= (event) => setEmail(event.target.value);
     const handlePass= (event) => setPass(event.target.value);
+    const handleRepass= (event) => setRepass(event.target.value);
     
     const fetching = async () => {
-        let fetchOptions = {
-        method: 'POST',
-        headers: {
-            "content-type": "application/json",
-            authorization: `Bearer: ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-            nombre: name,
-            email: email,
-            pass: pass,
-        })
+        if (pass === rePass){
+            let fetchOptions = {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json",
+                authorization: `Bearer: ${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify({
+                nombre: name,
+                email: email,
+                pass: pass,
+            })
+            }
+            const content = await fetchData("updateUser", fetchOptions)
+            if (content.error) {
+            alert(content.error)
+            } else {
+            await content.ok && history.push({pathname:"/dashboard"});;
+            }
         }
-        const content = await fetchData("updateUser", fetchOptions)
-        if (content.error) {
-        alert(content.error)
-        } else {
-        await content.ok && history.push({pathname:"/dashboard"});;
-        }
+        else
+        {alert("Las contraseñas no coinciden")}
     }    
 
     return(
@@ -56,6 +62,9 @@ const MyProfile = () => {
 
                 <label className='textLabel' htmlFor="pass">Password</label>
                 <input className='inputForm' type="text" name="pass" onChange={handlePass}/>
+
+                <label className='textLabel' htmlFor="rePass">Repetir password</label>
+                <input className='inputForm' type="text" name="rePass" onChange={handleRepass}/>
             </form>
                 <Button onClick={fetching} text={"Modificar perfil"}/>
         </div>
