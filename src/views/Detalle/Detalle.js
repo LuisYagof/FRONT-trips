@@ -48,6 +48,20 @@ const Detalle = (props) => {
     }
   }
 
+  const fetchNewFav = async () => {
+    let fetchOptions = {
+      method: 'POST'
+    }
+    const content = await fetchData(`newFav/${location.state.curso.id}`, fetchOptions)
+    if (content.error) {
+      alert(content.error)
+    } else if (content.ok) {
+      alert(content.msg)
+    } else {
+      alert(content.msg)
+    }
+  }
+
   const goBack = () => {
     history.goBack()
   }
@@ -100,7 +114,7 @@ const Detalle = (props) => {
     <>
       <div className="imgDetail">
         <img className="arrowImg" onClick={goBack} src={ArrowWhite} alt="" />
-        <img className="heartImg" onClick={() => console.log("Favorito")} src={Heart} alt="" />
+        <img className="heartImg" onClick={fetchNewFav} src={Heart} alt="" />
         <div className="infoBox">
           <TinyMedia media={notaMedia()} color={"blue"} num={reviewNum} />
           <div className="subInfo">
