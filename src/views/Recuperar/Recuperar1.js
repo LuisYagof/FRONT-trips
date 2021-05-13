@@ -46,8 +46,8 @@ const Recuperar1 = () => {
 			<h2>Recuperar contraseña</h2>
 			<BtnRadio handleUser={handleUser} />
 			<p className="textPresentation">Escribe el correo electrónico con el que registraste tu cuenta y te enviaremos un link de recuperación.</p>
+			<input type="email" onChange={handleEmail} placeholder="Email" />
 			<div className="inputButton">
-				<input type="email" onChange={handleEmail} placeholder="Email" />
 				<Button onClick={fetching} text={"Enviar correo"} />
 			</div>
 		</form>
