@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Categoria.css';
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import './Categoria.css'
@@ -8,10 +8,15 @@ import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 import Search from '../../assets/icons/Search.svg'
 import Filter2 from '../../assets/icons/Filter2.svg'
+import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 import Filter from '../../components/Filter/Filter'
 
 const Categoria = (props) => {
+  const loginContext = useContext(LoginContext);
+  const history = useHistory()
+  const location = useLocation()
+  const params = useParams()
   const [cursos, setCursos] = useState([])
   const [filtrados, setFiltrados] = useState([])
   const [docentes, setDocentes] = useState([])
@@ -21,9 +26,6 @@ const Categoria = (props) => {
   const [filter, setFilter] = useState(false)
   const toggleFilter = () => { setFilter(!filter) }
 
-  const history = useHistory()
-  const location = useLocation()
-  const params = useParams()
   const categorias = [
     "Desarrollo Web",
     "FrontEnd",
@@ -41,6 +43,14 @@ const Categoria = (props) => {
   useEffect(() => {
     drawList()
   }, [filtrados])
+
+  useEffect(() => {
+    if (loginContext.verified) {
+      if (!loginContext.logged) {
+        history.push("/login")
+      }
+    }
+  }, [loginContext.verified])
 
   const drawList = () => {
     if (filtrados[0]) {

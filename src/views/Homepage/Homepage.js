@@ -23,33 +23,35 @@ import 'swiper/swiper-bundle.css';
 SwiperCore.use([Navigation, Pagination]);
 
 const Homepage = () => {
+  const history = useHistory()
+  const loginContext = useContext(LoginContext);
   const [cursos, setCursos] = useState([])
   const [docentes, setDocentes] = useState([])
   const [search, setSearch] = useState("")
   const [menu, setMenu] = useState(false)
-  const history = useHistory()
-  const loginContext = useContext(LoginContext);
+
+  useEffect(() => {
+    const fetching = async () => {
+      let fetchOptions = {
+        method: 'GET'
+      }
+      const content = await fetchData("searchAll", fetchOptions)
+      if (content.error) {
+        alert(content.error)
+      } else {
+        await content.ok && setCursos([...cursos, ...content.data.cursos]);
+        await content.ok && setDocentes([...docentes, ...content.data.docentes]);
+      }
+    }
+    fetching()
+  }, [])
 
   useEffect(() => {
     if (loginContext.verified) {
       if (!loginContext.logged) {
         history.push("/login")
       }
-      const fetching = async () => {
-        let fetchOptions = {
-          method: 'GET'
-        }
-        const content = await fetchData("searchAll", fetchOptions)
-        if (content.error) {
-          alert(content.error)
-        } else {
-          await content.ok && setCursos([...cursos, ...content.data.cursos]);
-          await content.ok && setDocentes([...docentes, ...content.data.docentes]);
-        }
-      }
-      fetching()
     }
-
   }, [loginContext.verified])
 
   const Slider = () => {
