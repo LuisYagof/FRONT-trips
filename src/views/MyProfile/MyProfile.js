@@ -3,12 +3,15 @@ import { useHistory } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import fetchData from "../../hooks/Fetch";
 import Arrow from '../../assets/icons/Arrow.svg'
+import eyeOff from "../../assets/icons/eyeOff.svg";
+import eyeOn from "../../assets/icons/eyeOn.svg";
 import './MyProfile.css';
 import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 const MyProfile = () => {
 	const history = useHistory()
 	const loginContext = useContext(LoginContext);
+	const [eye, setEye] = useState(true);
 
 	const [name, setName] = useState(loginContext.userName);
 	const [email, setEmail] = useState(loginContext.userMail);
@@ -45,6 +48,10 @@ const MyProfile = () => {
 		else { alert("Las contraseñas no coinciden") }
 	}
 
+	const changeEye = () => {
+		setEye(!eye)
+	}
+
 	return (
 		<>
 			<div className='bodyMyProfile'>
@@ -63,10 +70,16 @@ const MyProfile = () => {
 					<input required className='inputForm' type="text" name="email" onChange={handleEmail} defaultValue={loginContext.userMail} />
 
 					<label className='textLabel' htmlFor="pass">Password</label>
-					<input required className='inputForm' type="password" name="pass" onChange={handlePass} />
+					<div className='passwordEye'>
+						<input required className='inputFormPass' type={eye ? "password" : "text"} name="pass" onChange={handlePass} />
+						<img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
+					</div>
 
 					<label className='textLabel' htmlFor="rePass">Repetir password</label>
-					<input required className='inputForm' type="password" name="rePass" onChange={handleRepass} />
+					<div className='passwordEye'>
+						<input required className='inputFormPass' type={eye ? "password" : "text"} name="rePass" onChange={handleRepass} />
+						<img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
+					</div>
 				</form>
 				<Button onClick={fetching} text={"Modificar perfil"} />
 			</div>

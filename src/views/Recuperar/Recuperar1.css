@@ -17,9 +17,5 @@
 }
 
 div.inputButton {
-  height: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 3% 0 0 0;
+  margin: 10% 0 0 0;
 }

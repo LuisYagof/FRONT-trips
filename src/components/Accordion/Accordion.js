@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './Accordion.css';
 import Accordion from '@material-ui/core/Accordion';
@@ -17,8 +17,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion() {
+export default function SimpleAccordion(props) {
   const classes = useStyles();
+  const [reviews, setReviews] = useState([])
+
+   useEffect(() => {
+     setReviews(props.reviews)
+   }, [])
+
+  const drawList = () => {
+    if (reviews.length > 0) {
+      return reviews.map(el => <><p>{el.descripcion}</p><h7>{el.valoracion}</h7></>)
+    }
+  }
 
   return (
     <div className={classes.root}>
@@ -32,9 +43,7 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
+            {drawList()}
           </Typography>
         </AccordionDetails>
       </Accordion>
