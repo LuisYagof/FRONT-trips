@@ -22,12 +22,16 @@ export default function SimpleAccordion(props) {
   const [reviews, setReviews] = useState([])
 
    useEffect(() => {
-     setReviews(props.courseReviews)
+     setReviews(props.reviews)
    }, [])
 
   const drawList = () => {
     if (reviews.length > 0) {
-      return reviews.map(el => <p>{el}</p>)
+      return reviews.map(el => 
+        <>
+          <p>{el.descripcion}</p>
+          <h7>{el.valoracion}</h7>
+        </>)
     }
   }
 
