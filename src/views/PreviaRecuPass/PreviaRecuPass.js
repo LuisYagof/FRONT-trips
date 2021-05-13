@@ -4,7 +4,8 @@ import fetchData from '../../hooks/Fetch';
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
 import "./PreviaRecuPass.css";
-import Recuperar2 from '../../assets/img/Login1.png'
+import Recuperar2 from '../../assets/img/Recuperar2.png'
+import Arrow from '../../assets/icons/Arrow.svg'
 
 const PreviaRecuPass = () => {
     const [typeOfUser, settypeOfUser] = useState("estudiantes");
@@ -45,8 +46,13 @@ const PreviaRecuPass = () => {
     }
 
     return (
+        
         <form className="formVH">
+            <div className='onboardingHeader'>
+          <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/login')} alt='' />
+        </div>
             <div className="imgBoxVH">
+            
                 <img src={Recuperar2} alt='' />
             </div>
             <h2>Iniciar Sesión</h2>
