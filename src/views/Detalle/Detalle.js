@@ -53,6 +53,7 @@ const Detalle = (props) => {
       method: 'POST'
     }
     const content = await fetchData(`newFav/${location.state.curso.id}`, fetchOptions)
+    console.log("id del curso: ", location.state.curso.id);
     if (content.error) {
       alert(content.error)
     } else if (content.ok) {
