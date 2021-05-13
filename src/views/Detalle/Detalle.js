@@ -19,6 +19,7 @@ const Detalle = (props) => {
   const [salaries, setSalaries] = useState([])
   const [professions, setProfessions] = useState([])
   const [reviews, setReviews] = useState([])
+  const [courseReviews, setCourseReviews] = useState([])
   const [reviewNum, setReviewNum] = useState(0)
   const location = useLocation()
   const history = useHistory()
@@ -26,6 +27,10 @@ const Detalle = (props) => {
   useEffect(() => {
     setCurso(location.state.curso)
     fetching()
+  }, [])
+
+  useEffect(() => {
+    fetchCourseReviews()
   }, [])
 
   const fetching = async () => {
@@ -42,6 +47,20 @@ const Detalle = (props) => {
       await content.ok && setProfessions(content.professions)
       await content.ok && setReviews(content.reviews)
       await content.ok && setReviewNum(content.reviewNum)
+    } else if (!content.ok) {
+      alert(content.msg)
+    }
+  }
+
+  const fetchCourseReviews = async () => {
+    let fetchOptions = {
+      method: 'GET'
+    }
+    const content = await fetchData(`searchReviews/${location.state.curso.id}`, fetchOptions)
+    if (content.error) {
+      alert(content.error)
+    } else if (content.ok) {
+      await content.ok && setCourseReviews(content.data)
     } else if (!content.ok) {
       alert(content.msg)
     }
@@ -110,7 +129,7 @@ const Detalle = (props) => {
         <img className="courseImg" src={curso.imagen} alt="" />
       </div>
       <div className="courseDescription">
-        <h2>{curso.nombre}</h2>
+        <h3>{curso.nombre}</h3>
         <p>{curso.descripcion}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, officia. Inventore laudantium tempore obcaecati sequi iure nisi odio, quia culpa quisquam possimus aliquam ducimus magnam harum recusandae voluptatibus a cum!</p>
       </div>
       <div className="jobsInfo">

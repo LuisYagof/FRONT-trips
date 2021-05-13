@@ -22,6 +22,7 @@ import MailEnviado from "./views/Recuperar/MailEnviado";
 import PassEstablecida from "./views/Recuperar/PassEstablecida";
 import MyProfile from "./views/MyProfile/MyProfile";
 import LoginContext from './contexts/LoginContext/LoginContext';
+import Accordion from './components/Accordion/Accordion';
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -44,6 +45,7 @@ function App() {
           <Route exact path="/1" component={Onboarding1} />
           <Route exact path="/2" component={Onboarding2} />
           <Route exact path="/3" component={Onboarding3} />
+          <Route exact path="/acordeon" component={Accordion} />
           <LoginContext.Provider value={logContext}>
             <Route path="/login" component={Login} />
             <Route path="/registro" component={Signup} />

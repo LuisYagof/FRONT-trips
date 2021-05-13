@@ -57,16 +57,16 @@ const MyProfile = () => {
 				</div>
 				<form className='formMyProfile'>
 					<label className='textLabel' htmlFor="nombre" >Nombre y apellidos</label>
-					<input className='inputForm' type="text" name="nombre" onChange={handleName} defaultValue={loginContext.userName} />
+					<input required className='inputForm' type="text" name="nombre" onChange={handleName} defaultValue={loginContext.userName} />
 
 					<label className='textLabel' htmlFor="email">Email</label>
-					<input className='inputForm' type="text" name="email" onChange={handleEmail} defaultValue={loginContext.userMail} />
+					<input required className='inputForm' type="text" name="email" onChange={handleEmail} defaultValue={loginContext.userMail} />
 
 					<label className='textLabel' htmlFor="pass">Password</label>
-					<input className='inputForm' type="password" name="pass" onChange={handlePass} />
+					<input required className='inputForm' type="password" name="pass" onChange={handlePass} />
 
 					<label className='textLabel' htmlFor="rePass">Repetir password</label>
-					<input className='inputForm' type="password" name="rePass" onChange={handleRepass} />
+					<input required className='inputForm' type="password" name="rePass" onChange={handleRepass} />
 				</form>
 				<Button onClick={fetching} text={"Modificar perfil"} />
 			</div>
