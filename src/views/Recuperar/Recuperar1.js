@@ -4,7 +4,7 @@ import fetchData from '../../hooks/Fetch';
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
 import "./Recuperar1.css";
-import Recuperar2 from '../../assets/img/Login1.png'
+import Recuperar from '../../assets/img/Recuperar.png'
 
 const Recuperar1 = () => {
 	const [typeOfUser, settypeOfUser] = useState("estudiantes");
@@ -41,7 +41,7 @@ const Recuperar1 = () => {
 	return (
 		<form className="formVH">
 			<div className="imgBoxVH">
-				<img src={Recuperar2} alt='' />
+				<img src={Recuperar} alt='' />
 			</div>
 			<h2>Recuperar contraseña</h2>
 			<BtnRadio handleUser={handleUser} />

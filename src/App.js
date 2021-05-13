@@ -19,6 +19,7 @@ import PagError from './views/PagError/PagError';
 import NewCourse from "./views/NewCourse/NewCourse";
 import Recuperar1 from "./views/Recuperar/Recuperar1";
 import MailEnviado from "./views/Recuperar/MailEnviado";
+import Actualizar from "./views/Recuperar/Actualizar";
 import PassEstablecida from "./views/Recuperar/PassEstablecida";
 import MyProfile from "./views/MyProfile/MyProfile";
 import LoginContext from './contexts/LoginContext/LoginContext';
@@ -61,7 +62,8 @@ function App() {
             <Route path="/pagError" component={PagError} />
             <Route path="/recuperar" component={Recuperar1} />
             <Route path="/mailenviado" component={MailEnviado} />
-            <Route path="/passEstablecida" component={PassEstablecida} />
+            <Route path="/actualizar" component={Actualizar} />
+            <Route path="/actualizada" component={PassEstablecida} />
             <Route path="/miPerfil" component={MyProfile} />
           </LoginContext.Provider >
         </Switch>

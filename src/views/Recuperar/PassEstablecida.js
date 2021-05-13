@@ -5,11 +5,10 @@ import Button from "../../components/Button/Button";
 import tickSquare from "../../assets/icons/tickSquare.svg";
 
 const RecuperarPass = () => {
-  const [text, setText] = useState("Iniciar Sesión");
   const history = useHistory();
 
-  const goUp = () => {
-    history.push("/login");
+  const redirect = () => {
+    history.push("/dashboard");
   };
 
   return (
@@ -20,7 +19,7 @@ const RecuperarPass = () => {
         </div>
         <h2>Nueva contraseña<br/>establecida</h2>
       </div>
-      <Button onClick={goUp} text={text} />
+      <Button onClick={redirect} text={"Entrar en la aplicación"} />
     </div>
   );
 };
