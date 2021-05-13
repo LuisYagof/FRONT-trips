@@ -110,7 +110,7 @@ const Detalle = (props) => {
         <img className="courseImg" src={curso.imagen} alt="" />
       </div>
       <div className="courseDescription">
-        <h2>{curso.nombre}</h2>
+        <h3>{curso.nombre}</h3>
         <p>{curso.descripcion}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, officia. Inventore laudantium tempore obcaecati sequi iure nisi odio, quia culpa quisquam possimus aliquam ducimus magnam harum recusandae voluptatibus a cum!</p>
       </div>
       <div className="jobsInfo">
