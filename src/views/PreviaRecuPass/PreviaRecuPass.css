@@ -19,3 +19,7 @@ margin-top: 89px;
 .ButtonPRevia{
   margin: 114px 0px;
 }
+.arrowarrowrecu{
+  display: flex;
+  justify-content: left;
+}

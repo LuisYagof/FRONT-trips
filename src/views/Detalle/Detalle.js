@@ -19,6 +19,7 @@ const Detalle = (props) => {
   const [salaries, setSalaries] = useState([])
   const [professions, setProfessions] = useState([])
   const [reviews, setReviews] = useState([])
+  const [courseReviews, setCourseReviews] = useState([])
   const [reviewNum, setReviewNum] = useState(0)
   const location = useLocation()
   const history = useHistory()
@@ -26,6 +27,10 @@ const Detalle = (props) => {
   useEffect(() => {
     setCurso(location.state.curso)
     fetching()
+  }, [])
+
+  useEffect(() => {
+    fetchCourseReviews()
   }, [])
 
   const fetching = async () => {
@@ -42,6 +47,20 @@ const Detalle = (props) => {
       await content.ok && setProfessions(content.professions)
       await content.ok && setReviews(content.reviews)
       await content.ok && setReviewNum(content.reviewNum)
+    } else if (!content.ok) {
+      alert(content.msg)
+    }
+  }
+
+  const fetchCourseReviews = async () => {
+    let fetchOptions = {
+      method: 'GET'
+    }
+    const content = await fetchData(`searchReviews/${location.state.curso.id}`, fetchOptions)
+    if (content.error) {
+      alert(content.error)
+    } else if (content.ok) {
+      await content.ok && setCourseReviews(content.data)
     } else if (!content.ok) {
       alert(content.msg)
     }
@@ -92,7 +111,7 @@ const Detalle = (props) => {
   }
 
   const notaMedia = () => {
-     return reviews.length !== 0 ? reviews.map(el => el.valoracion).reduce((a, b) => a + b, 0) / reviews.length : curso.media
+    return reviews.length !== 0 ? Math.round((reviews.map(el => el.valoracion).reduce((a, b) => a + b, 0) / reviews.length + Number.EPSILON) * 100) / 100 : curso.media
   }
 
   return (
