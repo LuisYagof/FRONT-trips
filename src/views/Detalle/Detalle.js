@@ -9,6 +9,7 @@ import accessTime from '../../assets/icons/accessTime.svg'
 import language from '../../assets/icons/language.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
 import Button from '../../components/Button/Button'
+import Accordion from '../../components/Accordion/Accordion'
 import Media from '../../components/Media/Media'
 import TinyMedia from '../../components/TinyBtn/TinyMedia'
 
@@ -27,9 +28,20 @@ const Detalle = (props) => {
   useEffect(() => {
     setCurso(location.state.curso)
     fetching()
-  }, [])
 
-  useEffect(() => {
+    const fetchCourseReviews = async () => {
+      let fetchOptions = {
+        method: 'GET'
+      }
+      const content = await fetchData(`searchReviews/${location.state.curso.id}`, fetchOptions)
+      if (content.error) {
+        alert(content.error)
+      } else if (content.ok) {
+        await content.ok && setCourseReviews([...courseReviews,...content.data])
+      } else if (!content.ok) {
+        alert(content.msg)
+      }
+    }
     fetchCourseReviews()
   }, [])
 
@@ -47,20 +59,6 @@ const Detalle = (props) => {
       await content.ok && setProfessions(content.professions)
       await content.ok && setReviews(content.reviews)
       await content.ok && setReviewNum(content.reviewNum)
-    } else if (!content.ok) {
-      alert(content.msg)
-    }
-  }
-
-  const fetchCourseReviews = async () => {
-    let fetchOptions = {
-      method: 'GET'
-    }
-    const content = await fetchData(`searchReviews/${location.state.curso.id}`, fetchOptions)
-    if (content.error) {
-      alert(content.error)
-    } else if (content.ok) {
-      await content.ok && setCourseReviews(content.data)
     } else if (!content.ok) {
       alert(content.msg)
     }
@@ -144,7 +142,7 @@ const Detalle = (props) => {
       <div className="reviewBox">
         <h2>Opiniones de usuarios</h2>
         <Media media={notaMedia()} />
-        <p onClick={() => console.log("VER REVIEWS")}>Ver todas las opiniones</p>
+        <Accordion courseReviews={courseReviews}/>
         <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"} />
       </div>
 
