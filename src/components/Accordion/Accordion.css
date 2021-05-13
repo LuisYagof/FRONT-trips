@@ -20,7 +20,8 @@
     text-align: center;
     justify-content: center;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     color: #999999;
+    width: 93vw;
+    line-height: 8px;
 }
