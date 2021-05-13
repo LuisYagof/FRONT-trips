@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import './App.css';
 import Homepage from './views/Homepage/Homepage'
 import Detalle from './views/Detalle/Detalle'
@@ -73,7 +73,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Onboarding} />
+          <Route exact path="/">
+            {verified && logged ? <Redirect to='/dashboard' /> : <Onboarding />}
+          </Route>
           <Route exact path="/1" component={Onboarding1} />
           <Route exact path="/2" component={Onboarding2} />
           <Route exact path="/3" component={Onboarding3} />
@@ -90,12 +92,15 @@ function App() {
             <Route path="/resultadoBusqueda" component={SearchAll} />
             <Route path="/misFavoritos" component={MyFavorites} />
             <Route path="/nuevoCurso" component={NewCourse} />
-            <Route path="/pagError" component={PagError} />
+            <Route path="/error" component={PagError} />
             <Route path="/recuperar" component={Recuperar1} />
             <Route path="/mailenviado" component={MailEnviado} />
             <Route path="/actualizar" component={Actualizar} />
             <Route path="/actualizada" component={PassEstablecida} />
             <Route path="/miPerfil" component={MyProfile} />
+            <Route path="*">
+              {verified && <PagError />}
+            </Route>
           </LoginContext.Provider >
         </Switch>
       </BrowserRouter>

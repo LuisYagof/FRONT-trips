@@ -36,8 +36,12 @@ const Categoria = (props) => {
   ]
 
   useEffect(() => {
-    setCursos(location.state.cursos)
-    setDocentes(location.state.docentes)
+    if (location.state) {
+      setCursos(location.state.cursos)
+      setDocentes(location.state.docentes)
+    } else {
+      history.push('/dashboard')
+    }
   }, [])
 
   useEffect(() => {

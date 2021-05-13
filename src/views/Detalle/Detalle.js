@@ -27,8 +27,12 @@ const Detalle = (props) => {
   const [reviewNum, setReviewNum] = useState(0)
 
   useEffect(() => {
-    setCurso(location.state.curso)
-    fetching()
+    if (location.state) {
+      setCurso(location.state.curso)
+      fetching()
+    } else {
+      history.push('/dashboard')
+    }
   }, [])
 
   useEffect(() => {
