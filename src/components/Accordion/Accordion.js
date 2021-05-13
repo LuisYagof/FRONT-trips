@@ -23,7 +23,7 @@ export default function SimpleAccordion(props) {
 
    useEffect(() => {
      setReviews(props.reviews)
-   }, [])
+   })
 
   const drawList = () => {
     if (reviews.length > 0) {
