@@ -44,34 +44,6 @@ const MyProfile = () => {
         else
         {alert("Las contraseñas no coinciden")}
     }    
-	const handleName = (event) => setName(event.target.value);
-	const handleEmail = (event) => setEmail(event.target.value);
-	const handlePass = (event) => setPass(event.target.value);
-	const handleRepass = (event) => setRepass(event.target.value);
-
-	const fetching = async () => {
-		if (pass === rePass) {
-			let fetchOptions = {
-				method: 'POST',
-				headers: {
-					"content-type": "application/json",
-					authorization: `Bearer: ${localStorage.getItem("token")}`,
-				},
-				body: JSON.stringify({
-					nombre: name,
-					email: email,
-					pass: pass,
-				})
-			}
-			const content = await fetchData("updateUser", fetchOptions)
-			if (content.error) {
-				alert(content.error)
-			} else {
-				await content.ok && history.push({ pathname: "/dashboard" });;
-			}
-		}
-		else { alert("Las contraseñas no coinciden") }
-	}
 
 	return (
 		<>
