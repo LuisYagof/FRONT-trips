@@ -31,23 +31,26 @@ const Homepage = () => {
   const loginContext = useContext(LoginContext);
 
   useEffect(() => {
-    if (!loginContext.logged) {
-      history.push("/login")
-    }
-    const fetching = async () => {
-      let fetchOptions = {
-        method: 'GET'
+    if (loginContext.verified) {
+      if (!loginContext.logged) {
+        history.push("/login")
       }
-      const content = await fetchData("searchAll", fetchOptions)
-      if (content.error) {
-        alert(content.error)
-      } else {
-        await content.ok && setCursos([...cursos, ...content.data.cursos]);
-        await content.ok && setDocentes([...docentes, ...content.data.docentes]);
+      const fetching = async () => {
+        let fetchOptions = {
+          method: 'GET'
+        }
+        const content = await fetchData("searchAll", fetchOptions)
+        if (content.error) {
+          alert(content.error)
+        } else {
+          await content.ok && setCursos([...cursos, ...content.data.cursos]);
+          await content.ok && setDocentes([...docentes, ...content.data.docentes]);
+        }
       }
+      fetching()
     }
-    fetching()
-  }, [])
+
+  }, [loginContext.verified])
 
   const Slider = () => {
     const cards = cursos.map(el => {
@@ -79,8 +82,8 @@ const Homepage = () => {
         slidesPerView={1.5}
         loop={true}
         initialSlide={5}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
       >
         {cards}
       </Swiper>

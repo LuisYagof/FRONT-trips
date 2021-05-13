@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
 import Homepage from './views/Homepage/Homepage'
@@ -24,8 +24,10 @@ import PassEstablecida from "./views/Recuperar/PassEstablecida";
 import MyProfile from "./views/MyProfile/MyProfile";
 import LoginContext from './contexts/LoginContext/LoginContext';
 import Accordion from './components/Accordion/Accordion';
+import fetchData from './hooks/Fetch'
 
 function App() {
+  const [verified, setVerified] = useState(false)
   const [logged, setLogged] = useState(false)
   const [userName, setUserName] = useState("")
   const [userMail, setUserMail] = useState("")
@@ -35,7 +37,38 @@ function App() {
   const toggleUserMail = (mail) => setUserMail(mail)
   const toggleUserRole = (role) => setUserRole(role)
   const logContext = {
-    logged, toggleLogged, userName, toggleUserName, userMail, toggleUserMail, userRole, toggleUserRole
+    verified, logged, toggleLogged, userName, toggleUserName, userMail, toggleUserMail, userRole, toggleUserRole
+  }
+
+  useEffect(() => {
+    fetching();
+  }, [])
+
+  const fetching = async () => {
+    if (localStorage.getItem("token")) {
+      let fetchOptions = {
+        method: 'GET',
+        headers: {
+          "content-type": "application/json",
+          "authorization": `Bearer: ${localStorage.getItem("token")}`
+        }
+      }
+      const content = await fetchData("verification", fetchOptions)
+      if (content.error) { setVerified(true) }
+      if (content.ok) {
+        toggleLogged(true)
+        toggleUserName(content.user.nombre)
+        toggleUserMail(content.user.email)
+        toggleUserRole(content.user.rol)
+        setVerified(true)
+      } else {
+        alert(content.msg)
+        setVerified(true)
+      }
+    } else {
+      alert("No estás logado.")
+      setVerified(true)
+    }
   }
 
   return (
