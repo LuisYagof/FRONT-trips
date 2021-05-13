@@ -7,13 +7,13 @@ import './MyProfile.css';
 import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 const MyProfile = () => {
-
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [pass, setPass] = useState("");
-	const [rePass, setRepass] = useState("");
 	const history = useHistory()
 	const loginContext = useContext(LoginContext);
+
+	const [name, setName] = useState(loginContext.userName);
+	const [email, setEmail] = useState(loginContext.userMail);
+	const [pass, setPass] = useState("");
+	const [rePass, setRepass] = useState("");
 
 	const handleName = (event) => setName(event.target.value);
 	const handleEmail = (event) => setEmail(event.target.value);
@@ -23,7 +23,7 @@ const MyProfile = () => {
 	const fetching = async () => {
 		if (pass === rePass) {
 			let fetchOptions = {
-				method: 'POST',
+				method: 'PUT',
 				headers: {
 					"content-type": "application/json",
 					authorization: `Bearer: ${localStorage.getItem("token")}`,
@@ -39,6 +39,7 @@ const MyProfile = () => {
 				alert(content.error)
 			} else {
 				await content.ok && history.push({ pathname: "/dashboard" });;
+				alert(content.msg)
 			}
 		}
 		else { alert("Las contraseñas no coinciden") }
@@ -62,10 +63,10 @@ const MyProfile = () => {
 					<input className='inputForm' type="text" name="email" onChange={handleEmail} defaultValue={loginContext.userMail} />
 
 					<label className='textLabel' htmlFor="pass">Password</label>
-					<input className='inputForm' type="text" name="pass" onChange={handlePass} />
+					<input className='inputForm' type="password" name="pass" onChange={handlePass} />
 
 					<label className='textLabel' htmlFor="rePass">Repetir password</label>
-					<input className='inputForm' type="text" name="rePass" onChange={handleRepass} />
+					<input className='inputForm' type="password" name="rePass" onChange={handleRepass} />
 				</form>
 				<Button onClick={fetching} text={"Modificar perfil"} />
 			</div>

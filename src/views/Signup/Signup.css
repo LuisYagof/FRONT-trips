@@ -6,20 +6,25 @@ form.formVH {
   /* width: 100vw; */
   align-items: center;
 }
+
 div.imgBoxVH {
   height: 25%;
   width: 100vw;
 }
+
 div.imgBoxVH>img {
   width: 100%;
 }
+
 form.formVH>h2, form.formVH>p {
   text-align: center;
   width: 93vw;
 }
+
 form.formVH>h2 {
   margin: 30px 0;
 }
+
 form.formVH input {
   line-height: 2;
   border-radius: 16px;
@@ -27,18 +32,27 @@ form.formVH input {
   padding: 8px 16px;
   margin: 2% 0;
   width: 84vw;
+  letter-spacing: 0.8px;
 }
+
 form.formVH input:focus {
   outline: none;
 }
+
 span.linkSpan {
   font-weight: 600;
   color: #E3562A;
 }
-.passwordEye{
+
+span.linkSpan.green {
+  color: #5BA092;
+}
+
+.passwordEye {
   display: flex;
 }
-.eyeOff{
+
+.eyeOff {
   z-index: 999;
   position: absolute;
   transform: translate(300px, 17px);

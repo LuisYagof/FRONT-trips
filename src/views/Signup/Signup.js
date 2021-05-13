@@ -87,14 +87,14 @@ const Signup = () => {
       <div className='passwordEye'>
         <input
           className='textPlaceholder'
-          type={eye ? "password" : "text"} 
+          type={eye ? "password" : "text"}
           placeholder="Password"
           onChange={handlePass}
           required
         />
-        <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={ changeEye } alt='' />
+        <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
       </div>
-      {/* <p>¿No recuerdas tu contraseña? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p> */}
+      <p>¿No recuerdas tu contraseña? <span className="linkSpan green" onClick={() => history.push('/recuperar')}>Recuperar</span></p>
       <Button onClick={fetching} text={text} />
       <p>¿Ya tienes cuenta? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p>
     </form>

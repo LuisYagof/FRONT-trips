@@ -1,4 +1,4 @@
-.button {
+button.button {
   background: #e3562a;
   color: white;
   height: 55px;
@@ -14,7 +14,11 @@
   font-weight: 300;
 }
 
-.invert {
+button.button:focus {
+  outline:none
+}
+
+button.invert {
   background: white;
   color:#e3562a;
   border: 1px solid #e3562a;

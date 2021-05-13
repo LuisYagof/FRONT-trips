@@ -80,7 +80,7 @@ const Login = () => {
                 />
                 <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={ changeEye } alt='' />
              </div>
-            {/* <Link to="/recuperar">¿No recuerdas tu contraseña? <span className="">Recuperar</span></Link> */}
+             <p>¿No recuerdas tu contraseña? <span className="linkSpan green" onClick={() => history.push('/recuperar')}>Recuperar</span></p>
             <Button onClick={fetching} text={"Iniciar sesión"} />
             <p> ¿Aún no estás registrado? <span className="linkSpan" onClick={() => history.push('/registro')}>Crear cuenta</span></p>
         </form>

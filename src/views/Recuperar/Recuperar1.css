@@ -1,5 +1,4 @@
 .textEscribeCorreo {
- 
   font-family: Heebo;
   font-size: 15px;
   font-style: normal;
@@ -11,11 +10,16 @@
   width: 80vw;
   margin: 34px 15px;
   padding-left: 19px;
-  
 }
-.button undefined{
-margin-top: 89px;
+
+.button undefined {
+  margin-top: 89px;
 }
-.ButtonPRevia{
-  margin: 114px 0px;
+
+div.inputButton {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 3% 0 0 0;
 }
