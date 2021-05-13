@@ -12,7 +12,11 @@ const MyFavorites = () => {
 	const [docentes, setDocentes] = useState([])
 
 	useEffect(() => {
-		setDocentes(location.state.docentes)
+		if (location.state) {
+			setDocentes(location.state.docentes)
+		} else {
+			history.push('/dashboard')
+		}
 	}, [])
 
 	useEffect(() => {

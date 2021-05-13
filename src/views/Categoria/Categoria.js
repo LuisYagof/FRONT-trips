@@ -36,17 +36,13 @@ const Categoria = (props) => {
   ]
 
   useEffect(() => {
-    if (location.state) {
+    if (!location.state) {
+      history.push('/dashboard')
+    } else {
       setCursos(location.state.cursos)
       setDocentes(location.state.docentes)
-    } else {
-      history.push('/dashboard')
     }
   }, [])
-
-  useEffect(() => {
-    drawList()
-  }, [filtrados])
 
   useEffect(() => {
     if (loginContext.verified) {
@@ -55,6 +51,10 @@ const Categoria = (props) => {
       }
     }
   }, [loginContext.verified])
+
+  useEffect(() => {
+    drawList()
+  }, [filtrados])
 
   const drawList = () => {
     if (filtrados[0]) {
@@ -94,7 +94,7 @@ const Categoria = (props) => {
     if (params.categoria == 'valorados' || params.categoria == 1 || params.categoria == 2 || params.categoria == 3 || params.categoria == 4 || params.categoria == 5 || params.categoria == 6) {
       const filtered = cursos
         .filter(item => item.nombre.toLowerCase().includes(search.toLowerCase()))
-      setCursos(filtered)
+      setFiltrados(filtered)
     } else {
       // location.state.searchTotal()
     }
@@ -145,7 +145,7 @@ const Categoria = (props) => {
   return (
     <>
       <Filter toggle={toggleFilter} filter={filter} filterResults={filterResults} />
-      <Menu toggle={toggleMenu} menu={menu} />
+      {loginContext.userRole == "estudiantes" ? <Menu toggle={toggleMenu} menu={menu} docentes={docentes} /> : <MenuTeacher toggle={toggleMenu} menu={menu} docentes={docentes} />}
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />

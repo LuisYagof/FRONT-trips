@@ -71,16 +71,18 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            {verified && logged ? <Redirect to='/dashboard' /> : <Onboarding />}
-          </Route>
-          <Route exact path="/1" component={Onboarding1} />
-          <Route exact path="/2" component={Onboarding2} />
-          <Route exact path="/3" component={Onboarding3} />
-          <Route exact path="/acordeon" component={Accordion} />
-          <LoginContext.Provider value={logContext}>
+      <LoginContext.Provider value={logContext}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              {verified && logged ? <Redirect to='/dashboard' /> : <Onboarding />}
+            </Route>
+            <Route exact path="/1" component={Onboarding1} />
+            <Route exact path="/2" component={Onboarding2} />
+            <Route exact path="/3" component={Onboarding3} />
+
+            <Route exact path="/acordeon" component={Accordion} />
+
             <Route path="/login" component={Login} />
             <Route path="/registro" component={Signup} />
             <Route path="/welcome" component={EnterApp} />
@@ -89,7 +91,9 @@ function App() {
             <Route path="/categorias/:categoria" component={Categoria} />
             <Route path="/review/:curso" component={Review} />
             <Route path="/review-ok" component={ReviewOk} />
+            
             <Route path="/resultadoBusqueda" component={SearchAll} />
+            
             <Route path="/misFavoritos" component={MyFavorites} />
             <Route path="/nuevoCurso" component={NewCourse} />
             <Route path="/error" component={PagError} />
@@ -98,12 +102,10 @@ function App() {
             <Route path="/actualizar" component={Actualizar} />
             <Route path="/actualizada" component={PassEstablecida} />
             <Route path="/miPerfil" component={MyProfile} />
-            <Route path="*">
-              {verified && <PagError />}
-            </Route>
-          </LoginContext.Provider >
-        </Switch>
-      </BrowserRouter>
+            <Route component={PagError} />
+          </Switch>
+        </BrowserRouter>
+      </LoginContext.Provider >
     </div>
   )
 }

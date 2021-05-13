@@ -11,9 +11,8 @@ import Burger from '../../assets/icons/Burger.svg'
 const Review = () => {
   const history = useHistory();
   const params = useParams();
-  const [value, setValue] = useState(2);
+  const [value, setValue] = useState(3);
   const [review, setReview] = useState("");
-  const [text, setText] = useState("Enviar review");
   const [functionFetch, setfunctionFetch] = useState(`newReview/${params.curso}`);
   const [menu, setMenu] = useState(false)
 
@@ -22,7 +21,6 @@ const Review = () => {
   };
 
   const fetching = async () => {
-    console.log(params.curso);
     let fetchOptions = {
       method: "POST",
       headers: {
@@ -76,7 +74,7 @@ const Review = () => {
           required
         />
         <p className='character255'>(Máximo 255 caracteres)</p>
-        <Button onClick={fetching} text={text} />
+        <Button onClick={fetching} text={"Enviar review"} />
       </form>
     </>
   );

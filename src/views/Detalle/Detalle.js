@@ -27,11 +27,11 @@ const Detalle = (props) => {
   const [reviewNum, setReviewNum] = useState(0)
 
   useEffect(() => {
-    if (location.state) {
+    if (!location.state) {
+      history.push('/dashboard')
+    } else {
       setCurso(location.state.curso)
       fetching()
-    } else {
-      history.push('/dashboard')
     }
   }, [])
 
@@ -118,7 +118,7 @@ const Detalle = (props) => {
         <div className="infoBox">
           <TinyMedia media={notaMedia()} color={"blue"} num={reviewNum} />
           <div className="subInfo">
-            <TinyBtn text={location.state.docente.nombre} color={"orange"} />
+            {location.state && <TinyBtn text={location.state.docente.nombre} color={"orange"} />}
             <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
