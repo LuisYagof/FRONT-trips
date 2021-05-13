@@ -92,7 +92,7 @@ const Detalle = (props) => {
   }
 
   const notaMedia = () => {
-     return reviews.length !== 0 ? reviews.map(el => el.valoracion).reduce((a, b) => a + b, 0) / reviews.length : curso.media
+    return reviews.length !== 0 ? Math.round((reviews.map(el => el.valoracion).reduce((a, b) => a + b, 0) / reviews.length + Number.EPSILON) * 100) / 100 : curso.media
   }
 
   return (
