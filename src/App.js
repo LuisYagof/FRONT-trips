@@ -62,11 +62,9 @@ function App() {
         toggleUserRole(content.user.rol)
         setVerified(true)
       } else {
-        alert(content.msg)
         setVerified(true)
       }
     } else {
-      alert("No estás logado.")
       setVerified(true)
     }
   }

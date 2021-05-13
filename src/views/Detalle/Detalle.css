@@ -24,8 +24,9 @@ div.subInfo {
   justify-content: space-around;
 }
 
-img.courseImg {
-  width: 100%;
+img.courseImg.detail {
+  width: 100vw;
+  border-radius: 0;
 }
 
 div.courseDescription {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Detalle.css';
 import { useLocation, useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch'
@@ -12,8 +12,12 @@ import Button from '../../components/Button/Button'
 import SimpleAccordion from '../../components/Accordion/Accordion'
 import Media from '../../components/Media/Media'
 import TinyMedia from '../../components/TinyBtn/TinyMedia'
+import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 const Detalle = (props) => {
+  const loginContext = useContext(LoginContext);
+  const location = useLocation()
+  const history = useHistory()
   const [curso, setCurso] = useState({})
   const [jobs, setJobs] = useState([])
   const [tags, setTags] = useState([])
@@ -21,13 +25,19 @@ const Detalle = (props) => {
   const [professions, setProfessions] = useState([])
   const [reviews, setReviews] = useState([])
   const [reviewNum, setReviewNum] = useState(0)
-  const location = useLocation()
-  const history = useHistory()
 
   useEffect(() => {
     setCurso(location.state.curso)
     fetching()
   }, [])
+
+  useEffect(() => {
+    if (loginContext.verified) {
+      if (!loginContext.logged) {
+        history.push("/login")
+      }
+    }
+  }, [loginContext.verified])
 
   const fetching = async () => {
     let fetchOptions = {
@@ -122,7 +132,7 @@ const Detalle = (props) => {
             <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
-        <img className="courseImg" src={curso.imagen} alt="" />
+        <img className="courseImg detail" src={curso.imagen} alt="" />
       </div>
       <div className="courseDescription">
         <h3>{curso.nombre}</h3>
@@ -140,7 +150,7 @@ const Detalle = (props) => {
       <div className="reviewBox">
         <h2>Opiniones de usuarios</h2>
         <Media media={notaMedia()} />
-        <SimpleAccordion reviews={reviews}/>
+        <SimpleAccordion reviews={reviews} />
         <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"} />
       </div>
 
