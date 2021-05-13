@@ -27,11 +27,7 @@ export default function SimpleAccordion(props) {
 
   const drawList = () => {
     if (reviews.length > 0) {
-      return reviews.map(el => 
-        <>
-          <p>{el.descripcion}</p>
-          <h7>{el.valoracion}</h7>
-        </>)
+      return reviews.map(el => <><p>{el.descripcion}</p><h7>{el.valoracion}</h7></>)
     }
   }
 
