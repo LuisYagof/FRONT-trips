@@ -118,7 +118,7 @@ const Detalle = (props) => {
             <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
-        <img className="courseImg" src={curso.imagen} alt="" />
+        <img className="courseImg detail" src={curso.imagen} alt="" />
       </div>
       <div className="courseDescription">
         <h3>{curso.nombre}</h3>
