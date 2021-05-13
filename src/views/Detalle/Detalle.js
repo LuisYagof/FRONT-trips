@@ -9,7 +9,7 @@ import accessTime from '../../assets/icons/accessTime.svg'
 import language from '../../assets/icons/language.svg'
 import TinyBtn from '../../components/TinyBtn/TinyBtn'
 import Button from '../../components/Button/Button'
-import Accordion from '../../components/Accordion/Accordion'
+import SimpleAccordion from '../../components/Accordion/Accordion'
 import Media from '../../components/Media/Media'
 import TinyMedia from '../../components/TinyBtn/TinyMedia'
 
@@ -20,7 +20,6 @@ const Detalle = (props) => {
   const [salaries, setSalaries] = useState([])
   const [professions, setProfessions] = useState([])
   const [reviews, setReviews] = useState([])
-  const [courseReviews, setCourseReviews] = useState([])
   const [reviewNum, setReviewNum] = useState(0)
   const location = useLocation()
   const history = useHistory()
@@ -28,21 +27,6 @@ const Detalle = (props) => {
   useEffect(() => {
     setCurso(location.state.curso)
     fetching()
-
-    const fetchCourseReviews = async () => {
-      let fetchOptions = {
-        method: 'GET'
-      }
-      const content = await fetchData(`searchReviews/${location.state.curso.id}`, fetchOptions)
-      if (content.error) {
-        alert(content.error)
-      } else if (content.ok) {
-        await content.ok && setCourseReviews([...courseReviews,...content.data])
-      } else if (!content.ok) {
-        alert(content.msg)
-      }
-    }
-    fetchCourseReviews()
   }, [])
 
   const fetching = async () => {
@@ -142,7 +126,7 @@ const Detalle = (props) => {
       <div className="reviewBox">
         <h2>Opiniones de usuarios</h2>
         <Media media={notaMedia()} />
-        <Accordion courseReviews={courseReviews}/>
+        <SimpleAccordion reviews={reviews}/>
         <Button onClick={() => history.push(`/review/${curso.id}`)} text={"Publicar opinión"} class={"invert"} />
       </div>
 
