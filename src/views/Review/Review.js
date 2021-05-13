@@ -15,7 +15,6 @@ const Review = () => {
   const [review, setReview] = useState("");
   const [text, setText] = useState("Enviar review");
   const [functionFetch, setfunctionFetch] = useState(`newReview/${params.curso}`);
-  // const [data, setData] = useState([]);
   const [menu, setMenu] = useState(false)
 
   const handleReview = (event) => {
@@ -72,6 +71,7 @@ const Review = () => {
           className="textarea"
           type="text"
           placeholder="Escribe aquí tu comentario."
+          maxLength='255'
           onChange={handleReview}
           required
         />
