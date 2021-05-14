@@ -4,6 +4,7 @@ import { useHistory, useLocation, useParams } from "react-router-dom";
 import './Categoria.css'
 import ItemLista from '../../components/ItemLista/ItemLista'
 import Menu from '../../components/Menu/Menu'
+import MenuTeacher from '../../components/Menu/MenuTeacher'
 import Burger from '../../assets/icons/Burger.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 import Search from '../../assets/icons/Search.svg'
