@@ -28,11 +28,7 @@
     align-items: center;
 }
 .inputForm{
-    line-height: 2;
-    border-radius: 14px;
-    border: solid 1px rgb(211 211 211);
     padding: 5px 16px;
-    margin: 10px 0 20px 0;
 }
 .inputForm:focus, .inputFormPq:focus, .selectForm:focus{
     outline: none;
