@@ -66,7 +66,7 @@ const Homepage = () => {
             <div className="slideImg">
               <img className="courseImg" src={el.imagen} alt="" />
               <div className="slideMiniCard1">
-                <TinyBtn text={docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre} color={"orange"} />
+                <TinyBtn key={el.id} text={docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre} color={"orange"} />
                 <TinyBtn text={`${el.precio} €`} color={"green"} />
               </div>
             </div>
