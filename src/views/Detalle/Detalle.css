@@ -25,8 +25,7 @@ div.subInfo {
 }
 
 img.courseImg {
-  width: 100vw;
-  border-radius: 0;
+  width: 100%;
 }
 
 div.courseDescription {
