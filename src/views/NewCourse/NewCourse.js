@@ -85,7 +85,7 @@ const NewCourse = () => {
 					<input className='inputForm' type="text" name="nombre" onChange={handleName} maxLength="255" />
 
 					<label className='textLabel' htmlFor="descripcion">Descripción del curso</label>
-					<textarea className='inputForm' type="text" name="descripcion" onChange={handleDescription} maxLength="850" />
+					<textarea className='textarea' type="text" name="descripcion" onChange={handleDescription} maxLength="850" />
 
 					<label className='textLabel' htmlFor="categoria">Categoría</label>
 					<select defaultValue="1" className='selectForm' name="categoria" id="categoria" onChange={handleCategory}>
