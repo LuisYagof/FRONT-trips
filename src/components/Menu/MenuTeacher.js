@@ -10,6 +10,10 @@ export default function Menu(props) {
   const history = useHistory()
   const loginContext = useContext(LoginContext);
 
+  const myProfile = () => {
+    history.push({ pathname: "/miPerfil" });
+  }
+
   const fetching = async () => {
     let fetchOptions = {
       method: 'PUT',
@@ -41,7 +45,7 @@ export default function Menu(props) {
         <img className="offImg" onClick={fetching} src={Off} alt="" />
       </div>
       <div className="menuContent">
-        <h1 onClick={() => console.log("MI PERFIL")}>Mi perfil</h1>
+        <h1 onClick={myProfile}>Mi perfil</h1>
         <h1 onClick={() => console.log("MIS CURSOS")}>Mis cursos</h1>
         <h1 onClick={() => history.push("/nuevoCurso")}>Subir curso</h1>
       </div>

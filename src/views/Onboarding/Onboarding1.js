@@ -7,30 +7,29 @@ import Pagination1 from '../../assets/icons/Pagination1.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 
 const Onboarding1 = () => {
-    const [text, setText] = useState("Siguiente");
-    const history = useHistory()
+	const history = useHistory()
 
-    const goUp = () => {
-        history.push("/2");
-      }
+	const goUp = () => {
+		history.push("/2");
+	}
 
-    return (
-        <div className='bodyOnboarding'>
-            <div className='onboardingHeader'>
-                <img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/')} alt='' />
-                <p className='textOmitir' onClick={() => history.push('/login')}>Omitir</p>
-            </div>
-            <div className='illustration'>
-                <div>
-                    <img className="imgOnboarding" src={Onboarding2} alt='' />
-                </div>
-                <h2><span className='h2Green'>Cursos</span> digitales</h2>
-                <p className='textPresentation'>Amplia variedad de los cursos digitales más demandados del momento.</p>
-                <img className="paginacionOnboarding" src={Pagination1} alt='' />
-            </div>
-            <Button onClick={goUp} text={text} />
-        </div>
-        );
-    }
+	return (
+		<div className='bodyOnboarding'>
+			<div className='onboardingHeader'>
+				<img className="arrowOnboarding" src={Arrow} onClick={() => history.push('/')} alt='' />
+				<p className='textOmitir' onClick={() => history.push('/login')}>Omitir</p>
+			</div>
+			<div className='illustration'>
+				<div>
+					<img className="imgOnboarding" src={Onboarding2} alt='' />
+				</div>
+				<h2><span className='h2Green'>Cursos</span> digitales</h2>
+				<p className='textPresentation'>Amplia variedad de los cursos digitales más demandados del momento.</p>
+				<img className="paginacionOnboarding" src={Pagination1} alt='' />
+			</div>
+			<Button onClick={goUp} text={"Siguiente"} />
+		</div>
+	);
+}
 
 export default Onboarding1;

@@ -47,8 +47,10 @@ const MyProfile = () => {
 			const content = await fetchData("updateUser", fetchOptions)
 			if (content.error) {
 				alert(content.error)
+			} else if (content.ok) {
+				history.push({ pathname: "/dashboard" });;
+				alert(content.msg)
 			} else {
-				await content.ok && history.push({ pathname: "/dashboard" });;
 				alert(content.msg)
 			}
 		}

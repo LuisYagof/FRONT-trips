@@ -126,7 +126,7 @@ const Detalle = (props) => {
       </div>
       <div className="courseDescription">
         <h3>{curso.nombre}</h3>
-        <p>{curso.descripcion}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, officia. Inventore laudantium tempore obcaecati sequi iure nisi odio, quia culpa quisquam possimus aliquam ducimus magnam harum recusandae voluptatibus a cum!</p>
+        <p>{curso.descripcion}</p>
       </div>
       <div className="jobsInfo">
         {jobs ? scraping() : <p>No hay datos</p>}

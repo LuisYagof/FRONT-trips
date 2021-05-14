@@ -14,21 +14,20 @@ const ItemLista = (props) => {
   }, [])
 
   return (
-    <div className="listItem">
+    <div onClick={() => history.push({
+      pathname: `/cursos/${curso.id}`,
+      state: { curso: curso, docente: props.docente }
+    })} className="listItem">
       <div className="imgBox">
         <img className="courseImg" src={curso.imagen} alt="" />
       </div>
       <div className="courseInfo">
         <div className="courseTitle">
-          <h4 onClick={() => history.push({
-            pathname: `/cursos/${curso.id}`,
-            state: { curso: curso, docente: props.docente }
-          })}>{curso.nombre}</h4>
+          <h4>{curso.nombre}</h4>
         </div>
         <div className="courseSubInfo">
           <TinyBtn text={`${curso.precio} €`} color={"green list"} />
           <TinyBtn text={props.docente.nombre} color={"orange list"} />
-          {/* <h5>{curso.media}#</h5> */}
           <Media media={curso.media} />
         </div>
       </div>

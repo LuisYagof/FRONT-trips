@@ -5,6 +5,8 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
+import Media from '../Media/Media'
+
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,13 +23,13 @@ export default function SimpleAccordion(props) {
   const classes = useStyles();
   const [reviews, setReviews] = useState([])
 
-   useEffect(() => {
-     setReviews(props.reviews)
-   })
+  useEffect(() => {
+    setReviews(props.reviews)
+  })
 
   const drawList = () => {
     if (reviews.length > 0) {
-      return reviews.map(el => <><p>{el.descripcion}</p><h7>{el.valoracion}</h7></>)
+      return reviews.map(el => <div className="reviewAcc"><Media media={el.valoracion} /><p>{el.descripcion}</p> </div>)
     }
   }
 
@@ -35,7 +37,7 @@ export default function SimpleAccordion(props) {
     <div className={classes.root}>
       <Accordion>
         <AccordionSummary
-        //   expandIcon={<ExpandMoreIcon />}
+          //   expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >

@@ -65,6 +65,8 @@ const NewCourse = () => {
 			alert(content.error)
 		} else if (content.ok) {
 			alert("Curso publicado correctamente.")
+		} else {
+			alert(content.msg)
 		}
 	}
 

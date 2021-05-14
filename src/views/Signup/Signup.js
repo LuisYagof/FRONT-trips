@@ -10,14 +10,13 @@ import './Signup.css'
 import LoginContext from '../../contexts/LoginContext/LoginContext';
 
 const Signup = () => {
+  const history = useHistory();
+  const loginContext = useContext(LoginContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [text, setText] = useState("Comencemos");
   const [eye, setEye] = useState(true);
   const [functionFetch, setfunctionFetch] = useState("newStudent");
-  const history = useHistory();
-  const loginContext = useContext(LoginContext);
 
   const handleUser = (user) => setfunctionFetch(user == 'estudiantes' ? 'newStudent' : 'newTeacher');
 
@@ -95,7 +94,7 @@ const Signup = () => {
         <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
       </div>
       <p>¿No recuerdas tu contraseña? <span className="linkSpan green" onClick={() => history.push('/recuperar')}>Recuperar</span></p>
-      <Button onClick={fetching} text={text} />
+      <Button onClick={fetching} text={"Comencemos"} />
       <p>¿Ya tienes cuenta? <span className="linkSpan" onClick={() => history.push('/login')}>Iniciar sesión</span></p>
     </form>
   );

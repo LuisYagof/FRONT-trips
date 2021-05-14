@@ -32,7 +32,7 @@ const MyFavorites = () => {
 			if (content.error) {
 				alert(content.error)
 			} else if (content.ok) {
-				await content.ok && setCursos([...cursos, ...content.data]);
+				setCursos([...cursos, ...content.data]);
 			} else {
 				alert(content.msg)
 			}
