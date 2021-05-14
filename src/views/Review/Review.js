@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from "../../components/Button/Button";
+import React, { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import fetchData from "../../hooks/Fetch";
 import { Rating } from "@material-ui/lab";
 import './Review.css';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import './Detalle.css';
 import { useLocation, useHistory } from "react-router-dom";
+import './Detalle.css';
 import fetchData from '../../hooks/Fetch'
 import ArrowWhite from '../../assets/icons/ArrowWhite.svg'
 import Heart from '../../assets/icons/Heart.svg'

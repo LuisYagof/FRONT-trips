@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import BtnRadio from "../../components/BtnRadio/BtnRadio";
 import eyeOff from "../../assets/icons/eyeOff.svg";
 import eyeOn from "../../assets/icons/eyeOn.svg";
-import { useHistory } from "react-router-dom";
 import fetchData from "../../hooks/Fetch";
 import Registro from '../../assets/img/Registro.png'
 import './Signup.css'
