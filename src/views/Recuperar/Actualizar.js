@@ -102,6 +102,8 @@ const Actualizar = () => {
           placeholder="Repite tu contraseña"
           onChange={handlePass}
           defaultValue=""
+          minLength="8"
+          maxLength="50"
         />
         <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
       </div>
@@ -114,6 +116,8 @@ const Actualizar = () => {
           placeholder="Repite tu contraseña"
           onChange={handlePass2}
           defaultValue=""
+          minLength="8"
+          maxLength="50"
         />
         <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
       </div>
