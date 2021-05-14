@@ -81,6 +81,5 @@ export default function Filter(props) {
 
       <Button onClick={handleFilterResults} text={"Aplicar Filtros"} />
     </div>
-
   )
 }

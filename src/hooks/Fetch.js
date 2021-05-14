@@ -5,7 +5,7 @@ async function fetchData(endpoint, options) {
     return jonson
   } catch (err) {
     return {
-      error: "No se ha podido realizar la petición",
+      error: "No se ha podido realizar la petición.",
       fetchErr: err
     }
   }
