@@ -24,14 +24,9 @@ div.subInfo {
   justify-content: space-around;
 }
 
-<<<<<<< HEAD
 img.courseImg.detail {
   width: 100vw;
-  border-radius: 0;
-=======
-img.courseImg {
-  width: 100%;
->>>>>>> signup
+  border-radius: 0%;
 }
 
 div.courseDescription {
