@@ -64,15 +64,17 @@ const Detalle = (props) => {
 
   const fetchNewFav = async () => {
     let fetchOptions = {
-      method: 'POST'
+      method: 'POST',
+      headers: {
+        "authorization" : `Bearer: ${localStorage.getItem("token")}`
+      }
     }
     const content = await fetchData(`newFav/${location.state.curso.id}`, fetchOptions)
-    console.log("id del curso: ", location.state.curso.id);
     if (content.error) {
       alert(content.error)
     } else if (content.ok) {
       alert(content.msg)
-    } else {
+    } else if(!content.ok){
       alert(content.msg)
     }
   }
