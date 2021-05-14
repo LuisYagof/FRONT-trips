@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch';
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
-import "./Login.css";
 import Login1 from '../../assets/img/Login1.png';
 import eyeOff from "../../assets/icons/eyeOff.svg";
 import eyeOn from "../../assets/icons/eyeOn.svg";
@@ -69,6 +68,7 @@ const Login = () => {
                 type="email"
                 onChange={handleEmail}
                 placeholder="Email"
+                maxlength="80"
             />
             <div className='passwordEye'>
                 <input
@@ -76,6 +76,8 @@ const Login = () => {
                     type={eye ? "password" : "text"} 
                     placeholder="Password"
                     onChange={handlePass}
+                    minlength="8"
+                    maxlength="50"
                     required
                 />
                 <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={ changeEye } alt='' />

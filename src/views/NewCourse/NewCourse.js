@@ -82,10 +82,10 @@ const NewCourse = () => {
 				</div>
 				<form className='formNewCourse'>
 					<label className='textLabel' htmlFor="nombre">Nombre del curso</label>
-					<input className='inputForm' type="text" name="nombre" onChange={handleName} />
+					<input className='inputForm' type="text" name="nombre" onChange={handleName} maxLength="255"/>
 
 					<label className='textLabel' htmlFor="descripcion">Descripción del curso</label>
-					<textarea className='inputForm' type="text" name="descripcion" onChange={handleDescription} />
+					<textarea className='inputForm' type="text" name="descripcion" onChange={handleDescription} maxLength="850"/>
 
 					<label className='textLabel' htmlFor="categoria">Categoría</label>
 					<select className='selectForm' name="categoria" id="categoria" onChange={handleCategory}>
@@ -120,10 +120,10 @@ const NewCourse = () => {
 					</select>
 
 					<label className='textLabel' htmlFor="enlace">Link del curso</label>
-					<input className='inputForm' type="text" name="enlace" onChange={handleLink} />
+					<input className='inputForm' type="text" name="enlace" onChange={handleLink} maxLength="255"/>
 
 					<label className='textLabel' htmlFor="imagen">Link de imagen</label>
-					<input className='inputForm' type="text" name="imagen" onChange={handleImage} />
+					<input className='inputForm' type="text" name="imagen" onChange={handleImage} maxLength="255"/>
 				</form>
 				<Button onClick={fetching} text={"Publicar curso"} />
 			</div>

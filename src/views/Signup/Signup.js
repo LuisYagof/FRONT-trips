@@ -74,6 +74,8 @@ const Signup = () => {
         type="text"
         placeholder={functionFetch == 'newStudent' ? "Nombre y Apellido" : "Nombre de Escuela/Profesor"}
         onChange={handleName}
+        minLength="4"
+        maxLength="36"
         required
       />
       <input
@@ -81,6 +83,7 @@ const Signup = () => {
         type="email"
         placeholder="Email"
         onChange={handleEmail}
+        maxLength="80"
         required
       />
       <div className='passwordEye'>
@@ -89,6 +92,8 @@ const Signup = () => {
           type={eye ? "password" : "text"}
           placeholder="Password"
           onChange={handlePass}
+          minLength="8"
+          maxLength="50"
           required
         />
         <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
