@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch';
+import Arrow from '../../assets/icons/Arrow.svg'
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
 import "./Recuperar1.css";
@@ -40,6 +41,9 @@ const Recuperar1 = () => {
 
 	return (
 		<form className="formVH">
+			<div className='newMyProfileHeader'>
+				<img className="arrowOnboarding" src={Arrow} onClick={() => history.goBack()} alt='' />
+			</div>
 			<div className="imgBoxVH">
 				<img src={Recuperar} alt='' />
 			</div>

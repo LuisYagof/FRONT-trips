@@ -84,8 +84,6 @@ const Homepage = () => {
         slidesPerView={1.5}
         loop={true}
         initialSlide={5}
-      // onSwiper={(swiper) => console.log(swiper)}
-      // onSlideChange={() => console.log('slide change')}
       >
         {cards}
       </Swiper>

@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import fetchData from '../../hooks/Fetch';
 import BtnRadio from '../../components/BtnRadio/BtnRadio';
 import Button from "../../components/Button/Button";
-import "./Login.css";
 import Login1 from '../../assets/img/Login1.png';
 import eyeOff from "../../assets/icons/eyeOff.svg";
 import eyeOn from "../../assets/icons/eyeOn.svg";
