@@ -23,7 +23,6 @@ import Actualizar from "./views/Recuperar/Actualizar";
 import PassEstablecida from "./views/Recuperar/PassEstablecida";
 import MyProfile from "./views/MyProfile/MyProfile";
 import LoginContext from './contexts/LoginContext/LoginContext';
-import Accordion from './components/Accordion/Accordion';
 import fetchData from './hooks/Fetch'
 
 function App() {
@@ -80,9 +79,6 @@ function App() {
             <Route exact path="/1" component={Onboarding1} />
             <Route exact path="/2" component={Onboarding2} />
             <Route exact path="/3" component={Onboarding3} />
-
-            <Route exact path="/acordeon" component={Accordion} />
-
             <Route path="/login" component={Login} />
             <Route path="/registro" component={Signup} />
             <Route path="/welcome" component={EnterApp} />
@@ -91,9 +87,6 @@ function App() {
             <Route path="/categorias/:categoria" component={Categoria} />
             <Route path="/review/:curso" component={Review} />
             <Route path="/review-ok" component={ReviewOk} />
-            
-            <Route path="/resultadoBusqueda" component={SearchAll} />
-            
             <Route path="/misFavoritos" component={MyFavorites} />
             <Route path="/nuevoCurso" component={NewCourse} />
             <Route path="/error" component={PagError} />
