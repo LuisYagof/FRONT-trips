@@ -12,22 +12,22 @@ const NewCourse = () => {
 	const loginContext = useContext(LoginContext);
 	const [name, setName] = useState("");
 	const [descripcion, setDescripcion] = useState("");
-	const [enlace, setEnlace] = useState("");
+	const [categoria, setCategoria] = useState(1);
 	const [precio, setPrecio] = useState(0);
 	const [duracion, setDuracion] = useState(0);
-	const [idioma, setIdioma] = useState(1);
-	const [categoria, setCategoria] = useState(0);
 	const [bolsaEmpleo, setBolsaEmpleo] = useState(0);
 	const [certificado, setCertificado] = useState(0);
+	const [idioma, setIdioma] = useState(0);
+	const [enlace, setEnlace] = useState("");
 	const [imagen, setImagen] = useState("");
 
 	useEffect(() => {
-    if (loginContext.verified) {
-      if (!loginContext.logged || loginContext.userRole !== "docentes") {
-        history.push("/login")
-      }
-    }
-  }, [loginContext.verified])
+		if (loginContext.verified) {
+			if (!loginContext.logged || loginContext.userRole !== "docentes") {
+				history.push("/login")
+			}
+		}
+	}, [loginContext.verified])
 
 	const handleName = (event) => setName(event.target.value);
 	const handleDescription = (event) => setDescripcion(event.target.value);
@@ -82,13 +82,13 @@ const NewCourse = () => {
 				</div>
 				<form className='formNewCourse'>
 					<label className='textLabel' htmlFor="nombre">Nombre del curso</label>
-					<input className='inputForm' type="text" name="nombre" onChange={handleName} maxLength="255"/>
+					<input className='inputForm' type="text" name="nombre" onChange={handleName} maxLength="255" />
 
 					<label className='textLabel' htmlFor="descripcion">Descripción del curso</label>
-					<textarea className='inputForm' type="text" name="descripcion" onChange={handleDescription} maxLength="850"/>
+					<textarea className='inputForm' type="text" name="descripcion" onChange={handleDescription} maxLength="850" />
 
 					<label className='textLabel' htmlFor="categoria">Categoría</label>
-					<select className='selectForm' name="categoria" id="categoria" onChange={handleCategory}>
+					<select defaultValue="1" className='selectForm' name="categoria" id="categoria" onChange={handleCategory}>
 						<option value="1">Desarrollo web</option>
 						<option value="2">FrontEnd</option>
 						<option value="3">BackEnd</option>
@@ -114,16 +114,16 @@ const NewCourse = () => {
 					</div>
 
 					<label className='textLabel' htmlFor="idioma">Idioma</label>
-					<select className='selectForm' name="idioma" id="idioma" onChange={handleLanguage}>
-						<option value="1">Español</option>
-						<option value="2">Inglés</option>
+					<select defaultValue="0" className='selectForm' name="idioma" id="idioma" onChange={handleLanguage}>
+						<option value="0">Español</option>
+						<option value="1">Inglés</option>
 					</select>
 
 					<label className='textLabel' htmlFor="enlace">Link del curso</label>
-					<input className='inputForm' type="text" name="enlace" onChange={handleLink} maxLength="255"/>
+					<input className='inputForm' type="text" name="enlace" onChange={handleLink} maxLength="255" />
 
 					<label className='textLabel' htmlFor="imagen">Link de imagen</label>
-					<input className='inputForm' type="text" name="imagen" onChange={handleImage} maxLength="255"/>
+					<input className='inputForm' type="text" name="imagen" onChange={handleImage} maxLength="255" />
 				</form>
 				<Button onClick={fetching} text={"Publicar curso"} />
 			</div>
