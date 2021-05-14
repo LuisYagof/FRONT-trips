@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import fetchData from "../../hooks/Fetch";
@@ -12,11 +12,18 @@ const MyProfile = () => {
 	const history = useHistory()
 	const loginContext = useContext(LoginContext);
 	const [eye, setEye] = useState(true);
-
 	const [name, setName] = useState(loginContext.userName);
 	const [email, setEmail] = useState(loginContext.userMail);
 	const [pass, setPass] = useState("");
 	const [rePass, setRepass] = useState("");
+
+	useEffect(() => {
+		if (loginContext.verified) {
+			if (!loginContext.logged) {
+				history.push("/login")
+			}
+		}
+	}, [loginContext.verified])
 
 	const handleName = (event) => setName(event.target.value);
 	const handleEmail = (event) => setEmail(event.target.value);
