@@ -13,7 +13,6 @@ import EnterApp from './views/EnterApp/EnterApp'
 import Categoria from './views/Categoria/Categoria'
 import Review from './views/Review/Review'
 import ReviewOk from './views/ReviewOk/ReviewOk'
-import SearchAll from "./views/SearchAll/SearchAll";
 import MyFavorites from "./views/MyFavorites/MyFavorites";
 import PagError from './views/PagError/PagError';
 import NewCourse from "./views/NewCourse/NewCourse";
