@@ -134,7 +134,7 @@ const Detalle = (props) => {
           <TinyMedia media={notaMedia()} color={"blue"} num={reviewNum} />
           <div className="subInfo">
             {location.state && <TinyBtn text={location.state.docente.nombre} color={"orange"} />}
-            <TinyBtn text={`${curso.precio} €`} color={"green"} />
+              <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
         <img className="courseImg detail" src={curso.imagen} alt="" />
