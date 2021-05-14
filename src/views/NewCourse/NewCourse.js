@@ -41,30 +41,31 @@ const NewCourse = () => {
 	const handleImage = (event) => setImagen(event.target.value);
 
 	const fetching = async () => {
+		const curso = {
+			nombre: name,
+			descripcion: descripcion,
+			enlace: enlace,
+			precio: precio,
+			duracion: duracion,
+			idioma: idioma,
+			categoria: categoria,
+			bolsaEmpleo: bolsaEmpleo,
+			certificado: certificado,
+			imagen: imagen
+		}
 		let fetchOptions = {
 			method: 'POST',
 			headers: {
 				"content-type": "application/json",
 				authorization: `Bearer: ${localStorage.getItem("token")}`,
 			},
-			body: JSON.stringify({
-				nombre: name,
-				descripcion: descripcion,
-				enlace: enlace,
-				precio: precio,
-				duracion: duracion,
-				idioma: idioma,
-				categoria: categoria,
-				bolsaEmpleo: bolsaEmpleo,
-				certificado: certificado,
-				imagen: imagen
-			})
+			body: JSON.stringify(curso)
 		}
 		const content = await fetchData("newCourse", fetchOptions)
 		if (content.error) {
 			alert(content.error)
 		} else if (content.ok) {
-			alert("Curso publicado correctamente.")
+			history.push({ pathname: '/publicado' })
 		} else {
 			alert(content.msg)
 		}

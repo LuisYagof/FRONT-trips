@@ -16,6 +16,7 @@ import ReviewOk from './views/ReviewOk/ReviewOk'
 import MyFavorites from "./views/MyFavorites/MyFavorites";
 import PagError from './views/PagError/PagError';
 import NewCourse from "./views/NewCourse/NewCourse";
+import Published from "./views/NewCourse/Publicado";
 import Recuperar1 from "./views/Recuperar/Recuperar1";
 import MailEnviado from "./views/Recuperar/MailEnviado";
 import Actualizar from "./views/Recuperar/Actualizar";
@@ -88,6 +89,7 @@ function App() {
             <Route path="/review-ok" component={ReviewOk} />
             <Route path="/misFavoritos" component={MyFavorites} />
             <Route path="/nuevoCurso" component={NewCourse} />
+            <Route path="/publicado" component={Published} />
             <Route path="/error" component={PagError} />
             <Route path="/recuperar" component={Recuperar1} />
             <Route path="/mailenviado" component={MailEnviado} />

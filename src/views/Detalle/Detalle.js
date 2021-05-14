@@ -63,19 +63,21 @@ const Detalle = (props) => {
   }
 
   const fetchNewFav = async () => {
-    let fetchOptions = {
-      method: 'POST',
-      headers: {
-        "authorization" : `Bearer: ${localStorage.getItem("token")}`
+    if (loginContext.userRole === "estudiantes") {
+      let fetchOptions = {
+        method: 'POST',
+        headers: {
+          "authorization": `Bearer: ${localStorage.getItem("token")}`
+        }
       }
-    }
-    const content = await fetchData(`newFav/${location.state.curso.id}`, fetchOptions)
-    if (content.error) {
-      alert(content.error)
-    } else if (content.ok) {
-      alert(content.msg)
-    } else if(!content.ok){
-      alert(content.msg)
+      const content = await fetchData(`newFav/${location.state.curso.id}`, fetchOptions)
+      if (content.error) {
+        alert(content.error)
+      } else if (content.ok) {
+        alert(content.msg)
+      } else if (!content.ok) {
+        alert(content.msg)
+      }
     }
   }
 
@@ -136,7 +138,7 @@ const Detalle = (props) => {
           <TinyMedia media={notaMedia()} color={"blue"} num={reviewNum} />
           <div className="subInfo">
             {location.state && <TinyBtn text={location.state.docente.nombre} color={"orange"} />}
-              <TinyBtn text={`${curso.precio} €`} color={"green"} />
+            <TinyBtn text={`${curso.precio} €`} color={"green"} />
           </div>
         </div>
         <img className="courseImg detail" src={curso.imagen} alt="" />
