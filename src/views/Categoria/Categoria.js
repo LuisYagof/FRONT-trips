@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import './Categoria.css';
 import { useHistory, useLocation, useParams } from "react-router-dom";
-import './Categoria.css'
+import './Categoria.css';
 import ItemLista from '../../components/ItemLista/ItemLista'
 import Menu from '../../components/Menu/Menu'
 import MenuTeacher from '../../components/Menu/MenuTeacher'

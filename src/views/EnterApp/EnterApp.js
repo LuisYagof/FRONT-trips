@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {useHistory} from 'react-router-dom'
 import tickSquare from '../../assets/icons/tickSquare.svg';
 import { CircularProgress } from '@material-ui/core';
