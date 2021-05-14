@@ -71,21 +71,21 @@ const MyProfile = () => {
 				</div>
 				<form className='formMyProfile'>
 					<label className='textLabel' htmlFor="nombre" >Nombre y apellidos</label>
-					<input required className='inputForm' type="text" name="nombre" onChange={handleName} defaultValue={loginContext.userName} />
+					<input required className='inputForm' type="text" name="nombre" onChange={handleName} defaultValue={loginContext.userName} minLength="4" maxLength="36"/>
 
 					<label className='textLabel' htmlFor="email">Email</label>
-					<input required className='inputForm' type="text" name="email" onChange={handleEmail} defaultValue={loginContext.userMail} />
+					<input required className='inputForm' type="text" name="email" onChange={handleEmail} defaultValue={loginContext.userMail} maxLength="80"/>
 
 					<label className='textLabel' htmlFor="pass">Password</label>
 					<div className='passwordEye'>
 						<input required className='inputFormPass' type={eye ? "password" : "text"} name="pass" onChange={handlePass} />
-						<img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
+						<img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' minLength="8" maxLength="50"/>
 					</div>
 
 					<label className='textLabel' htmlFor="rePass">Repetir password</label>
 					<div className='passwordEye'>
 						<input required className='inputFormPass' type={eye ? "password" : "text"} name="rePass" onChange={handleRepass} />
-						<img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' />
+						<img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={changeEye} alt='' minLength="8" maxLength="50"/>
 					</div>
 				</form>
 				<Button onClick={fetching} text={"Modificar perfil"} />
