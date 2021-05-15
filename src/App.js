@@ -50,9 +50,9 @@ function App() {
         headers: {
           "content-type": "application/json",
           "authorization": `Bearer: ${localStorage.getItem("token")}`,
-          'Access-Control-Allow-Origin': '*'
+          // 'Access-Control-Allow-Origin': '*'
         },
-        mode: 'cors',
+        // mode: 'cors',
       }
       const content = await fetchData("verification", fetchOptions)
       if (content.error) { setVerified(true) }
