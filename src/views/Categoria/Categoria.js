@@ -128,6 +128,17 @@ const Categoria = (props) => {
         return 0;
       })
       setFiltrados(ordered)
+    // } else if (orderBy == 2) {
+    //   let ordered = trimmed.sort((a, b) => {
+    //     if (a.fecha > b.fecha) {
+    //       return 1;
+    //     }
+    //     if (a.fecha < b.fecha) {
+    //       return -1;
+    //     }
+    //     return 0;
+    //   })
+    //   setFiltrados(ordered)
     } else if (orderBy == 3) {
       let ordered = trimmed.sort((a, b) => {
         if (a.precio > b.precio) {
@@ -153,7 +164,7 @@ const Categoria = (props) => {
         <img onClick={toggleMenu} src={Burger} alt="" />
       </div>
 
-      <div className="courseList">
+      <div className={`courseList ${menu} ${filter}`}>
         <div className="listHeader">
           {handleTitle()}
           <img onClick={toggleFilter} src={Filter2} alt="" />

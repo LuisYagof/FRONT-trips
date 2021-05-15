@@ -146,7 +146,7 @@ const Homepage = () => {
 
       <div>
         <h3 className="gridTitle">Categorías</h3>
-        <div className="gridCategorias">
+        <div className={`gridCategorias ${menu}`}>
           <div><img src={Web} alt="" onClick={() => handleClick(1)} /></div>
           <div><img src={Frontend} alt="" onClick={() => handleClick(2)} /></div>
           <div><img src={Backend} alt="" onClick={() => handleClick(3)} /></div>

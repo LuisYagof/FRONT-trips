@@ -21,7 +21,7 @@ const ToggleButton = (props) => {
 					<div className="wrg-toggle-circle"></div>
 					<input className="wrg-toggle-input" type="checkbox" aria-label="Toggle Button" />
 				</div>
-				<label>{props.toggleBtnText}</label>
+				<label className="labelBuscador">{props.toggleBtnText}</label>
 			</div>
 		</>
 	)
