@@ -66,8 +66,12 @@ div.gridCategorias {
   text-align: center;
 }
 
+div.gridCategorias.true {
+  display: none;
+}
+
 h3.gridTitle {
-  margin: 10% 0 4% 3%;
+  margin: 3% 0 4% 3%;
 }
 
 div.gridCategorias div img {
