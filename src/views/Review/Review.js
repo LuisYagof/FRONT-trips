@@ -13,8 +13,8 @@ const Review = () => {
   const params = useParams();
   const [value, setValue] = useState(3);
   const [review, setReview] = useState("");
-  const [functionFetch, setfunctionFetch] = useState(`newReview/${params.curso}`);
   const [menu, setMenu] = useState(false)
+  const functionFetch = `newReview/${params.curso}`;
 
   const handleReview = (event) => {
     setReview(event.target.value);

@@ -18,7 +18,7 @@ const Signup = () => {
   const [eye, setEye] = useState(true);
   const [functionFetch, setfunctionFetch] = useState("newStudent");
 
-  const handleUser = (user) => setfunctionFetch(user == 'estudiantes' ? 'newStudent' : 'newTeacher');
+  const handleUser = (user) => setfunctionFetch(user === 'estudiantes' ? 'newStudent' : 'newTeacher');
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -72,7 +72,7 @@ const Signup = () => {
       <input
         className='textPlaceholder'
         type="text"
-        placeholder={functionFetch == 'newStudent' ? "Nombre y Apellido" : "Nombre de Escuela/Profesor"}
+        placeholder={functionFetch === 'newStudent' ? "Nombre y Apellido" : "Nombre de Escuela/Profesor"}
         onChange={handleName}
         minLength="4"
         maxLength="36"

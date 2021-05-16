@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import './ItemLista.css'
+import timeConverter from '../../hooks/Date'
 import '../TinyBtn/TinyBtn'
-import TinyBtn from '../TinyBtn/TinyBtn';
+// import TinyBtn from '../TinyBtn/TinyBtn';
 import Media from '../Media/Media';
 
 const ItemLista = (props) => {
@@ -31,6 +32,7 @@ const ItemLista = (props) => {
           <h6>{curso.precio} €</h6>
           <h6>{props.docente.nombre}</h6>
           <Media media={curso.media} />
+          <p className="listaFecha">{timeConverter(curso.fecha)}</p>
         </div>
       </div>
     </div>
