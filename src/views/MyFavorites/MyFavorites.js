@@ -54,7 +54,7 @@ const MyFavorites = () => {
 				<img onClick={goBack} src={Arrow} alt="" />
 			</div>
 			<div className="slideHeader">
-				<h2>Mis cursos favoritos</h2>
+				<h3>Mis cursos favoritos</h3>
 				<img src={HeartBold} alt="" />
 			</div>
 			<div>

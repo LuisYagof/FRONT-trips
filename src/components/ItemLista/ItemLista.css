@@ -56,3 +56,15 @@ p.listaFecha {
   color: #a7a7a7;
   font-size: 8px;
 }
+
+@media screen and (min-width: 600px) {
+  div.courseTitle>h4 {
+    font-size: 18px;
+  }
+  div.courseSubInfo>h6 {
+    font-size: 14px
+  }
+  p.listaFecha {
+    font-size: 10px;
+  }
+}

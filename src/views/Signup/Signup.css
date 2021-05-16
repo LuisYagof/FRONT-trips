@@ -55,5 +55,16 @@ span.linkSpan.green {
 .eyeOff {
   z-index: 999;
   position: absolute;
-  transform: translate(300px, 17px);
+  transform: translate(83vw, 72%);
+}
+
+/* ------------------------------------MEDIA QUERIES */
+
+@media screen and (min-width: 600px) {
+  .eyeOff {
+    transform: translate(83vw, 86%);
+  }
+  div.imgBoxVH {
+    height: 30%;
+  }
 }

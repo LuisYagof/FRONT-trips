@@ -79,3 +79,32 @@ div.gridCategorias div img {
   width: 170px;
   margin: 0 0 8% 0;
 }
+
+/* ------------------------------------MEDIA QUERIES */
+
+@media screen and (max-width: 370px) {
+  div.gridCategorias div img {
+    width: 150px;
+  }
+  div.slideMiniCard1 {
+    transform: translate(0, 40px);
+  }
+}
+
+@media screen and (min-width: 450px) {
+  div.gridCategorias div img {
+    width: 180px;
+  }
+  div.slideMiniCard1 {
+    transform: translate(0, 60px);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  div.gridCategorias div img {
+    width: 280px;
+  }
+  div.slideMiniCard1 {
+    transform: translate(0, 87px);
+  }
+}
