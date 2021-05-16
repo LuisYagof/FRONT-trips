@@ -51,7 +51,8 @@ const NewCourse = () => {
 			categoria: categoria,
 			bolsaEmpleo: bolsaEmpleo,
 			certificado: certificado,
-			imagen: imagen
+			imagen: imagen,
+			fecha: Date.now()
 		}
 		let fetchOptions = {
 			method: 'POST',

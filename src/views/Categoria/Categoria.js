@@ -128,17 +128,17 @@ const Categoria = (props) => {
         return 0;
       })
       setFiltrados(ordered)
-    // } else if (orderBy == 2) {
-    //   let ordered = trimmed.sort((a, b) => {
-    //     if (a.fecha > b.fecha) {
-    //       return 1;
-    //     }
-    //     if (a.fecha < b.fecha) {
-    //       return -1;
-    //     }
-    //     return 0;
-    //   })
-    //   setFiltrados(ordered)
+    } else if (orderBy == 2) {
+      let ordered = trimmed.sort((a, b) => {
+        if (a.fecha < b.fecha) {
+          return 1;
+        }
+        if (a.fecha > b.fecha) {
+          return -1;
+        }
+        return 0;
+      })
+      setFiltrados(ordered)
     } else if (orderBy == 3) {
       let ordered = trimmed.sort((a, b) => {
         if (a.precio > b.precio) {

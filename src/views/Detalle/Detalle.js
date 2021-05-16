@@ -119,8 +119,8 @@ const Detalle = (props) => {
           <img src={language} alt="" />
           <p>{curso.idioma === 0 ? "Español" : "Inglés"}</p>
         </div>
-        {curso.bolsaEmpleo == 1 && bolsa()}
-        {curso.certificado == 1 && certif()}
+        {curso.bolsaEmpleo === 1 && bolsa()}
+        {curso.certificado === 1 && certif()}
       </>
     )
   }

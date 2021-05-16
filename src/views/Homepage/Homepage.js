@@ -60,13 +60,13 @@ const Homepage = () => {
         <SwiperSlide >
           <div className={"slideCard"} onClick={() => history.push({
             pathname: `/cursos/${el.id}`,
-            state: { curso: el, docente: docentes.filter(e => e.id == el.docente)[0] }
+            state: { curso: el, docente: docentes.filter(e => e.id === el.docente)[0] }
           })}>
 
             <div className="slideImg">
               <img className="courseImg" src={el.imagen} alt="" />
               <div className="slideMiniCard1">
-                <TinyBtn key={el.id} text={docentes[0] && docentes.filter(e => e.id == el.docente)[0].nombre} color={"orange"} />
+                <TinyBtn key={el.id} text={docentes[0] && docentes.filter(e => e.id === el.docente)[0].nombre} color={"orange"} />
                 <TinyBtn text={`${el.precio} €`} color={"green"} />
               </div>
             </div>
@@ -94,7 +94,7 @@ const Homepage = () => {
     history.push({
       pathname: `/categorias/${cat}`,
       state: {
-        cursos: typeof (cat) == "number" ? cursos.filter(el => el.categoria == cat) : cursos,
+        cursos: typeof (cat) == "number" ? cursos.filter(el => el.categoria === cat) : cursos,
         docentes: docentes
       }
     })
@@ -128,7 +128,7 @@ const Homepage = () => {
 
   return (
     <>
-      {loginContext.userRole == "estudiantes" ? <Menu toggle={toggleMenu} menu={menu} docentes={docentes} /> : <MenuTeacher toggle={toggleMenu} menu={menu} docentes={docentes} />}
+      {loginContext.userRole === "estudiantes" ? <Menu toggle={toggleMenu} menu={menu} docentes={docentes} /> : <MenuTeacher toggle={toggleMenu} menu={menu} docentes={docentes} />}
       <div className="navHeader">
         <img onClick={goBack} src={Arrow} alt="" />
         <input type="text" placeholder="Haz tu búsqueda" onChange={handleSearch} />

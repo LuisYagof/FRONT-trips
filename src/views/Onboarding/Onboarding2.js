@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom";
 import "./Onboarding.css";
 import Button from "../../components/Button/Button";
@@ -7,7 +7,6 @@ import Pagination2 from '../../assets/icons/Pagination2.svg'
 import Arrow from '../../assets/icons/Arrow.svg'
 
 const Onboarding2 = () => {
-    const [text, setText] = useState("Siguiente");
     const history = useHistory()
 
     const goUp = () => {
@@ -28,7 +27,7 @@ const Onboarding2 = () => {
                 <p className='textPresentation'>Información en tiempo real de la realidad laboral relacionada con cada curso.</p>
                 <img className="paginacionOnboarding" src={Pagination2} alt='' />
             </div>
-            <Button onClick={goUp} text={text} />
+            <Button onClick={goUp} text={"Siguiente"} />
         </div>
         );
     }

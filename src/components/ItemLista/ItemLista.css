@@ -51,3 +51,8 @@ div.courseSubInfo>h6 {
   margin: 0;
   font-family: Archivo;
 }
+
+p.listaFecha {
+  color: #a7a7a7;
+  font-size: 8px;
+}
