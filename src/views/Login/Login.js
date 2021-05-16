@@ -68,7 +68,7 @@ const Login = () => {
                 type="email"
                 onChange={handleEmail}
                 placeholder="Email"
-                maxlength="80"
+                maxLength="80"
             />
             <div className='passwordEye'>
                 <input
@@ -76,8 +76,8 @@ const Login = () => {
                     type={eye ? "password" : "text"} 
                     placeholder="Password"
                     onChange={handlePass}
-                    minlength="8"
-                    maxlength="50"
+                    minLength="8"
+                    maxLength="50"
                     required
                 />
                 <img className='eyeOff' src={eye ? eyeOff : eyeOn} onClick={ changeEye } alt='' />
