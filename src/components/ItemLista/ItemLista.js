@@ -32,7 +32,7 @@ const ItemLista = (props) => {
           <h6>{curso.precio} €</h6>
           <h6>{props.docente.nombre}</h6>
           <Media media={curso.media} />
-          <p className="listaFecha">{timeConverter(curso.fecha)}</p>
+          {/* <p className="listaFecha">{timeConverter(curso.fecha)}</p> */}
         </div>
       </div>
     </div>
