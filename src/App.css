@@ -5,18 +5,24 @@ div.navHeader {
   justify-content: space-evenly;
   padding: 7% 0 0 0;
 }
+
 div.navHeader input {
   width: 55%;
   border-radius: 8px;
   border: solid 1px lightgray;
   padding: 10px;
+  font-family: Heebo;
+  letter-spacing: 0.4px;
+  color: #78746D;
 }
+
 div.navHeader input:focus {
   outline: none
 }
 
 /*---------TIPOGRAFIAS-----------*/
-h2{
+
+h2 {
   font-family: Archivo;
   font-size: 27px;
   font-style: normal;
@@ -26,11 +32,13 @@ h2{
   text-align: center;
   color: #666666;
 }
-.h2Green{
+
+.h2Green {
   font-weight: 700;
   color: #5BA092;
 }
-h3{
+
+h3 {
   font-family: Archivo;
   font-size: 27px;
   font-style: normal;
@@ -39,7 +47,8 @@ h3{
   color: rgb(153 153 153);
   margin-bottom: 14px;
 }
-.textPresentation{
+
+.textPresentation {
   font-family: Heebo;
   font-size: 20px;
   font-style: normal;
@@ -50,7 +59,8 @@ h3{
   width: 80vw;
   margin: 10px 0;
 }
-.textLabel{
+
+.textLabel {
   font-family: Heebo;
   font-size: 16px;
   font-style: normal;
@@ -60,7 +70,8 @@ h3{
   text-align: left;
   color: #666666;
 }
-.textPlaceholder{
+
+.textPlaceholder {
   font-family: Heebo;
   font-size: 14px;
   font-style: normal;
