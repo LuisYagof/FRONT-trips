@@ -32,6 +32,7 @@ img.courseImg.detail {
 div.courseDescription {
   padding: 0 5%;
 }
+
 div.courseDescription p {
   font-family: Heebo;
   font-weight: 300;
@@ -91,4 +92,24 @@ div.reviewBox>div.mediaStar>h5 {
 
 div.reviewBox>div.mediaStar>img {
   width: 40px;
+}
+
+/* ------------------------------------MEDIA QUERIES */
+
+@media screen and (max-width: 370px) {
+  div.infoBox {
+    transform: translate(0px, 144px);
+  }
+}
+
+@media screen and (min-width: 450px) {
+  div.infoBox {
+    transform: translate(0px, 219px);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  div.infoBox {
+    transform: translate(0px, 300px);
+  }
 }

@@ -11,9 +11,9 @@ div.navHeader input {
   border-radius: 8px;
   border: solid 1px lightgray;
   padding: 10px;
-  font-family: Heebo;
-  letter-spacing: 0.4px;
+  font-family: "Heebo";
   color: #78746D;
+	letter-spacing: 0.4px;
 }
 
 div.navHeader input:focus {
@@ -80,4 +80,12 @@ h3 {
   letter-spacing: 0.5px;
   text-align: left;
   color: #666666;
+}
+
+/* ------------------------------------MEDIA QUERIES */
+
+@media screen and (max-width: 370px) {
+  h3 {
+    font-size: 21px;
+  }
 }

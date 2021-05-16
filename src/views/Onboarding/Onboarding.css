@@ -1,16 +1,18 @@
-.bodyOnboarding{
+.bodyOnboarding {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-.onboardingHeader{
+
+.onboardingHeader {
     display: flex;
     justify-content: space-between;
     width: 93vw;
 }
-.illustration{
+
+.illustration {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,26 +20,39 @@
     height: 80vh;
     margin-bottom: -10px;
 }
-.imgOnboarding{
+
+.imgOnboarding {
     width: 95vw;
     align-items: center;
     margin-bottom: 40px;
 }
-.logoOnboarding{
+
+.logoOnboarding {
     width: 60vw;
     align-items: center;
 }
-.onboardingHeader{
+
+.onboardingHeader {
     display: flex;
     justify-content: space-between;
     width: 93vw;
 }
-.paginacionOnboarding{
+
+.paginacionOnboarding {
     margin: 40px 0 25px 0;
 }
-.textOmitir{
+
+.textOmitir {
     display: flex;
     align-items: center;
     color: #666666;
     margin: 0;
+}
+
+/* ------------------------------------MEDIA QUERIES */
+
+@media screen and (max-width: 350px) {
+    .paginacionOnboarding {
+        margin: 12px 0 25px 0;
+    }
 }
