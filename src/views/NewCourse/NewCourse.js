@@ -7,9 +7,15 @@ import Arrow from '../../assets/icons/Arrow.svg'
 import './NewCourse.css';
 import LoginContext from '../../contexts/LoginContext/LoginContext';
 
+import Chip from '@material-ui/core/Chip';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
+
 const NewCourse = () => {
 	const history = useHistory()
 	const loginContext = useContext(LoginContext);
+	const [allKeys, setAllKeys] = useState([]);
+	const [allProfs, setAllProfs] = useState([]);
 	const [name, setName] = useState("");
 	const [descripcion, setDescripcion] = useState("");
 	const [categoria, setCategoria] = useState(1);
@@ -20,6 +26,24 @@ const NewCourse = () => {
 	const [idioma, setIdioma] = useState(0);
 	const [enlace, setEnlace] = useState("");
 	const [imagen, setImagen] = useState("");
+	const [keys, setKeys] = useState([]);
+	const [profs, setProfs] = useState([]);
+
+	useEffect(() => {
+		const fetchKeysProfs = async () => {
+			let fetchOptions = {
+				method: 'GET'
+			}
+			const content = await fetchData("keys-profs", fetchOptions)
+			if (content.error) {
+				alert(content.error)
+			} else {
+				await content.ok && setAllKeys([...allKeys, ...content.keys]);
+				await content.ok && setAllProfs([...allProfs, ...content.profs]);
+			}
+		}
+		fetchKeysProfs()
+	}, [])
 
 	useEffect(() => {
 		if (loginContext.verified) {
@@ -52,7 +76,9 @@ const NewCourse = () => {
 			bolsaEmpleo: bolsaEmpleo,
 			certificado: certificado,
 			imagen: imagen,
-			fecha: Date.now()
+			fecha: Date.now(),
+			keys: filterKeys(),
+			profs: filterProfs()
 		}
 		let fetchOptions = {
 			method: 'POST',
@@ -70,6 +96,82 @@ const NewCourse = () => {
 		} else {
 			alert(content.msg)
 		}
+	}
+
+	function Autocompletes() {
+
+		return (
+			<>
+				<Autocomplete
+					multiple
+					id="tags-filled"
+					options={allKeys.map((option) => option.descripcion)}
+					onChange={(event, newValue) => {
+						if (typeof newValue === 'string') {
+							setKeys({
+								descripcion: newValue,
+							});
+						} else if (newValue && newValue.inputValue) {
+							// Create a new value from the user input
+							setKeys({
+								descripcion: newValue.inputValue,
+							});
+						} else {
+							setKeys(newValue);
+						}
+					}}
+					freeSolo
+					limitTags={3}
+					renderTags={(value, getTagProps) =>
+						value.map((option, index) => (
+							<Chip variant="outlined" label={option} {...getTagProps({ index })} />
+						))
+					}
+					renderInput={(params) => (
+						<TextField {...params} variant="filled" label="Palabras clave" placeholder="Palabras clave" />
+					)}
+				/>
+				<Autocomplete
+					multiple
+					id="tags-filled"
+					options={allProfs.map((option) => option.descripcion)}
+					onChange={(event, newValue) => {
+						if (typeof newValue === 'string') {
+							setProfs({
+								descripcion: newValue,
+							});
+						} else if (newValue && newValue.inputValue) {
+							// Create a new value from the user input
+							setProfs({
+								descripcion: newValue.inputValue,
+							});
+						} else {
+							setProfs(newValue);
+						}
+					}}
+					freeSolo
+					limitTags={2}
+					renderTags={(value, getTagProps) =>
+						value.map((option, index) => (
+							<Chip variant="outlined" label={option} {...getTagProps({ index })} />
+						))
+					}
+					renderInput={(params) => (
+						<TextField {...params} variant="filled" label="Perfiles profesionales" placeholder="Perfiles profesionales" />
+					)}
+				/>
+			</>
+		);
+	}
+
+	function filterKeys() {
+		return keys.map(e => allKeys.filter(el => (e == el.descripcion) && el)[0] ? allKeys.filter(el => (e == el.descripcion) && el)[0] :
+			{ id: null, descripcion: e })
+	}
+
+	function filterProfs() {
+		return profs.map(e => allProfs.filter(el => (e == el.descripcion) && el)[0] ? allProfs.filter(el => (e == el.descripcion) && el)[0] :
+			{ id: null, descripcion: e })
 	}
 
 	return (
@@ -126,6 +228,9 @@ const NewCourse = () => {
 
 					<label className='textLabel' htmlFor="imagen">Link de imagen</label>
 					<input className='inputForm' type="text" name="imagen" onChange={handleImage} maxLength="255" />
+
+					{Autocompletes()}
+
 				</form>
 				<Button onClick={fetching} text={"Publicar curso"} />
 			</div>
