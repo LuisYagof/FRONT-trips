@@ -47,7 +47,7 @@ div.jobsInfo {
   display: flex;
   flex-direction: column;
   padding: 4% 9%;
-  background-color: #F5B6A3;
+  background-color: rgba(227, 86, 42, 0.9);
   color: whitesmoke;
   box-sizing: border-box;
 }
